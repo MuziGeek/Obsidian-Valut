@@ -90,9 +90,23 @@
               "icon": "lucide-file",
               "title": "Day1"
             }
+          },
+          {
+            "id": "5cc4117d62bcbc52",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": ".obsidian/plugins/obsidian-git/main.js",
+                "bFile": ".obsidian/plugins/obsidian-git/main.js",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: main.js"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -211,17 +225,28 @@
               "icon": "lucide-list",
               "title": "大纲"
             }
+          },
+          {
+            "id": "6d2734b1c3468522",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -230,10 +255,11 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "32455984e5680b86",
+  "active": "5cc4117d62bcbc52",
   "lastOpenFiles": [
-    "2024-12-31.md",
+    "面试训练营/Day8.md",
     "面试训练营/Day1.md",
+    "2024-12-31.md",
     "springboot1.md",
     "面试训练营/Day7.md",
     "面试训练营/Day4.md",
