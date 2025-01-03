@@ -180,10 +180,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blog/1.md"
+                "file": "面试训练营/Day11.md"
               },
               "icon": "lucide-list",
-              "title": "1 的大纲"
+              "title": "Day11 的大纲"
             }
           },
           {
@@ -201,7 +201,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 426.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -217,7 +217,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "0e9e148655282bdf",
+  "active": "6d2734b1c3468522",
   "lastOpenFiles": [
     "面试训练营/Day11.md",
     "面试训练营/Day10.md",
