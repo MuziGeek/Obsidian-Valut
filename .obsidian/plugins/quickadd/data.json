@@ -27,6 +27,36 @@
       "type": "Macro",
       "command": true,
       "macroId": "9e149d6c-461f-44de-9585-cd96188a976b"
+    },
+    {
+      "id": "bd9ea690-a8ca-40b6-9514-803990a6f835",
+      "name": "BlogTemp",
+      "type": "Template",
+      "command": true,
+      "templatePath": "Config/FileTemp.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Blog"
+        ],
+        "chooseWhenCreatingNote": true,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Nothing",
+      "setFileExistsBehavior": true
     }
   ],
   "macros": [
@@ -53,7 +83,7 @@
           "commandId": "obsidian-zoom:zoom-in"
         }
       ],
-      "runOnStartup": false
+      "runOnStartup": true
     },
     {
       "name": "ZoomPre",
@@ -78,7 +108,7 @@
           "commandId": "obsidian-zoom:zoom-in"
         }
       ],
-      "runOnStartup": false
+      "runOnStartup": true
     },
     {
       "name": "ZoomList",
@@ -103,7 +133,7 @@
           "commandId": "editor:toggle-bullet-list"
         }
       ],
-      "runOnStartup": false
+      "runOnStartup": true
     },
     {
       "name": "ZoomHead",
@@ -128,12 +158,12 @@
           "commandId": "editor:set-heading-0"
         }
       ],
-      "runOnStartup": false
+      "runOnStartup": true
     }
   ],
-  "inputPrompt": "single-line",
+  "inputPrompt": "multi-line",
   "devMode": false,
-  "templateFolderPath": "",
+  "templateFolderPath": "Config",
   "announceUpdates": true,
   "version": "1.11.5",
   "disableOnlineFeatures": true,

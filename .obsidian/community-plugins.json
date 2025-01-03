@@ -3,5 +3,9 @@
   "obsidian-git",
   "obsidian-zoom",
   "quick-snippets-and-navigation",
-  "quickadd"
+  "quickadd",
+  "obsidian-excalidraw-plugin",
+  "markdown-prettifier",
+  "cmdr",
+  "templater-obsidian"
 ]
