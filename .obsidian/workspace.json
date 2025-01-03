@@ -41,16 +41,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Config/FileTemp.md",
+                "file": "面试训练营/Day10.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "FileTemp"
+              "title": "Day10"
+            }
+          },
+          {
+            "id": "0e9e148655282bdf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "面试训练营/Day11.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Day11"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -187,7 +201,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,11 +217,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ca7dd4d2f0b726cb",
+  "active": "0e9e148655282bdf",
   "lastOpenFiles": [
+    "面试训练营/Day11.md",
+    "面试训练营/Day10.md",
+    "Config/FileTemp.md",
     "Blog/1.md",
     "Blog/122121122233.md",
-    "Config/FileTemp.md",
     "Blog",
     "面试训练营/Day1.md",
     "Config/easierYamlTagging.js.md",
@@ -216,12 +232,10 @@
     "2.md",
     "1.md",
     "1 .md",
-    "未命名.md",
     "面试训练营/Day8.md",
     "Config",
     "未命名.canvas",
     "面试训练营/Day2.md",
-    "面试训练营/Day10.md",
     "面试训练营/Day9.md",
     "面试训练营/Day4.md",
     "面试训练营/Day7.md",
