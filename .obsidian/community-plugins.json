@@ -1,4 +1,7 @@
 [
   "obsidian-image-auto-upload-plugin",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-zoom",
+  "quick-snippets-and-navigation",
+  "quickadd"
 ]

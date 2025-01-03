@@ -1,0 +1,36 @@
+{
+  "quickadd:choice:aea88d8a-3e67-46e9-9a9a-810700757b59": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "]"
+    }
+  ],
+  "quickadd:choice:e044af92-9d2d-415f-917c-7117e04b3c3d": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "["
+    }
+  ],
+  "quickadd:choice:38e3a730-3db2-4e8e-8979-174065d07e42": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "-"
+    }
+  ],
+  "quickadd:choice:3f96842d-8f8b-4b2b-8a69-bc5e0fdd0f8a": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "="
+    }
+  ]
+}

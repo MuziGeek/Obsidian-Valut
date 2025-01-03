@@ -64,63 +64,21 @@
             }
           },
           {
-            "id": "5f90fa50557522c6",
+            "id": "4821c7be1d1852a0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "面试训练营/Day4.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Day4"
-            }
-          },
-          {
-            "id": "32455984e5680b86",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "面试训练营/Day7.md",
+                "file": "面试训练营/Day3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day7"
-            }
-          },
-          {
-            "id": "a7fa09b287854a7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "面试训练营/Day8.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Day8"
-            }
-          },
-          {
-            "id": "ee4dd906bb90d67e",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: workspace.json"
+              "title": "Day3"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -235,13 +193,15 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "面试训练营/Day3.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Day3 的大纲"
             }
           },
           {
-            "id": "6002d52daa6f6656",
+            "id": "6d2734b1c3468522",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -259,31 +219,31 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "markdown-importer:打开 Markdown 格式转换器": false,
+      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "ee4dd906bb90d67e",
+  "active": "4821c7be1d1852a0",
   "lastOpenFiles": [
+    "未命名.canvas",
+    "面试训练营/Day3.md",
+    "面试训练营/Day8.md",
+    "面试训练营/Day2.md",
     "面试训练营/Day10.md",
     "面试训练营/Day9.md",
-    "conflict-files-obsidian-git.md",
-    "面试训练营/Day8.md",
+    "面试训练营/Day4.md",
     "面试训练营/Day7.md",
     "面试训练营/Day1.md",
     "2024-12-31.md",
     "springboot1.md",
-    "面试训练营/Day4.md",
-    "面试训练营/Day3.md",
-    "面试训练营/Day2.md",
     "未命名",
     "面试训练营",
-    "未命名.canvas",
     "().md"
   ]
 }
