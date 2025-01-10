@@ -1,16 +1,19 @@
 ---
+
 title: 面试训练营Day11
-date: 2025-01-03 16:09:02
-updated: 2025-01-03 16:09:02
-categories: 面试训练营
+
+date: 2025/01/05 20：46：25
+
+categories:
+
+- [学习成长, 编程, 面试训练营]
+
 tags:
-  - 笔记
-  - 面试训练营
-top: 1
+
 ---
 **2025-01-03**🌱上海: ⛅️  🌡️+11°C 🌬️↙12km/h
 
-## **Redis 中跳表的实现原理是什么？**
+**Redis 中跳表的实现原理是什么？**
 
 ### 总结分析
 
@@ -480,3 +483,303 @@ int zslDelete(zskiplist *zsl, double score, sds ele, zskiplistNode **node) {
 2. `zslDelete` 函数用于在跳跃表中查找具有特定分数和元素的节点，并调用 `zslDeleteNode` 函数进行删除操作，最后根据是否找到匹配节点返回相应的结果。
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735893179727-05f3768d-27c8-4994-8c81-cc91a3516481.png)
+
+## Redis的Hash是什么？
+
+### 总结分析
+
+Redis 的 hash 是一种键值对集合，可以将多个字段和值存储在同一个键中，便于管理一些关联数据。 特点如下：
+
+1. 适合存储小数据，使用哈希表实现，能够在内存中高效存储和操作。
+2. 支持快速的字段操作（如增、删、改、查），非常适合存储对象的属性。
+
+### 扩展知识
+
+### Hash常用命令
+
+**HSET**：设置 hash 中指定字段的值。
+
+```
+HSET user:1001 name "Muzi"
+```
+
+**HGET**：获取 hash 中指定字段的值。
+
+```
+HGET user:1001 name
+```
+
+**HMSET**：一次性设置多个字段的值。
+
+```
+HMSET user:1001 name "Muzi" age "18" city "shanghai"
+```
+
+**HMGET**：一次性获取多个字段的值。
+
+```
+HMGET user:1001 name age
+```
+
+**HDEL**：删除 hash 中的一个或多个字段。
+
+```
+HDEL user:1001 age
+```
+
+**HINCRBY**：为 hash 中的字段加上一个整数值。
+
+```
+HINCRBY user:1001 age 1
+```
+
+**测试示例**
+
+```
+127.0.0.1:6379> HSET user:1001 name "Muzi"
+(integer) 1
+127.0.0.1:6379> HGET user:1001 name
+"mianshiya"
+127.0.0.1:6379> HMSET user:1001 name "Muzi" age "18" city "shanghai"
+OK
+127.0.0.1:6379> HMGET user:1001 name age
+1) "Muzi"
+2) "18"
+127.0.0.1:6379> HDEL user:1001 age
+(integer) 1
+127.0.0.1:6379> HSET user:1001 age 18
+(integer) 1
+127.0.0.1:6379> HINCRBY user:1001 age 1
+(integer) 19
+127.0.0.1:6379> HGET user:1001 age
+"19"
+```
+
+### Hash 底层实现解析
+
+- Hash 是 Redis 基础数据结构，类似哈希表，能存约 40 亿个键值对。
+- 底层结构：Redis 6 及之前为 ziplist + hashtable，Redis 7 之后是 Listpack + hashtable。
+- ziplist 和 listpack 查找 key 时间复杂度均为 O (n)，listpack 解决 ziplist 级联更新问题。
+- Redis 有 `hash-max-ziplist-entries`（`hash-max-listpack-entries`）和 h`ash-max-ziplist-value`（`hash-max-listpack-value`）两个值，**默认分别为 512 和 64。**
+- 当 hash 字段个数及字段名、值长度小于上述值时，用 listpack 或 ziplist 存储；大于则用 hashtable 存储，且用 hashtable 后不再退回。
+
+### Redis中的Hashtable分析
+
+- 哈希表是用于存储键值对（key - value）的数据结构，每个 key 具有唯一性，支持基于 key 的查询、更新和删除操作。
+- Redis 的 Hash 对象底层实现包括压缩列表ziplicst（已被 listpack 替代）和哈希表hashtable。
+- 哈希表的优势在于能以 O (1) 的时间复杂度快速查询数据，通过 Hash 函数计算 key 来确定数据在数组中的位置。
+- 然而，在哈希表大小固定的情况下，随着数据量增加，哈希冲突的可能性也会增大。
+- Redis 采用 “链式哈希” 策略解决哈希冲突，在不扩大哈希表的前提下，将哈希值相同的数据连接成链表，以保证数据可被查询
+
+### hashtable结构
+
+```
+typedef struct dictht {
+    //哈希表数组
+    dictEntry **table;
+    //哈希表大小
+    unsigned long size;  
+    //哈希表大小掩码，用于计算索引值
+    unsigned long sizemask;
+    //该哈希表已有的节点数量
+    unsigned long used;
+} dictht;
+```
+
+1. `table`：存储元素的哈希表结构，由哈希节点`dictEntry`组成的数组。
+2. `size`：哈希表的大小。
+3. `sizemask`：大小掩码，值为`size - 1`，与哈希值共同确定节点在哈希表中的位置（`index = hash & sizemask`）。
+4. `used`：已使用的节点数量 。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735906457734-27c5983b-2205-4e64-83fb-59a09d23649c.png)
+
+### 哈希节点dictEntry结构
+
+```
+typedef struct dictEntry {
+    //键值对中的键
+    void *key;
+  
+    //键值对中的值
+    union {
+        void *val;
+        uint64_t u64;
+        int64_t s64;
+        double d;
+    } v;
+    //指向下一个哈希表节点，形成链表
+    struct dictEntry *next;
+} dictEntry;
+```
+
+1. `dictEntry`结构不仅有指向键和值的指针，还包含指向下一个哈希表节点的指针，通过将多个哈希值相同的键值对链接起来解决哈希冲突，这就是链式哈希。
+2. `dictEntry`结构中键值对的值由「联合体 v」定义，值可以是指向实际值的指针，也可以是无符号 64 位整数、有符号 64 位整数或`double`类型的值。这种设计能节省内存空间，当值为整数或浮点数时，可将值内嵌在`dictEntry`结构中，无需额外指针指向实际值 。
+
+**联合体和结构体的区别及定义（大概了解即可）**
+
+```
+struct 结构体名 {
+    数据类型 成员名1;
+    数据类型 成员名2;
+    // 可以有更多成员
+};
+```
+
+```
+union 联合体名 {
+    数据类型 成员名1;
+    数据类型 成员名2;
+    // 可以有更多成员
+};
+```
+
+`联合体`与`结构体`的主要区别就在内存上。
+
+- 结构体的每个成员都拥有自己独立的内存空间，结构体大小为所有成员的大小之和（不考虑内存对齐的情况）。
+- 而联合体的所有成员都使用同一段内存空间，联合体大小即为联合体中最大的那个成员大小
+
+### 哈希冲突
+
+1. 哈希表本质是数组，数组元素即哈希桶。
+2. 键值对的键经哈希函数计算出哈希值，再对哈希表大小取模，所得结果就是该键值对对应的数组元素位置（哈希桶）。
+
+**什么是哈希冲突呢？**
+
+其实了解hashmap的底层原理，对于hash冲突都不陌生
+
+以一个有 8 个哈希桶的哈希表为例，说明不同键对应哈希桶的过程：key1 经哈希函数计算并对 8 取模得 1，对应哈希桶 1；key9、key10 分别对应哈希桶 1 和哈希桶 6 。如下图：
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735907279545-a99b7bc9-19ba-4b0f-a1c5-ad8e270b4783.png)
+
+Redis采用了链式哈希的方法来解决哈希冲突，这里应该和hashmap的原理一样。
+
+### 链式哈希
+
+链式哈希解决哈希冲突的方式是：每个哈希表节点设 next 指针指向下一节点，可构成`单向链表`。同一哈希桶上的多个节点借此链表相连。如 key1 和 key9 经哈希计算落入同一哈希桶，key1 会通过 next 指针指向 key9 形成单向链表 。如下图：
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735907519695-ab29edda-03d9-40e4-9e8f-bd54d283e955.png)
+
+链式哈希存在局限性，随着链表长度增加，查询数据耗时会增加，其查询时间复杂度为 O (n)。解决此问题需进行 rehash（扩展哈希表大小），接下来将介绍 Redis 实现 rehash 的方式。
+
+### rehash
+
+在介绍哈希表结构设计时，提到 Redis 用 `dictht` 结构体表示哈希表，而在实际使用中，Redis 定义了 `dict` 结构体，该结构体中包含两个哈希表（`ht[2]`）。
+
+```
+typedef struct dict {
+    …
+    //两个Hash表，交替使用，用于rehash操作
+    dictht ht[2]; 
+    …
+} dict;
+```
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735907858501-6e5a936f-291c-45b5-8f42-b049f0c7dee3.png)
+
+Redis 为解决哈希冲突及数组空间不足问题，采用双哈希表机制。当正在使用的哈希表节点数达到其数组长度时，会将另一个原本为空的哈希表的数组长度设为当前表的 2 倍，并把旧表节点迁移至新表，新表成为当前使用表，从而实现数组长度增长与冲突缓解，实际使用中始终保持一个表用于当前操作，另一个用于 rehash 操作。
+
+**流程如下**：
+
+- 给「哈希表 2」分配比「哈希表 1」大一倍的空间
+- 将「哈希表 1」的数据迁移到「哈希表 2」中
+- 释放「哈希表 1」空间，把「哈希表 2」设为「哈希表 1」，并在「哈希表 2」新创建空白哈希表为下次 rehash 做准备
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735907992247-02577506-0975-4d9f-8b98-4d559b5dfc56.png)
+
+第二步可能会存在问题，当「哈希表 1」数据量巨大时，迁移数据至「哈希表 2」会因大量数据拷贝而可能阻塞 Redis，使其无法响应其他请求。所以接下来了解下渐进式rehash
+
+### 渐进式rehash
+
+- Redis 采用渐进式 rehash 避免 rehash 数据迁移耗时影响性能，分多次迁移数据。
+- 先给 “哈希表 2” 分配空间。
+- 在 rehash 期间每次哈希表操作时会将 “哈希表 1” 对应索引位置 key - value 迁移到 “哈希表 2”。
+- 查找操作先在 “哈希表 1” 进行，未找到再到 “哈希表 2”。
+- 新增 key - value 保存到 “哈希表 2”，“哈希表 1” 不再添加，使其 key - value 数量减少直至为空表。
+
+### rehash触发条件
+
+- rehash 触发条件与负载因子有关，`负载因子 = 哈希表已保存节点数量 / 哈希表大小`。
+- 当负载因子大于等于 1，且 Redis 未执行 bgsave 命令（RDB 快照）或 bgrewiteaof 命令（AOF 重写）时，会进行 rehash 操作。
+- 当负载因子大于等于 5 时，无论 Redis 是否在执行 RDB 快照或 AOF 重写，都会强制进行 rehash 操作。
+
+当负载因子小于 0.1 时，会进行缩容操作。
+
+- 当满足特定条件进行 rehash 时，新表大小是老表 `used` 的最近的一个 2 次方幂，如老表 `used = 1000`，新表大小为 1024。
+
+这种基于负载因子的动态调整机制，能根据数据量和哈希表状态自适应地优化哈希表性能，保持数据存储和检索的高效性。
+
+## Redis Zset的实现原理是什么？
+
+### 总结分析
+
+- ZSet（Sorted Set）是 Redis 中特殊数据结构，内部维护有序字典，元素包含成员和 double 类型分值，可实现记分排行榜数据。
+- Redis 中 ZSet 实现结构多样，以往主要有 ziplist 和 skiplist 两类。
+- Redis 5.0 新增 listpack 替代 ziplist。
+- 到 Redis 7.0 发布，ZSet 实现中不再使用 ziplist。
+
+Redis 中 ZSet 存储结构会根据元素数量动态调整。元素数量较少时，采用 `ZipList`（`ListPack`）这种紧凑列表结构连续存储元素以节约内存；元素数量增多，Redis 会遍历 `ZipList`（`ListPack`）元素，按分数值依次插入到 `SkipList` 中，实现结构转换，以保持有序性并支持范围查询。在 `ZSet` 的具体实现中，`SkipList` 不仅使用跳表，还会用到 `dict`（字典） 。
+
+- SkipList 用于实现有序集合，元素按分值大小在跳表中排序，其插入、删除和查找操作时间复杂度为 O (log n)，性能较好。
+- dict 用于建立元素到分值的映射关系，元素为键，分值为值，哈希表的插入、删除和查找操作时间复杂度为 O (1)，性能很高。
+
+### 扩展知识
+
+#### ZipList（ListPack）和SkipList之间是什么时候进行转换的呢？
+
+- Redis 中 ZSET 在特定条件下使用 ziplist 作为内部表示。
+- 条件一：元素数量小于 zset-max-ziplist-entries（默认 128）。
+- 条件二：每个元素（含值和分数）大小小于 zset-max-ziplist-value（默认 64 字节）。
+- 不满足上述条件时使用 SkipList。
+
+#### 压缩列表
+
+- ziplist 是由特殊编码的连续内存块组成的顺序存储结构，类似数组但内存连续存储。
+- 与数组不同，为节省内存，其每个元素所占内存大小可变，每个节点可存储整数或字符串。
+- 类似双向链表，不存储前后节点指针，而是存储上一节点长度和当前节点长度，以牺牲部分读写性能换取高效内存利用率，达到节约内存的目的。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735910847962-1f218ce4-125d-4f47-98fb-fa1495bd2e5f.png)
+
+- **zlbytes**：记录了压缩列表占用的内存字节数，在对压缩列表进行内存重分配，或者计算zlend的位置时使用。它本身占了4个字节。
+- **zltail**：记录了尾节点（entry）至起始节点（entry）的偏移量。通过这个偏移量，可以快速确定最后一个entry节点的地址。
+- **zllen**：记录了entry节点的数量。当zllen的值小于65535时，这个值就表示节点的数量。当zllen的值大于65535时，节点的真实数量需要遍历整个压缩列表才能得出。
+- **entry**：压缩列表中所包含的每个节点。每个节点的长度根据该节点的内容来决定。
+- **zlend**：特殊值0XFF，标记了压缩列表的末端。表示该压缩列表到此为止。
+
+```
+typedef struct zlentry {
+    unsigned int prevrawlensize; /*存储上一个节点长度的数值所需要的字节数*/
+    unsigned int prevrawlen;     /* 上一个节点的长度 */
+    unsigned int lensize;        /* 当前节点长度的数值所需要的字节数*/
+    unsigned int len;            /* 当前节点的长度 */
+    unsigned int headersize;     /* 当前节点的头部大小，值 = prevrawlensize + lensize. */
+    unsigned char encoding;      /* 编码方式，ZIP_STR_* 或 ZIP_INT_* */
+    unsigned char *p;            /* 指向节点内容的指针. */
+} zlentry;
+```
+
+- 压缩列表（ziplist）的主要特点是内存空间连续，这一特性避免了内存碎片，能有效节省内存。
+- entry 是链表中的节点，用于代表一个数据
+
+Redis 中虽定义了 zlentry 结构体，但因其存储小整数或短字符串时空间浪费严重（32 位机占 28 字节、64 位机占 32 字节），不符合 ziplist 提高内存利用率的设计初衷，所以在实际操作中并未使用该结构体，而是通过定义一些宏来处理 ziplist 相关操作。如下图
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735911047488-ca096321-b559-4409-80e8-b029790f8dd6.png)
+
+- prev_entry_len：记录**前驱节点的长度。**
+- encoding：记录**当前节点**的value成员的**数据类型以及长度。**
+- value：根据encoding来保存**字节数组或整数**。
+
+**ziplist的特点**
+
+- ziplist 是由表头、若干 entry 节点和 zlend 组成的连续内存块结构。
+- 它通过编码规则提高内存利用率，适合存储整数和短字符串。
+- 其缺点是插入或删除元素时要频繁进行内存扩展或减小、数据搬移，甚至可能引发连锁更新，造成严重效率损失。
+
+### skiplist解析
+
+[Redis 中跳表的实现原理是什么？ - 木子金又二丨的回答记录 - 面试鸭 - 程序员求职面试刷题神器](https://www.mianshiya.com/answer/1826085029072973825/question-answer/1875092586844590081?questionId=1780933295597449217)
+
+其实Zset底层实现还涉及到两个数据结构：**quicklist**和**listpack**
+
+**具体详解可以参考**
+
+[Redis 数据结构](https://xiaolincoding.com/redis/data_struct/data_struct.html#quicklist-%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)
