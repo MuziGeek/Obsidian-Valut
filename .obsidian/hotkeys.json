@@ -36,10 +36,10 @@
   "quickadd:choice:bd9ea690-a8ca-40b6-9514-803990a6f835": [
     {
       "modifiers": [
-        "Alt",
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": " "
+      "key": "B"
     }
   ]
 }
