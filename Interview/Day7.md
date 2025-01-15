@@ -1,3 +1,14 @@
+---
+title: Day7
+date: 2025-01-15 11:24:11
+categories:
+  - - 学习成长
+    - 编程
+    - 面试训练营
+tags:
+  - Mysql
+---
+**2025-01-15**🌱上海: ☀️   🌡️+4°C 🌬️↓19km/h
 ## MySQL中的事务隔离级别有哪些？
 
 ### 事务的隔离级别
@@ -8,15 +19,15 @@
 - **串行化(SERIALIZABLE) 最高的隔离级别，**在这个级别下，事务串行执行，每个事务都会等待前一个事务执行完毕才会开始执行。虽然可以避免所有的并发问题，但是会大大降低并发性能。
 
 #### 不同的隔离级别下可能存在的读取异常问题
-
 这张表格展示了不同数据库隔离级别下，可能出现的三种数据读取问题（脏读、不可重复读、幻读）的情况。
 
-| **  <br>隔离级别**                 | **脏读 (DR, Dirty Read)** | **不可重复读 (NR, NonRepeatable Read)** | **幻读 (PR, Phantom Read)** |
-| ------------------------------ | ----------------------- | ---------------------------------- | ------------------------- |
-| 能读到未提交的数据，RU, READ-UNCOMMITTED | y                       | y                                  | y                         |
-| 能读到已提交的数据，RC, READ-COMMITTED   | N                       | y                                  | y                         |
-| 可重复读 RR,REPEATABLE-READ        | N                       | N                                  | y                         |
-| 串行执行 SERIALIZABLE              | N                       | N                                  | N                         |
+|   |   |   |   |
+|---|---|---|---|
+|**隔离级别**|**脏读 (DR, Dirty Read)**|**不可重复读 (NR, NonRepeatable Read)**|**幻读 (PR, Phantom Read)**|
+|能读到未提交的数据，RU, READ-UNCOMMITTED|y|y|y|
+|能读到已提交的数据，RC, READ-COMMITTED|N|y|y|
+|可重复读 RR,REPEATABLE-READ|N|N|y|
+|串行执行 SERIALIZABLE|N|N|N|
 
 ### 扩展知识
 
@@ -24,23 +35,19 @@
 
 1. **查看当前会话隔离级别**
 
-`select @@tx_isolation;`
-
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735541958578-093fefcc-9c2e-4ab4-8547-be8aaf9e344b.png)
-
+`select @@tx_isolation;
+![image.png](https://cdn.easymuzi.cn/img/20250115135303138.png)
 `在MySQL 8.0中：SELECT @@transaction_isolation;`
 
 2. **查看系统当前隔离级别  
-    **`select @@global.tx_isolation;`
-
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735542020977-c97b7946-0a84-4a91-a85c-47b45a6da21b.png)
-
-3. **设置当前会话隔离级别  
-    **`set session transaction isolatin level repeatable read;`
-4. **设置系统当前隔离级别  
-    **`set global transaction isolation level repeatable read;`
-5. **命令行，开始事务时  
-    **`set autocommit=off 或者 start transaction`
+    `select @@global.tx_isolation;`
+![image.png](https://cdn.easymuzi.cn/img/20250115135339222.png)
+3. **设置当前会话隔离级别** 
+    `set session transaction isolatin level repeatable read;`
+4. **设置系统当前隔离级别**
+    `set global transaction isolation level repeatable read;`
+5. **命令行，开始事务时**
+    `set autocommit=off 或者 start transaction`
 ## MySQL默认的事务隔离级别是什么？为什么选择这个级别？
 
 ### 简要回答
@@ -58,28 +65,24 @@ MySQL的定位就是提供一个稳定的关系型数据库。而为了要解决
 **所谓主从复制，其实就是通过搭建MySQL集群，整体对外提供服务，集群中的机器分为主服务器（Master）和从服务器（Slave），主服务器提供写服务，从服务器提供读服务。**
 
 为了保证主从服务器之间的数据一致性，就需要进行数据同步，数据同步的过程就需要通过binlog进行的。**主备机制如下**
-
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735541744780-4eb06808-b842-47aa-b35b-df4d9329d11a.png)
-
+![image.png](https://cdn.easymuzi.cn/img/20250115135446559.png)
 **主从库的数据同步流程如下：**
-
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735545920629-c834ca01-a605-41f9-9f9f-ba871ed1fbb5.png)
-
+![image.png](https://cdn.easymuzi.cn/img/20250115135505293.png)
 **MySQL在主从复制的过程中，数据的同步是通过bin log进行的**，简单理解就是主服务器把数据变更记录到bin log中，然后再把bin log同步传输给从服务器，从服务器接收到bin log之后，再把其中的数据恢复到自己的数据库存储中。  
 
 #### MySQL的binlog有几中格式？
 
-##### 1. **statement**
+##### 1.1.1. **statement**
 
 格式为statement时，**binlog里面记录的就是SQL语句的原文**，也就是在数据库中执行的SQL会原封不懂的记录在binlog中。
 
 这种格式因为会导致主从同步的数据不一致问题，目前使用较少。
 
-##### 2. **row**
+##### 1.1.2. **row**
 
 格式为row时，**binlog 会记录每个数据具体行的更新细节**。这意味着二进制日志中的每个条目都会详细列出发生变更的行的内容和修改。好处就是不会导致主从不一致，缺点就是记录的内容更多。因为记录的内容更多，在数据恢复的时候，会需要更长的时间，也会导致磁盘IO和网络IO都比较高
 
-##### 3. **mixed**
+##### 1.1.3. **mixed**
 
 简单来说，**就是混合模式，把statement和row结合了**，MySQL会根据SQL的情况，自动在row和statement中互相切换选择一个认为合适的格式进行记录。
 
@@ -109,26 +112,23 @@ insert into t1 values(10,1);
 
 ##### 开启两个事务
 
-| **Session 1**                                           | **Session 2**                                           |
-| ------------------------------------------------------- | ------------------------------------------------------- |
-| set session transaction isolation level read committed; |                                                         |
-| set autocommit = 0;                                     | set session transaction isolation level read committed; |
-|                                                         | set autocommit = 0;                                     |
-| begin;                                                  | begin;                                                  |
-| delete from t1 where b < 100;                           |                                                         |
-|                                                         | insert into t1 values(10,99);                           |
-|                                                         | commit;                                                 |
-| commit;                                                 |                                                         |
+|   |   |
+|---|---|
+|**Session 1**|**Session 2**|
+|set session transaction isolation level read committed;||
+|set autocommit = 0;|set session transaction isolation level read committed;|
+||set autocommit = 0;|
+|begin;|begin;|
+|delete from t1 where b < 100;||
+||insert into t1 values(10,99);|
+||commit;|
+|commit;||
 
 **正常情况下，两个事务执行后，数据库里面只会存在一条记录（10，99），这是因为当前的隔离级别是RC，Session2的插入操作不会看到Session1的删除操作，所以最后数据库中仍会保留Session2插入的记录。**
 
   
 以上两个事务执行后，binlog文件会记录两条记录，因为事务2先提交，所以binlog文件内容参考如下：
-
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735544683785-5dabdc05-1fed-4321-958f-c6f5c0bb6199.png)
-
-所以导致从库同步数据时会先执行插入操作，然后执行删除操作，导致主库和从库的数据不一致了。
-
+![image.png](https://cdn.easymuzi.cn/img/20250115135540422.png)
 接下来继续分析为什么在RR级别下不会出现不一致问题。
 
 因为RR隔离级别不仅会对更新的数据行添加**行级锁**，还会增加**GAP锁和临键锁**。从而在事务2执行的时候，因为锁的原因导致事务2执行**流程阻塞**，需要等待事务1提交或者回滚后才能继续操作。
@@ -171,15 +171,15 @@ RC 在加锁的过程中，是不需要添加Gap Lock和 Next-Key Lock 的，只
 
 ### 简要回答
 
-#### 1. 脏读
+#### 1.1. 脏读
 
 读到了其他事务还没有提交的数据
 
-#### 2. 不可重复读
+#### 1.2. 不可重复读
 
 对某个数据进行读取过程中，有其他事务对数据进行了修改（UPDATE,DELETE）,导致了第二次读取的结果不同
 
-#### 3. 幻读
+#### 1.3. 幻读
 
 事务在做范围查询过程中，有另外一个事务对范围内新增或删除了记录（INSERT，DELETE），导致范围查询的结果条数不一致。
 
@@ -212,8 +212,8 @@ InnoDB 中，“可重复读（RR）” 隔离级别通过间隙锁和 MVCC 解�
 - **彻底解决**：在 InnoDB 中，若要彻底解决幻读，只能采用 Serializable 隔离级别。
 - **一定程度解决或避免**：
 
-	- **隔离级别选择**：RR（可重复读）隔离级别可在一定程度上解决或避免幻读，而 RC（读已提交）、RU（读未提交）无法做到。
-	- **操作建议**：
+- **隔离级别选择**：RR（可重复读）隔离级别可在一定程度上解决或避免幻读，而 RC（读已提交）、RU（读未提交）无法做到。
+- **操作建议**：
 
-		- **使用快照读**：在 RR 级别中，尽量使用快照读（无锁查询），既能减少锁冲突、提升并发度，还可避免幻读。
-		- **尽早加锁**：并发场景中若必须加锁，需在事务开始时立即加锁，利用间隙锁避免幻读，但要注意间隙锁可能引发死锁，使用需谨慎 。
+- **使用快照读**：在 RR 级别中，尽量使用快照读（无锁查询），既能减少锁冲突、提升并发度，还可避免幻读。
+- **尽早加锁**：并发场景中若必须加锁，需在事务开始时立即加锁，利用间隙锁避免幻读，但要注意间隙锁可能引发死锁，使用需谨慎 。

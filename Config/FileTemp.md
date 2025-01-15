@@ -1,8 +1,8 @@
 ---
 title: {{VALUE:title}}
 date: {{DATE:YYYY-MM-DD HH:mm:ss}}
-updated: {{DATE:YYYY-MM-DD HH:mm:ss}}
-categories: {{VALUE:cate}}
-tags: {{VALUE:tags}}
+categories: 
+- [学习成长, 编程, 面试训练营]
+tags:
 ---
 **<% tp.date.now("YYYY-MM-DD") %>**🌱<% tp.user.tianqi("") %>

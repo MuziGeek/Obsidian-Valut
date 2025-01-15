@@ -1,3 +1,14 @@
+---
+title: Day4
+date: 2025-01-15 10:46:08
+categories:
+  - - 学习成长
+    - 编程
+    - 面试训练营
+tags:
+  - Mysql
+---
+**2025-01-15**🌱上海: ☀️   🌡️+4°C 🌬️↓19km/h
 ## MySQL中的索引数量是否越多越好？为什么?
 
 ### 简要回答
@@ -21,10 +32,10 @@
 - **Q：当索引数量过多时，该如何优化数据库性能？**
 - **A：**
 
-- **分析并删除不必要的索引**
-
-- **使用EXPLAIN语句查看当前执行计划，通过关键字分析索引的使用情况，进行索引的优化。**
-- **查询索引使用情况，**通过查询`information_schema`库中的`TABLE_STATISTICS`表来获取索引的使用情况统计信息。例如：`SELECT * FROM information_schema.TABLE_STATISTICS WHERE table_schema = 'your_database' AND table_name = 'your_table';`上面的语句会返回关于表的统计信息，包括索引的使用次数等，如果某个索引长时间未被使用，可以考虑删除该索引。
+	- **分析并删除不必要的索引**
+	
+	- **使用EXPLAIN语句查看当前执行计划，通过关键字分析索引的使用情况，进行索引的优化。**
+	- **查询索引使用情况，**通过查询`information_schema`库中的`TABLE_STATISTICS`表来获取索引的使用情况统计信息。例如：`SELECT * FROM information_schema.TABLE_STATISTICS WHERE table_schema = 'your_database' AND table_name = 'your_table';`上面的语句会返回关于表的统计信息，包括索引的使用次数等，如果某个索引长时间未被使用，可以考虑删除该索引。
 
 - **合并索引**
 
@@ -33,8 +44,8 @@
 
 - **优化查询语句**
 
-- **避免索引失效（**具体导致索引失效的情况不再复述已经记录很多次了）
-- **避免使用select ***，尽量明确指定需要查询的字段，减少数据库返回的数据量，提升查询性能
+- **避免索引失效**（具体导致索引失效的情况不再复述已经记录很多次了）
+- **避免使用select**，尽量明确指定需要查询的字段，减少数据库返回的数据量，提升查询性能
 - **减少子查询和连接操作**，过的子查询和连接操作会增加查询的复杂度和执行时间，可以使用JOIN替代子查询或者优化连接条件。例如：
 
 ```
@@ -49,13 +60,13 @@ WHERE another_table.some_condition;
 
 - **定期维护索引**
 
-- 重建索引：随着数据的插入，更新和删除，索引又可能会变得碎片化，影响性能，可以定期重建素银来整理碎片，提高索引的效率。在MySQL中，可以使用以下语句进行重建索引。`ALTER TABLE your_table REBUILD INDEX index_name;`
-- **更新统计信息**：数据库的查询优化器依赖统计信息来生成执行计划。定期更新统计信息可以确保优化器做出更准确的决策。语句为：`ANALYZE TABLE your_table;`
+	- **重建索引**：随着数据的插入，更新和删除，索引又可能会变得碎片化，影响性能，可以定期重建素银来整理碎片，提高索引的效率。在MySQL中，可以使用以下语句进行重建索引。`ALTER TABLE your_table REBUILD INDEX index_name;`
+	- **更新统计信息**：数据库的查询优化器依赖统计信息来生成执行计划。定期更新统计信息可以确保优化器做出更准确的决策。语句为：`ANALYZE TABLE your_table;`
 
 - **调整数据库配置参数**
 
-- **调整缓存参数**：适当增加`innodb_buffer_pool_size`等缓存参数的值，可以提高数据库的缓存命中率，减少磁盘 I/O 操作。例如，在 MySQL 配置文件（通常是`my.cnf`或`my.ini`）中： `innodb_buffer_pool_size=2G`
-- **优化线程参数**：根据服务器的硬件资源和业务负载，合理调整`thread_cache_size`等线程参数，以减少线程创建和销毁的开销。
+	- **调整缓存参数**：适当增加`innodb_buffer_pool_size`等缓存参数的值，可以提高数据库的缓存命中率，减少磁盘 I/O 操作。例如，在 MySQL 配置文件（通常是`my.cnf`或`my.ini`）中： `innodb_buffer_pool_size=2G`
+	- **优化线程参数**：根据服务器的硬件资源和业务负载，合理调整`thread_cache_size`等线程参数，以减少线程创建和销毁的开销。
 
 上面的内容只是讲了大概的思路，具体的操作建议自行搜索学习
 
@@ -167,43 +178,47 @@ public class InsertTestData {
     }
 }
 ```
-
 #### type中不同的值的详细信息
 
 - `system`: 系统表，少量数据，往往不需要进行磁盘IO
 - `const`：使用常数索引，MySQL只会在查询时使用常数值进行匹配（使用唯一性索引做唯一查询）
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735288187244-b43114db-6cad-4c19-800e-47b80aac2ba3.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105732669.png)
+
 
 - `eq_ref`:唯一索引扫描，只会扫描索引树中的一个匹配行
 
 `eq_ref`类型的查询通常表示使用了唯一索引或主键进行连接，并且在连接条件中，对于每个来自驱动表的行，最多只从被驱动表中找到一行匹配的记录。以下是一个示例，展示如何在`example1`和`example2`这两个表之间生成一个`eq_ref`类型的查询语句：
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735289449768-1b1e92b1-a03c-486a-8352-736ba89828c0.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105746474.png)
+
 
 - `ref`：非唯一索引扫描，只会扫描索引树中的一部分来查找匹配的行
 
 使用非唯一索引进行查询
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735289911342-acc480e5-fc76-4c12-aada-483da12af119.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105757671.png)
+
 
 - `range`：范围扫描，只会扫描索引树中的一个范围来查找匹配的行
 
 使用索引进行范围查询
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735290013585-df66227b-120d-41a2-97e2-036cb4f76b9f.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105808293.png)
+
 
 - `index`：全索引扫描，会遍历索引树来查找匹配的行
 
 不符合最左前缀匹配的查询
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735290192168-eec4077c-fa6b-4061-b7d7-7761e27a2b05.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105819736.png)
 
 - `all`：全表扫描，将遍历全表来找到匹配的行
 
 使用非索引字段查询
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735290454077-20e14d3d-3c07-4a21-a052-feb654edb80e.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105832674.png)
+
 
 **总结：以上速度由快到慢**
 
@@ -219,17 +234,19 @@ public class InsertTestData {
 
 非索引字段查询
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735290454077-20e14d3d-3c07-4a21-a052-feb654edb80e.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105850533.png)
+
 
 未索引覆盖，用联合索引的非前导列查询
+![image.png](https://cdn.easymuzi.cn/img/20250115105900282.png)
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735290192168-eec4077c-fa6b-4061-b7d7-7761e27a2b05.png)
 
 - `Using index`：表示MySQL使用了覆盖索引优化，只需要扫描索引，而无需回到数据表中检索行。
 
 正常来说应该是Using index，由于field1是唯一索引且等值匹配，并且数据量太小，优化器认为用不到覆盖索引技术进行优化。
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735293260086-8200c872-c652-4c1b-9b34-2a8021a88ae0.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105910103.png)
+
 
 - `Using index condition`：表示查询在索引上执行了部分条件过滤，这通常和索引下推有关
 
@@ -237,7 +254,8 @@ public class InsertTestData {
 
 我发使用复合索引时，如果前导列同时是唯一索引，就不会使用索引下推技术，优化器会自动选择最优解。
 
-![](https://cdn.nlark.com/yuque/0/2024/png/26566882/1735293829654-d89c0882-cb14-4731-be1c-9c31d13ea75d.png)
+![image.png](https://cdn.easymuzi.cn/img/20250115105921389.png)
+
 
 以下的部分类型都是在数据量大的情况下才会出现，这里由于测试数据太少，没办法做测试，后续添加更多数据再进行测试演示。
 
@@ -271,7 +289,7 @@ public class InsertTestData {
 8. 注意隐式类型转换操作，会导致索引失效
 9. 使用OR ，两边需保持等值匹配且都为索引列，才会走索引
 
-## 补充回答
+### 补充回答
 
 以上都是对SQL进行优化，避免索引失效等进行SQL调优，还可以从其他方面进行考虑，比如先分析SQL慢的原因
 
