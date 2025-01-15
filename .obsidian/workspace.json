@@ -11,14 +11,14 @@
             "id": "fb12e01151d28060",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "Interview/Day16.md",
-                "bFile": "Interview/Day16.md",
-                "aRef": ""
+                "file": "Interview/Day23.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: Day16"
+              "icon": "lucide-file",
+              "title": "Day23"
             }
           }
         ]
@@ -176,8 +176,9 @@
   },
   "active": "fb12e01151d28060",
   "lastOpenFiles": [
-    "Interview/Day23.md",
     "Interview/Day22.md",
+    "Index/NoteList-Interview.md",
+    "Interview/Day23.md",
     "Interview/Day3.md",
     "Interview/Day5.md",
     "Interview/Day8.md",
@@ -201,7 +202,6 @@
     "Interview/Day13.md",
     "Interview/Day12.md",
     "Interview/Day10.md",
-    "Interview/Day1.md",
     "Interview",
     "Index",
     "Excalidraw",
