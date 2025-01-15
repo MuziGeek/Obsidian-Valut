@@ -187,6 +187,34 @@
             }
           },
           {
+            "id": "d689cbc2594d3113",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "面试训练营/Day19.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Day19"
+            }
+          },
+          {
+            "id": "072880d4727c2954",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "面试训练营/Day20.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Day20"
+            }
+          },
+          {
             "id": "ca7dd4d2f0b726cb",
             "type": "leaf",
             "state": {
@@ -213,9 +241,19 @@
               "icon": "lucide-file",
               "title": "Day11"
             }
+          },
+          {
+            "id": "6369cf1ac40f0db7",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
         ],
-        "currentTab": 12
+        "currentTab": 17
       }
     ],
     "direction": "vertical"
@@ -330,9 +368,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "未命名.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "未命名 的大纲"
             }
           },
           {
@@ -366,15 +406,20 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "83f2fc46ea784691",
+  "active": "096e09a5f829ba9f",
   "lastOpenFiles": [
+    "面试训练营/Day22.md",
+    "未命名.md",
+    "面试训练营/Day21.md",
+    "面试训练营/Day20.md",
+    "面试训练营/Day19.md",
+    "面试训练营/Day15.md",
+    "面试训练营/Day16.md",
+    "面试训练营/Day17.md",
+    "config/FileTemp.md",
     "面试训练营/Day18.md",
     "Day18.md",
-    "Config/FileTemp.md",
-    "Day17.md",
     "未命名",
-    "Day16.md",
-    "Day15.md",
     "未命名 1.md",
     "conflict-files-obsidian-git.md",
     "题解.md",
@@ -390,13 +435,8 @@
     "面试训练营/Day12.md",
     "面试训练营/Day13.md",
     "Blog/1.md",
-    "Blog/122121122233.md",
     "Blog",
-    "Config/easierYamlTagging.js.md",
-    "Config/未命名.md",
-    "2.md",
-    "1.md",
-    "Config",
+    "config",
     "未命名.canvas",
     "面试训练营"
   ]
