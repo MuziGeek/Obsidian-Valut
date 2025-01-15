@@ -33,7 +33,7 @@
       "name": "BlogTemp",
       "type": "Template",
       "command": true,
-      "templatePath": "config/FileTemp.md",
+      "templatePath": "Config/FileTemp.md",
       "fileNameFormat": {
         "enabled": false,
         "format": ""
@@ -49,7 +49,7 @@
       },
       "appendLink": false,
       "openFileInNewTab": {
-        "enabled": false,
+        "enabled": true,
         "direction": "vertical",
         "focus": true
       },
@@ -163,7 +163,7 @@
   ],
   "inputPrompt": "multi-line",
   "devMode": false,
-  "templateFolderPath": "config",
+  "templateFolderPath": "Config",
   "announceUpdates": true,
   "version": "1.11.5",
   "disableOnlineFeatures": true,

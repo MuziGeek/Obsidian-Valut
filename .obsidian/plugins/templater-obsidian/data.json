@@ -1,6 +1,6 @@
 {
   "command_timeout": 5,
-  "templates_folder": "config",
+  "templates_folder": "Config",
   "templates_pairs": [
     [
       "tianqi",
@@ -11,7 +11,7 @@
   "auto_jump_to_cursor": true,
   "enable_system_commands": true,
   "shell_path": "C:\\Windows\\System32\\cmd.exe",
-  "user_scripts_folder": "config",
+  "user_scripts_folder": "Config",
   "enable_folder_templates": true,
   "folder_templates": [
     {
