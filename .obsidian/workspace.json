@@ -28,13 +28,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "43115d0007419be3",
+            "id": "8176827820ccc17c",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -188,10 +188,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "43115d0007419be3",
+  "active": "8176827820ccc17c",
   "lastOpenFiles": [
-    "Day17.md",
     "Day16.md",
+    "Day17.md",
     "Day15.md",
     "conflict-files-obsidian-git.md",
     "面试训练营/Day18.md",
