@@ -6,6 +6,7 @@
       {
         "id": "af12de0c9518500c",
         "type": "tabs",
+        "dimension": 60.1593625498008,
         "children": [
           {
             "id": "2d144bd2eac54721",
@@ -26,15 +27,20 @@
       {
         "id": "e73ab9bc58f38560",
         "type": "tabs",
+        "dimension": 39.8406374501992,
         "children": [
           {
             "id": "8176827820ccc17c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Config/FileTemp.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "FileTemp"
             }
           }
         ]
@@ -152,9 +158,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "Config/FileTemp.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "FileTemp 的大纲"
             }
           },
           {
@@ -190,6 +198,8 @@
   },
   "active": "8176827820ccc17c",
   "lastOpenFiles": [
+    "Index/NoteList-Interview.md",
+    "Interview/Day7.md",
     "Day16.md",
     "Day17.md",
     "Day15.md",
@@ -201,7 +211,6 @@
     "Interview/Day19.md",
     "Interview/Day22.md",
     "Interview/Day21.md",
-    "Index/NoteList-Interview.md",
     "Interview/Day20.md",
     "Interview/Day18.md",
     "Interview/Day17.md",
@@ -216,7 +225,6 @@
     "Interview/Day10.md",
     "Interview/Day9.md",
     "Interview/Day2.md",
-    "Interview/Day8.md",
     "Excalidraw",
     "Index",
     "Blog",
