@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Interview/Day22.md",
+                "file": "Interview/Day1.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Day22"
+              "title": "Day1"
             }
           }
         ]
@@ -157,10 +157,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Interview/Day22.md"
+                "file": "Interview/Day1.md"
               },
               "icon": "lucide-list",
-              "title": "Day22 的大纲"
+              "title": "Day1 的大纲"
             }
           },
           {
@@ -194,10 +194,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c697654d9398a9c",
+  "active": "6d2734b1c3468522",
   "lastOpenFiles": [
-    "Index/NoteList-Interview.md",
     "Interview/Day22.md",
+    "Index/NoteList-Interview.md",
     "未命名",
     "Interview/Day1.md",
     "Config/FileTemp.md",
