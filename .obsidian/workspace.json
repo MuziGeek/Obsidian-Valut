@@ -6,7 +6,6 @@
       {
         "id": "af12de0c9518500c",
         "type": "tabs",
-        "dimension": 60.1593625498008,
         "children": [
           {
             "id": "2d144bd2eac54721",
@@ -16,7 +15,7 @@
               "state": {
                 "file": "Index/NoteList-Interview.md",
                 "mode": "preview",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "NoteList-Interview"
@@ -25,22 +24,21 @@
         ]
       },
       {
-        "id": "e73ab9bc58f38560",
+        "id": "5976448a1c1f689c",
         "type": "tabs",
-        "dimension": 39.8406374501992,
         "children": [
           {
-            "id": "8176827820ccc17c",
+            "id": "5c697654d9398a9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Config/FileTemp.md",
-                "mode": "source",
-                "source": false
+                "file": "Interview/Day22.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "FileTemp"
+              "title": "Day22"
             }
           }
         ]
@@ -159,10 +157,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Config/FileTemp.md"
+                "file": "Interview/Day22.md"
               },
               "icon": "lucide-list",
-              "title": "FileTemp 的大纲"
+              "title": "Day22 的大纲"
             }
           },
           {
@@ -196,35 +194,36 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "8176827820ccc17c",
+  "active": "5c697654d9398a9c",
   "lastOpenFiles": [
     "Index/NoteList-Interview.md",
-    "Interview/Day7.md",
-    "Day16.md",
-    "Day17.md",
-    "Day15.md",
-    "conflict-files-obsidian-git.md",
-    "面试训练营/Day18.md",
-    "面试训练营/Day13.md",
-    "面试训练营/Day12.md",
-    "面试训练营",
-    "Interview/Day19.md",
     "Interview/Day22.md",
+    "未命名",
+    "Interview/Day1.md",
+    "Config/FileTemp.md",
+    "Interview/Day9.md",
+    "Interview/Day8.md",
+    "Interview/Day7.md",
+    "Interview/Day6.md",
+    "Interview/Day5.md",
+    "Interview/Day4.md",
+    "Interview/Day3.md",
+    "Interview/Day2.md",
     "Interview/Day21.md",
     "Interview/Day20.md",
+    "Interview/Day19.md",
     "Interview/Day18.md",
     "Interview/Day17.md",
     "Interview/Day16.md",
     "Interview/Day15.md",
     "Interview/Day14.md",
-    "Interview/Day1.md",
     "Interview/Day13.md",
     "Interview/Day12.md",
-    "Config/FileTemp.md",
     "Interview/Day11.md",
     "Interview/Day10.md",
-    "Interview/Day9.md",
-    "Interview/Day2.md",
+    "Interview",
+    "Interview/Day7.md",
+    "面试训练营",
     "Excalidraw",
     "Index",
     "Blog",
