@@ -368,11 +368,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "未命名.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "未命名 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -406,10 +404,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "096e09a5f829ba9f",
+  "active": "5c722d3604cf5b87",
   "lastOpenFiles": [
-    "面试训练营/Day22.md",
     "未命名.md",
+    "面试训练营/Day22.md",
     "面试训练营/Day21.md",
     "面试训练营/Day20.md",
     "面试训练营/Day19.md",
