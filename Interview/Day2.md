@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD:Interview/Day2.md
 title: Day2
 date: 2025-01-15 09:41:16
 categories:
@@ -7,6 +8,19 @@ categories:
     - 面试训练营
 tags:
   - Mysql
+=======
+
+title: 面试训练营Day2
+
+date: 2025/01/05 20：46：25
+
+categories:
+
+- [学习成长, 编程, 面试训练营]
+
+tags:
+
+>>>>>>> origin/master:面试训练营/Day2.md
 ---
 ## MySQL三层B+树能存多少数据？
 

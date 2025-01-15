@@ -1,43 +1,37 @@
 ---
-title: Day18
-date: 2025-01-15 15:51:30
-categories:
-  - - 学习成长
-    - 编程
-    - 面试训练营
+title: 面试训练营Day18
+date: 2025-01-10 19:51:09
+updated: 2025-01-10 19:51:09
+categories: 面试训练
 tags:
-  - 计算机网络
+   - [ ] {{task}} 
+top: 1
 ---
-**2025-01-15**🌱上海: ☀️   🌡️+6°C 🌬️↓18km/h
+**2025-01-10**🌱上海: ☀️   🌡️+3°C 🌬️↓13km/h
+
 ## 常见的HTTP状态码有哪些？
 
 ### HTTP状态码都有什么？
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155220715.png)
+## ![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736507712442-5735e9d8-06ff-4ef4-9807-5fe80e881f00.png)
 
+## 趣图解译
 
-### 趣图解译
+## ![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736509530046-40461c9d-bf25-4af3-b84a-4eebec7e7f57.png)
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155232940.png)
+## ![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736509574104-3ed645c3-3ff9-4315-a9db-20130818ff91.png)
 
-
-![image.png](https://cdn.easymuzi.cn/img/20250115155244843.png)
-
-
-![image.png](https://cdn.easymuzi.cn/img/20250115155257345.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736509609368-035106ad-a286-49d2-bffc-832aedc89464.png)
 
 #### HTTP概述
 
 HTTP 是获取 HTML 文档等资源的协议，是 Web 数据交换基础，属于客户端 — 服务器协议，由接受方（常为 Web 浏览器）发起请求，完整网页文档包含文本、布局描述、图片等多种资源 。
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155308580.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/svg/26566882/1736508036727-9abd3290-c8b1-4ffc-981f-1ad4d50949dd.svg)
 
 客户端与服务端之间通过交换一个个独立的消息（而非数据流）进行通信。由客户端发出的消息被称作请求（request），由服务端发出的应答消息被称作响应（response）。
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155325926.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/svg/26566882/1736508115829-6371d2c2-226e-48c1-a305-c0639306bea3.svg)
 
 20 世纪 90 年代设计出可扩展的 HTTP 协议，且随时间演进。它是应用层协议，通过 TCP 或 TLS 发送，理论上可借助任何可靠传输协议。因其可扩展性，如今不仅能获取超文本文档、图片、视频，还能向服务端发送信息，也可获取文档部分内容用于按需更新网页 。
 
@@ -45,8 +39,7 @@ HTTP 是获取 HTML 文档等资源的协议，是 Web 数据交换基础，属�
 
 HTTP 是客户端 - 服务器协议，请求由用户代理或代理方发出（常见用户代理为 Web 浏览器，也有其他形式），发往服务器并获响应，客户端和服务器间存在起不同作用（如网关、缓存）的代理实体 。
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155338466.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/svg/26566882/1736508289147-59ebff8b-36d7-4ca3-a399-b56bdcdb9761.svg)
 
 - **通信层级**：浏览器与服务器间有路由器等众多计算机，因 Web 分层设计，它们处于网络层和传输层，HTTP 则在应用层，下层对 HTTP 设计大多无关。
 - **客户端**：
@@ -76,8 +69,7 @@ HTTP/1.1 及更早协议报文语义可读，HTTP/2 中报文被嵌入新的二�
 
 **HTTP请求的例子**
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155430806.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/svg/26566882/1736508742289-58fb71d8-9ef3-46e9-b86e-b6cf41fd616a.svg)
 
 请求由以下元素组成：
 
@@ -89,8 +81,7 @@ HTTP/1.1 及更早协议报文语义可读，HTTP/2 中报文被嵌入新的二�
 
 **HTTP响应的例子**
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155503052.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/svg/26566882/1736508920926-055c7ce7-bfe6-4c3e-9485-12325452daad.svg)
 
 响应报文包含了下面的元素：
 
@@ -132,25 +123,23 @@ HTTP/2 是 HTTP/1 的重大升级，它们在性能、协议结构、功能特�
 
 - **服务器推送**：服务器可以主动向客户端推送资源，而无需客户端明确请求。例如，服务器在接收到客户端对 HTML 页面的请求时，能够预测客户端可能需要的其他资源（如 CSS、JavaScript 文件），并主动将这些资源推送给客户端，进一步减少了客户端的等待时间，提升了用户体验。
 - **增强的安全性**：HTTP/2 要求在传输层使用 TLS 协议进行加密，提供了更安全的通信环境，减少了数据被窃取或篡改的风险。
-
 ## HTTP请求包含哪些内容，请求头和请求体有哪些类型？
 
 ### 思维导图总结
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155516136.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736511111420-690cb63a-3f1b-4afe-9313-9dae7502ae66.png)
 
 可以通过浏览器F12进行查看一个网络的请求信息
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155523547.png)
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736511792279-bd8cc7ef-c035-4086-a329-137940d649e0.png)
+
 
 
 ## HTTP中get和post的区别是什么？
 
 ### 思维导图总结
 
-![image.png](https://cdn.easymuzi.cn/img/20250115155542877.png)
-
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736512888400-8e002365-12ba-4aae-b700-cfcd5aac94bb.png)
 
 ### 扩展分析
 

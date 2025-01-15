@@ -1,12 +1,19 @@
 ---
-title: Day12
-date: 2025-01-15 14:52:35
-categories: 
+
+title: 面试训练营Day12
+
+date: 2025/01/05 20：46：25
+
+categories:
+
 - [学习成长, 编程, 面试训练营]
+
 tags:
+
 ---
-**2025-01-15**🌱上海: ☀️   🌡️+6°C 🌬️↓18km/h
-## Redis 中如何保证缓存与数据库的数据一致性?
+**2025-01-04**🌱上海: ☀️   🌡️+12°C 🌬️↖14km/h
+
+Redis 中如何保证缓存与数据库的数据一致性?
 
 ### 总结分析
 
@@ -25,7 +32,11 @@ tags:
 
 - 追求实时一致性，优先选择先写 MySQL，再删除 Redis 的方案，虽短期内数据可能不一致，但能尽量保证数据一致性。
 - 考虑最终一致性，推荐使用 binlog + 消息队列的方式，该方案具备重试和顺序消费功能，能最大限度保证缓存与数据库的最终一致性。
-![image.png](https://cdn.easymuzi.cn/img/20250115145352367.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735978727846-06513c1c-8463-4c6e-8946-25ebe9be3418.png)
+
+### 扩展知识
+
 之前我对于这个问题针对上面的`8个不同`的解决方案进行了详细分析
 
 详细文档方案：
@@ -47,7 +58,9 @@ tags:
 #### 缓存击穿
 
 **缓存击穿**是指当某一key的缓存过期时**大并发量的请求同时**访问此key，瞬间击穿缓存服务器直接访问数据库，让数据库处于负载的情况。
-![image.png](https://cdn.easymuzi.cn/img/20250115145408419.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735981556094-9483e7c2-c33b-4684-a7f3-312698e0fdde.png)
+
 #### 解决方案
 
 #### 异步定时更新
@@ -67,8 +80,12 @@ tags:
 **缓存穿透**是指缓存服务器中没有缓存数据，数据库中也没有符合条件的数据，导致业务系统每次都绕过缓存服务器查询下游的数据库，缓存服务器完全失去了其应用的作用。
 
 攻击者可以通过构造不存在的 key 发起大量请求，对数据库造成很大的压力，可能会造成系统宕机。
-![image.png](https://cdn.easymuzi.cn/img/20250115145426722.png)
-#### 空值
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735982495773-b88781c9-18f8-43b0-bf76-54264087a550.png)
+
+#### 解决方案
+
+#### 缓存空值
 
 对于卖酒门店咨询库存问题，为避免多次询问总部，在帮第一个客户查询得知不卖农夫三拳后，记录该无货信息，后续其他顾客询问直接告知。
 
@@ -93,9 +110,13 @@ tags:
 - 查询元素时，若对应位都为 1，则认为元素可能存在；否则，元素肯定不存在。
 - 布隆过滤器能准确判断元素一定不存在。
 - 由于哈希冲突，布隆过滤器无法判断元素一定存在，只能判断可能存在。
-![image.png](https://cdn.easymuzi.cn/img/20250115145441915.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735985741623-64dd47cc-d47a-4012-9fbb-3f4ebab28585.png)
+
 但是会不会存在一个元素三次hash都正好发生hash冲突到存在的位。如下图（概率很小）
-![image.png](https://cdn.easymuzi.cn/img/20250115145452734.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735985950398-4d4a05ea-2601-4d29-8ed9-9f2f8fb21344.png)
+
 **降低误判概率的办法**主要通过降低哈希冲突概率及引入更多哈希算法来实现。
 
 - **工作过程**：
@@ -118,7 +139,9 @@ tags:
 #### 缓存雪崩
 
 **缓存雪崩**是指当大量缓存同时过期或缓存服务宕机，所有请求的都直接访问数据库，造成数据库高负载，影响性能，甚至数据库宕机。
-![image.png](https://cdn.easymuzi.cn/img/20250115145508483.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735986361088-91c4bf37-ee1e-460a-8f6f-233d3eb5799d.png)
+
 **缓存键同时失效的解决办法**
 
 - **过期时间随机化**：设置缓存过期时间时添加随机值，防止大量缓存同时失效。
@@ -134,6 +157,7 @@ tags:
 #### 互斥锁代码示例
 
 **使用hashmap模拟redis缓存**
+
 ```
 import java.util.HashMap;
 import java.util.Map;
@@ -218,9 +242,13 @@ struct __attribute__ ((__packed__)) sdshdr64 {
 #### redisObject结构
 
 之前也了解过redis的底层存储结构
-![image.png](https://cdn.easymuzi.cn/img/20250115145557178.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735809050649-dc82d056-fc2c-4716-87a0-70ddeb64c34d.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_750%2Climit_0)
+
 这里单独分析**redisObject**
-![image.png](https://cdn.easymuzi.cn/img/20250115145609976.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735988673639-72878a7d-8585-44c0-831a-d1d9dacd2fd5.png)
+
 **从代码可以看到有不同的编码类型（int、embstr、raw等），接下来逐一分析**
 
 #### int编码
@@ -234,7 +262,9 @@ struct redisObject {
 ```
 
 若字符串对象保存的整数值能用 long 类型表示，该对象会把整数值存于结构的 ptr 属性（将 void* 转换为 long），并将编码设为 int 。
-![image.png](https://cdn.easymuzi.cn/img/20250115145623396.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735988886124-43eacbd4-9915-43b9-879e-c65d37db4908.png)
+
 #### embstr编码
 
 ```
@@ -253,7 +283,9 @@ struct sdshdr {
 ```
 
 若字符串对象保存的字符串长度小于等于 32 字节（Redis 2.+ 版本），会用 SDS 保存该字符串，且将对象编码设为 embstr，embstr 是专为保存短字符串的优化编码方式。
-![image.png](https://cdn.easymuzi.cn/img/20250115145638294.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735989567216-da104556-4e35-4716-aa6e-10092250c3d5.png)
+
 #### raw编码
 
 ```
@@ -272,27 +304,30 @@ struct sdshdr {
 ```
 
 若字符串对象保存的字符串长度大于 32 字节(redis 2.+版本)，会用简单动态字符串（SDS）保存，且将对象编码设为 raw。
-![image.png](https://cdn.easymuzi.cn/img/20250115145649721.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1735989820196-5aeab7ec-5e16-4322-a850-5dfe9b0d6b6d.png)
+
 - embstr 编码和 raw 编码的边界在不同 Redis 版本中存在差异：
-	- redis 2.+ 版本为 32 字节。
-	- redis 3.0 - 4.0 版本为 39 字节。
-	- redis 5.0 版本为 44 字节。
+
+- redis 2.+ 版本为 32 字节。
+- redis 3.0 - 4.0 版本为 39 字节。
+- redis 5.0 版本为 44 字节。
 
 - embstr 和 raw 编码都使用 SDS 保存值，区别在于：
 
-	- embstr 通过一次内存分配函数，分配一块连续内存空间保存 redisObject 和 SDS。
-	- raw 通过调用两次内存分配函数，分别分配两块空间保存 redisObject 和 SDS。
+- embstr 通过一次内存分配函数，分配一块连续内存空间保存 redisObject 和 SDS。
+- raw 通过调用两次内存分配函数，分别分配两块空间保存 redisObject 和 SDS。
 
 - embstr 编码的好处：
 
-	- 将创建字符串对象所需的内存分配次数从两次降为一次。
-	- 释放对象时只需调用一次内存释放函数。
-	- 所有数据保存在连续内存，利于利用 CPU 缓存提升性能。
+- 将创建字符串对象所需的内存分配次数从两次降为一次。
+- 释放对象时只需调用一次内存释放函数。
+- 所有数据保存在连续内存，利于利用 CPU 缓存提升性能。
 
 - embstr 编码的缺点：
 
-	- 字符串长度增加需重新分配内存时，整个 redisObject 和 SDS 都要重新分配空间。
-	- 实际上是只读的，Redis 未编写相应修改程序，执行修改命令（如 append）时，会先将编码从 embstr 转换为 raw，再执行修改。
+- 字符串长度增加需重新分配内存时，整个 redisObject 和 SDS 都要重新分配空间。
+- 实际上是只读的，Redis 未编写相应修改程序，执行修改命令（如 append）时，会先将编码从 embstr 转换为 raw，再执行修改。
 
 #### 总结
 

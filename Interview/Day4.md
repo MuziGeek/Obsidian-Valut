@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD:Interview/Day4.md
 title: Day4
 date: 2025-01-15 10:46:08
 categories:
@@ -9,6 +10,21 @@ tags:
   - Mysql
 ---
 **2025-01-15**🌱上海: ☀️   🌡️+4°C 🌬️↓19km/h
+=======
+
+title: 面试训练营Day4
+
+date: 2025/01/05 20：46：25
+
+categories:
+
+- [学习成长, 编程, 面试训练营]
+
+tags:
+
+---
+
+>>>>>>> origin/master:面试训练营/Day4.md
 ## MySQL中的索引数量是否越多越好？为什么?
 
 ### 简要回答
