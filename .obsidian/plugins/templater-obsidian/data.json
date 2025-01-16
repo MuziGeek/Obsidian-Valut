@@ -16,7 +16,7 @@
   "folder_templates": [
     {
       "folder": "/",
-      "template": "Config/FileTemp.md"
+      "template": "config/FileTemp.md"
     }
   ],
   "enable_file_templates": false,

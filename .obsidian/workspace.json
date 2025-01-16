@@ -11,14 +11,14 @@
             "id": "2d144bd2eac54721",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Interview/Day14.md",
-                "mode": "preview",
-                "source": true
+                "aFile": ".obsidian/workspace.json",
+                "bFile": ".obsidian/workspace.json",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Day14"
+              "icon": "diff",
+              "title": "Diff: workspace.json"
             }
           }
         ]
@@ -176,6 +176,8 @@
   },
   "active": "2d144bd2eac54721",
   "lastOpenFiles": [
+    "Interview/Day14.md",
+    "Interview/Day23.md",
     "Interview/Day10.md",
     "Interview/Day11.md",
     "Interview/Day22.md",
@@ -198,7 +200,6 @@
     "Interview/Day18.md",
     "Interview/Day16.md",
     "Interview/Day15.md",
-    "Interview/Day14.md",
     "Interview/Day13.md",
     "Interview/Day12.md",
     "Interview",
