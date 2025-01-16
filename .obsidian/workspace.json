@@ -13,32 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Index/NoteList-Interview.md",
+                "file": "Interview/Day17.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "NoteList-Interview"
-            }
-          }
-        ]
-      },
-      {
-        "id": "5976448a1c1f689c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "5c697654d9398a9c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Interview/Day1.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Day1"
+              "title": "Day17"
             }
           }
         ]
@@ -194,10 +174,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "6d2734b1c3468522",
+  "active": "2d144bd2eac54721",
   "lastOpenFiles": [
-    "Interview/Day22.md",
     "Index/NoteList-Interview.md",
+    "Interview/Day22.md",
     "未命名",
     "Interview/Day1.md",
     "Config/FileTemp.md",
