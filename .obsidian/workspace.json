@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Interview/Day17.md",
+                "file": "Interview/Day14.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Day17"
+              "title": "Day14"
             }
           }
         ]
@@ -176,8 +176,11 @@
   },
   "active": "2d144bd2eac54721",
   "lastOpenFiles": [
-    "Index/NoteList-Interview.md",
+    "Interview/Day10.md",
+    "Interview/Day11.md",
     "Interview/Day22.md",
+    "Interview/Day17.md",
+    "Index/NoteList-Interview.md",
     "未命名",
     "Interview/Day1.md",
     "Config/FileTemp.md",
@@ -193,14 +196,11 @@
     "Interview/Day20.md",
     "Interview/Day19.md",
     "Interview/Day18.md",
-    "Interview/Day17.md",
     "Interview/Day16.md",
     "Interview/Day15.md",
     "Interview/Day14.md",
     "Interview/Day13.md",
     "Interview/Day12.md",
-    "Interview/Day11.md",
-    "Interview/Day10.md",
     "Interview",
     "Interview/Day7.md",
     "面试训练营",
