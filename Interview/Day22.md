@@ -195,7 +195,7 @@ Cookie 是某些网站为辨别用户身份、进行 Session 跟踪，存储在�
 
 让客户端请求固定打到某一台机器，例如浏览器登录请求打到 A 机器后，后续添加购物车等所有请求也都打到此机器。Nginx 的 sticky 模块可支持此方式，包括按 ip 或 cookie 粘连等，像按 ip 粘连就是其中一种具体方式。配置如下
 
-```
+```nginx
 http {
     upstream backend {
         # 使用ip_hash方法实现按IP粘连

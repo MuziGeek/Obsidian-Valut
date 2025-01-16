@@ -100,7 +100,7 @@ MySQL的定位就是提供一个稳定的关系型数据库。而为了要解决
 
 ##### 建表
 
-```
+```sql
 CREATE TABLE `t1` (
   `a` int(11) DEFAULT NULL,
   `b` int(11) DEFAULT NULL,
@@ -112,17 +112,16 @@ insert into t1 values(10,1);
 
 ##### 开启两个事务
 
-|   |   |
-|---|---|
-|**Session 1**|**Session 2**|
-|set session transaction isolation level read committed;||
-|set autocommit = 0;|set session transaction isolation level read committed;|
-||set autocommit = 0;|
-|begin;|begin;|
-|delete from t1 where b < 100;||
-||insert into t1 values(10,99);|
-||commit;|
-|commit;||
+| **Session 1**                                           | **Session 2**                                           |
+| ------------------------------------------------------- | ------------------------------------------------------- |
+| set session transaction isolation level read committed; |                                                         |
+| set autocommit = 0;                                     | set session transaction isolation level read committed; |
+|                                                         | set autocommit = 0;                                     |
+| begin;                                                  | begin;                                                  |
+| delete from t1 where b < 100;                           |                                                         |
+|                                                         | insert into t1 values(10,99);                           |
+|                                                         | commit;                                                 |
+| commit;                                                 |                                                         |
 
 **正常情况下，两个事务执行后，数据库里面只会存在一条记录（10，99），这是因为当前的隔离级别是RC，Session2的插入操作不会看到Session1的删除操作，所以最后数据库中仍会保留Session2插入的记录。**
 
@@ -137,7 +136,7 @@ insert into t1 values(10,1);
 
 用户主动修改隔离级别，尝试更新时，会报错：
 
-```
+```sql
 ERROR 1598 (HY000): Binary logging not possible. Message: Transaction level 'READ-COMMITTED' in InnoDB is not safe for binlog mode 'STATEMENT'
 ```
 

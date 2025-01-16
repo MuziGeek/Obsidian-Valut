@@ -78,13 +78,13 @@ MVCC，多版本并发控制。和数据库锁一样，也是一种并发控制�
 
 所谓快照读，就是读取的是快照数据，也就是快照生成的那一刻数据，普通读（无锁读）就是快照读。如：
 
-```
+```sql
 SELECT * FROM TABLE WHERE ...;
 ```
 
 和快照读相对应的就是当前读，当前读就是读取最新数据。加锁读、增删改都会进行当前读，比如：
 
-```
+```sql
 SELECT * FROM TABLE LOCK IN SHARE MODE;
 
 SELECT * FROM TABLE FOR UPDATE;

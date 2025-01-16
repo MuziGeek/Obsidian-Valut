@@ -289,7 +289,7 @@ CPU 上下文切换是指先保存前一个任务的 CPU 上下文（即 CPU 寄
 
 **Java 程序天生就是多线程程序**，我们可以通过 JMX 来看一下一个普通的 Java 程序有哪些线程，代码如下。
 
-```
+```java
 public class MultiThread {
 	public static void main(String[] args) {
 		// 获取 Java 线程管理 MXBean
@@ -306,7 +306,7 @@ public class MultiThread {
 
 程序输出如下：
 
-```
+```java
 [6] Monitor Ctrl-Break //监听线程转储或“线程堆栈跟踪”的线程
 [5] Attach Listener //负责接收到外部的命令，而对该命令进行执行的并且把结果返回给发送者
 [4] Signal Dispatcher // 分发处理给 JVM 信号的线程

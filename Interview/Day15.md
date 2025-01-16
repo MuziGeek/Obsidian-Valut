@@ -124,7 +124,7 @@ Redis 单点查询性能有局限，当热点 key 查询量超节点性能阈值
 
 ### 继承AbstractValueAdaptingCache
 
-```
+```java
 public class RedisCaffeineCahe extends AbstractValueAdaptingCache {
     protected RedisCaffeineCahe(boolean allowNullValues) {
         super(allowNullValues);
@@ -141,7 +141,7 @@ public class RedisCaffeineCahe extends AbstractValueAdaptingCache {
 
 但是继承类实现构造方法，需要把redis和caffeine缓存的不同配置添加进来，通过添加配置属性实现构造方法，这样就可以通过构造方法生成特殊的缓存实例`RedisCaffeineCahe`。
 
-```
+```java
 @Slf4j
 public class RedisCaffeineCache extends AbstractValueAdaptingCache {
 
@@ -195,7 +195,7 @@ public class RedisCaffeineCache extends AbstractValueAdaptingCache {
 
 CaffeineConfigProp，RedisConfigProp，CacheConfigProperties。都是属性配置相关，前两个是两个不同缓存的配置，最后一个是缓存的配置汇总，多级缓存，主要就是把不同的缓存进行组合，通过继承实现接口实现多级缓存的各种操作逻辑。
 
-```
+```java
 @Data
 public class CaffeineConfigProp {
 
@@ -237,7 +237,7 @@ public class CaffeineConfigProp {
 }
 ```
 
-```
+```java
 @Data
 public class RedisConfigProp {
 
@@ -264,7 +264,7 @@ public class RedisConfigProp {
 }
 ```
 
-```
+```java
 @Data
 @ConfigurationProperties(prefix = "spring.cache.multi")
 public class CacheConfigProperties {
@@ -297,7 +297,7 @@ public class CacheConfigProperties {
 
 ### CacheManager
 
-```
+```java
 @Slf4j
 public class RedisCaffeineCacheManager implements CacheManager {
 
@@ -366,12 +366,12 @@ public class RedisCaffeineCacheManager implements CacheManager {
 
 }
 ```
-
+									 
 需要注意的上面代码中的有参构造方法通过给属性赋值，然后`getCache`方法中会生成`RedisCaffeineCache`的实例，`RedisCaffeineCache`这个实例中的方法就是定义如何具体操作缓存数据的。
 
 两个核心类`Cache`，`CacheManager`的实现类都有，接下来就是通过配置生成实现类的Bean。
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 @EnableConfigurationProperties(CacheConfigProperties.class)
@@ -422,7 +422,7 @@ public class MultilevelCacheAutoConfiguration {
 
 既然通过redis的发布订阅模式保证缓存一致，那就需要思考在什么时候会导致本地缓存不一致，毫无疑问就是操作缓存变动后，所以经过上面分析我们可以在操作缓存变动的同时发布消息通知其他主机进行缓存同步，把相关变动的缓存key通过topic发送到相应的服务器上，接下来我们进行代码实现：
 
-```
+```java
 /**
  * @param message
  * @description 缓存变更时通知其他节点清理本地缓存
@@ -448,7 +448,7 @@ private void push(CacheMessage message) {
 
 在缓存进行`put`，`evict`，`clear`操作的时候都需要进行消息通知，通知其他服务器进行移除本地对应key的缓存，这样下次其他服务器本地查询缓存数据回因为不存在进行更新缓存。
 
-```
+```java
 @Override
 	public <T> T get(Object key, Callable<T> valueLoader) {
 		Object value = lookup(key);
@@ -557,7 +557,7 @@ private void push(CacheMessage message) {
 
 发布实现了后，当然还需要订阅方法，也就是我们需要监听消息通知。
 
-```
+```java
 @Slf4j
 @RequiredArgsConstructor
 public class CacheMessageListener implements MessageListener {
@@ -619,7 +619,7 @@ actuate模块
 
 SpringBoot中有一个函数式接口CacheMeterBinderProvider主要是一个与缓存计量（Cache Metering）相关的提供器（Provider）。代码类实现：
 
-```
+```java
 @NoArgsConstructor
 public class RedisCaffeineCacheMeterBinderProvider implements CacheMeterBinderProvider<RedisCaffeineCache> {
 
@@ -637,7 +637,7 @@ public class RedisCaffeineCacheMeterBinderProvider implements CacheMeterBinderPr
 
 然后别忘把RedisCaffeineCacheMeterBinderProvider作为bean让spring进行管理
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnClass({ MeterBinder.class, CacheMeterBinderProvider.class })
 public class RedisCaffeineCacheMeterConfiguration {
@@ -772,7 +772,7 @@ Redis 集群采用哈希槽分区算法：
 
 1. **clusterNode数据结构：**保存节点的当前状态，比如节点的创建时间，节点的名字，节点当前的配置纪元，节点的IP和地址，等等。
 
-```
+```c
 // 定义一个名为 clusterNode 的结构体，用于表示 Redis 集群中的节点
 typedef struct clusterNode {
     // 节点对象的创建时间，以毫秒为单位的时间戳
@@ -836,7 +836,7 @@ typedef struct clusterNode {
 
 2. **clusterState数据结构**：记录当前节点所认为的集群目前所处的状态。
 
-```
+```c
 // 定义一个名为 clusterState 的结构体，用于表示 Redis 集群的整体状态
 typedef struct clusterState {
     // 指向代表本节点的 clusterNode 结构体指针
