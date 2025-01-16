@@ -104,7 +104,7 @@ TCP 关闭时也会有一种特殊情况，那就是同时关闭，这种情况�
 
 ### 实例测试
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -146,7 +146,7 @@ public class Server {
 }
 ```
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -178,7 +178,7 @@ public class Client {
 
 从结果可知，服务器端出现粘包问题。客户端发送 10 次固定 “Hi,Muzi.” 消息，理想状态下服务器应接收 10 次相同消息，但实际并非如此，接收内容长度不足时还用空格字符填充。
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -224,7 +224,7 @@ public class Client {
 
 #### 固定数据大小
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -264,7 +264,7 @@ public class Server {
 }
 ```
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -314,7 +314,7 @@ public class Client {
 
 **定义一个消息封装类** 提供两个方法：一个是将消息转换成消息头 + 消息体的方法，另一个是读取消息头的方法，具体实现代码如下
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -372,7 +372,7 @@ public class SocketUtils {
 }
 ```
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -419,7 +419,7 @@ public class CustomServer {
 }
 ```
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.IOException;
@@ -464,7 +464,7 @@ public class CustomClient {
 
 通过以特殊字符结尾确定流边界来解决粘包问题，具体实现为：在 Java 中利用自带的 BufferedReader 和 BufferedWriter（带缓冲区的输入、输出字符流），写入数据时以`\n`结尾，读取时使用`readLine`按行读取，以此明确流的边界。
 
-```
+```java
 package com.muzi.easypicturebackend;
  
 import java.io.BufferedWriter;
@@ -495,7 +495,7 @@ public class SpecialCharClient {
 }
 ```
 
-```
+```java
 package com.muzi.easypicturebackend;
 
 import java.io.BufferedReader;

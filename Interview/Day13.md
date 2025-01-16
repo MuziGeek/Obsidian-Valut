@@ -54,7 +54,7 @@ tags:
 
 #### 实现一个简单的Redis分布式锁（使用setnx通过java代码实现）
 
-```
+```java
 public String sale()
 {
     String retMessage = "";
@@ -95,7 +95,7 @@ public String sale()
 
 **进一步优化**
 
-```
+```java
 
 public String sale()
 {
@@ -138,7 +138,7 @@ public String sale()
 
 #### 增加过期时间
 
-```
+```java
 
 public String sale()
 {
@@ -181,7 +181,7 @@ public String sale()
 
 从上面的代码我们可以看到，在加锁的时候我们后面给锁添加了一个过期时间，但是仔细考虑，还是会存在问题就是**加锁和设置过期时间**并不是在同一行，这就说明并**没有保证原子性**，可能导致过期时间添加失败，所以还需要进行优化。
 
-```
+```java
 
 public String sale()
 {
@@ -229,7 +229,7 @@ public String sale()
 ![image.png](https://cdn.easymuzi.cn/img/20250115145933972.png)
 #### 防止误删key的问题
 
-```
+```java
 public String sale()
 {
     String retMessage = "";
@@ -290,7 +290,7 @@ public String sale()
 
 #### #### lua脚本保证原子性
 
-```
+```lua
 if redis.call("GET",KEYS[1]) == ARGV[1]
 then
     return redis.call("DEL",KEYS[1])
@@ -301,7 +301,7 @@ end
 
 完整的java代码
 
-```
+```java
  public String sale()
 {
 String retMessage = "";
@@ -391,7 +391,7 @@ return retMessage+"\t"+"服务端口号："+port;
 - **不是自己的锁**：若返回零，说明该锁不是当前线程的。
 - **是自己的锁**：若返回一，说明是当前线程自己的锁，此时通过 `HINCRBY MuziRedisLock 0c90d37cb6ec42268861b3d739f8b3a8:1 1` 命令，使用 `HINCRBY` 对该锁的相关字段（以当前线程的 `UUID:ThreadID` 为字段）进行自增 `1` 次，表示锁的重入。
 
-```
+```lua
 if redis.call('exists',KEYS[1]) == 0 or redis.call('hexists',KEYS[1],ARGV[1]) == 1 
 then 
   redis.call('hincrby',KEYS[1],ARGV[1],1) 
@@ -412,7 +412,7 @@ end
 2. **判断锁归属：**对于有锁且是自己的情况，调用 `HINCRBY` 命令，将对应字段值每次减 `1` 进行解锁操作，即 `HINCRBY zzyyRedisLock 0c90d37cb6ec42268861b3d739f8b3a8:1 -1`。
 3. 持续执行上述解锁操作，直至字段值变为零，此时可使用 `del` 命令删除锁 `key`（`del zzyyRedisLock`），完成锁的释放，确保其他线程可获取该锁，保障分布式锁的正确性与可靠性，避免资源泄漏和死锁等问题。
 
-```
+```lua
 if redis.call('HEXISTS',KEYS[1],ARGV[1]) == 0 
 then
   return nil
@@ -425,7 +425,7 @@ end
 
 整合进java代码中
 
-```
+```java
 //@Component 引入DistributedLockFactory工厂模式，从工厂获得即可
 public class RedisDistributedLock implements Lock {
     private StringRedisTemplate stringRedisTemplate;
@@ -515,7 +515,7 @@ public class RedisDistributedLock implements Lock {
 
 编写lua脚本，判断锁是否存在
 
-```
+```lua
 if redis.call('HEXISTS',KEYS[1],ARGV[1]) == 1 then
   return redis.call('expire',KEYS[1],ARGV[2])
 else
@@ -525,7 +525,7 @@ end
 
 java代码
 
-```
+```java
 private void renewExpire() {
     String script =
             "if redis.call('HEXISTS',KEYS[1],ARGV[1]) == 1 then     " +
@@ -544,7 +544,7 @@ private void renewExpire() {
     }, (this.expireTime * 1000) / 3);
 }
 ```
-```
+```java
 public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
     if (time == -1L) {
         String script =

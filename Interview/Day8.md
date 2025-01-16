@@ -122,7 +122,7 @@ MySQL 中的锁分为共享锁（S 锁）和排他锁（X 锁）：
 
 首先创建一个带有自增列的测试表：
 
-```
+```sql
 CREATE TABLE test_autoinc (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50)
@@ -135,7 +135,7 @@ CREATE TABLE test_autoinc (
 
 假设我们有两个并发事务：
 
-```
+```sql
 -- 事务 A
 START TRANSACTION;
 INSERT INTO test_autoinc (name) VALUES ('A1');
@@ -149,13 +149,13 @@ INSERT INTO test_autoinc (name) VALUES ('B1');
 
 当事务 A 提交后：
 
-```
+```sql
 COMMIT;
 ```
 
 事务 B 才能继续执行插入操作并提交：
 
-```
+```sql
 -- 事务 B 继续执行
 INSERT INTO test_autoinc (name) VALUES ('B1');
 COMMIT;
@@ -165,7 +165,7 @@ COMMIT;
 
 #### 插入前已知插入行数的插入（用互斥量）
 
-```
+```sql
 -- 已知要插入 3 条记录
 START TRANSACTION;
 INSERT INTO test_autoinc (name) VALUES ('C1'), ('C2'), ('C3');
@@ -175,7 +175,7 @@ COMMIT;
 
 #### 插入前不知道具体插入数的插入（用 Auto - Inc Lock）
 
-```
+```sql
 -- 存储过程中动态插入，事先不知道具体插入数
 DELIMITER //
 CREATE PROCEDURE insert_dynamic()
@@ -198,7 +198,7 @@ CALL insert_dynamic();
 
 ### 3. innodb_autoinc_lock_mode = 2（只用互斥量）
 
-```
+```sql
 -- 多个并发事务同时插入
 -- 事务 D
 START TRANSACTION;

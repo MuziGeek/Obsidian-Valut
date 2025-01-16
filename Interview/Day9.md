@@ -28,7 +28,7 @@ tags:
 
 ### 实例测试
 
-```
+```sql
 -- 创建示例表
 CREATE TABLE test_table (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,7 +62,7 @@ CALL InsertTestData();
 
 下面的 SQL 语句使用子查询和 JOIN 来优化深度分页：
 
-```
+```sql
 -- 子查询和JOIN优化
 SELECT t.c1, t.c2
 FROM test_table t
@@ -82,7 +82,7 @@ INNER JOIN (
 
 此方法使用子查询获取分页起始点，基于 ID 做范围查询：
 
-```
+```sql
 -- 子查询和ID过滤优化
 SELECT c1, c2
 FROM test_table
@@ -97,7 +97,7 @@ LIMIT 10;
 
 ### 3.记录上一个id（也叫做游标查询）
 
-```
+```sql
 -- 查看执行计划
 EXPLAIN SELECT id, c1, c2
         FROM test_table

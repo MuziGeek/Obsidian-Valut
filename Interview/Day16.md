@@ -26,7 +26,7 @@ tags:
 - 配置类：系统仅有一个配置文件，加载到内存后映射成唯一的【**配置实例**】，可选择使用单例模式。
 - 全局计数器：用于数据统计、生成全局递增 ID 等功能，必须唯一，否则可能导致统计无效、ID 重复等问题 。代码如下
 
-```
+```java
 public class GlobalCounter {
     private AtomicLong atomicLong = new AtomicLong(0);
     private static final GlobalCounter instance = new GlobalCounter();
@@ -51,7 +51,7 @@ long courrentNumber = GlobalCounter.getInstance().getId();
 
 简单例子如下：
 
-```
+```java
 public class Logger {
     private String basePath = "D://info.log";
 
@@ -79,7 +79,7 @@ public class Logger {
 }
 ```
 
-```
+```java
 @RestController("user")
 public class UserController {
 
@@ -98,7 +98,7 @@ public class UserController {
 
 每次登录都会创建一个logger实例，多个实例在多个线程中同时操作同一个文件，就有可能产生相互覆盖的问题。因为tomcat处理每一个请求都会使用一个新的线程（暂不考虑多路复用）。这时候日志文件就成了一个共享资源，但凡是多线程访问共享资源，都需要考虑并发修改产生的问题。很多人肯定第一时间想到的解决方案就是加锁，但是加锁应该怎么加？
 
-```
+```java
 public synchronized void log(String message) {
     try {
         writer.write(message);
@@ -117,7 +117,7 @@ public synchronized void log(String message) {
 
 但是并不是说加锁没用，加锁是一定能解决共享资源冲突问题的，只是应该加在哪里，怎样使用。我们只需要放大锁的范围从this到class，也是可以解决这个问题的
 
-```
+```java
 public void log(String message) {
     synchronized (Logger.class) {
         try {
@@ -144,7 +144,7 @@ public void log(String message) {
 - 另一方面节省系统文件句柄（对于操作系统来说，文件句柄也是一种资源，不能随便浪费）。  
     按照这个设计思路，我们实现了 Logger 单例类。具体代码如下所示：
 
-```
+```java
 public class Logger {
     private String basePath = "D://log/";
     private static Logger instance = new Logger();
@@ -192,7 +192,7 @@ public class Logger {
 
 饿汉式的实现方式比较简单。在类加载的时候，instance 静态实例就已经创建并初始化好了，所以，instance 实例的创建过程是线程安全的。从名字中我们也可以看出这一点。具体的代码实现如下所示：
 
-```
+```java
 public class EagerSingleton {  
     private static Singleton instance = new Singleton();  
     private Singleton (){}  
@@ -208,7 +208,7 @@ public class EagerSingleton {
 
 懒汉式相对于饿汉式的优势是支持延迟加载，具体的代码实现如下所示：
 
-```
+```java
 public class LazySingleton {  
     private static Singleton instance;  
     private Singleton (){}  
@@ -224,7 +224,7 @@ public class LazySingleton {
 
 以上的写法本质上是有问题，当面对大量并发请求时，其实是无法保证其单例的特点的，很有可能会有超过一个线程同时执行了new Singleton();怎么解决呢？当然就是加锁呗
 
-```
+```java
 public class Singleton {  
     private static Singleton instance;  
     private Singleton (){}  
@@ -245,7 +245,7 @@ public class Singleton {
 饿汉式不支持延迟加载，懒汉式有性能问题，不支持高并发。那我们再来看一种既支持延迟加载、又支持高并发的单例实现方式，也就是双重检测实现方式：  
 在这种实现方式中，只要 instance 被创建之后，即便再调用 getInstance() 函数也不会再进入到加锁逻辑中了。所以，这种实现方式解决了懒汉式并发度低的问题。具体的代码实现如下所示：
 
-```
+```java
 public class DclSingleton {  
     // volatile如果不加可能会出现半初始化的对象
     // 现在用的高版本的 Java 已经在 JDK 内部实现中解决了这个问题（解决的方法很简单，只要把对象 new 操作和初始化操作设计为原子操作，就自然能禁止重排序）,为了兼容性我们加上
@@ -269,7 +269,7 @@ public class DclSingleton {
 
 我们再来看一种比双重检测更加简单的实现方法，那就是利用 Java 的静态内部类。它有点类似饿汉式，但又能做到了延迟加载。具体是怎么做到的呢？我们先来看它的代码实现。
 
-```
+```java
 public class InnerSingleton {
 
     /** 私有化构造器 */
@@ -296,7 +296,7 @@ SingletonHolder 是一个静态内部类，当外部类 Singleton被加载的时
 最后，我们介绍一种最简单的实现方式，基于枚举类型的单例实现。这种实现方式通过 Java 枚举类型本身的特性，保证了实例创建的线程安全性和实例的唯一性。具体的代码如下所示：  
 这是一个最简单的实现，因为枚举类中，每一个枚举项本身就是一个单例的：
 
-```
+```java
 public enum EnumSingleton {
     INSTANCE；
 }
@@ -304,7 +304,7 @@ public enum EnumSingleton {
 
 更通用的写法
 
-```
+```java
 public class EnumSingleton {
     // 私有构造函数，防止外部实例化
     private EnumSingleton() {
@@ -335,7 +335,7 @@ public class EnumSingleton {
 
 事实上我们还可以将单例项作为枚举的成员变量，累加器可以这样编写：
 
-```
+```java
 public enum GlobalCounter {
     INSTANCE;
     private AtomicLong atomicLong = new AtomicLong(0);
@@ -352,7 +352,7 @@ public enum GlobalCounter {
 
 事实上，我们想要阻止其他人构造实例仅仅私有化构造器还是不够的，因为我们还可以使用反射获取私有构造器进行构造，当然使用枚举的方式是可以解决这个问题的，对于其他的书写方案，我们通过下边的方式解决：
 
-```
+```java
 public class Singleton {
     private volatile static Singleton singleton;
     private Singleton (){
@@ -376,7 +376,7 @@ public class Singleton {
 
 此时方法如下
 
-```
+```java
 @Test
 public void testReflect() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
     Class<DclSingleton> clazz = DclSingleton.class;
@@ -396,7 +396,7 @@ public void testReflect() throws NoSuchMethodException, InvocationTargetExceptio
 
 事实上，到目前为止，此时单例依然是有漏洞的，看如下代码：
 
-```
+```java
 @Test
 public void testSerialize() throws IllegalAccessException, NoSuchMethodException, IOException, ClassNotFoundException {
     // 获取单例并序列化
@@ -419,7 +419,7 @@ public void testSerialize() throws IllegalAccessException, NoSuchMethodException
 
 readResolve()方法可以用于替换从流中读取的对象，在进行反序列化时，会尝试执行readResolve方法，并将返回值作为反序列化的结果，而不会克隆一个新的实例，保证jvm中仅仅有一个实例存在：
 
-```
+```java
 public class Singleton implements Serializable {
     
     // 省略其他的内容
@@ -445,7 +445,7 @@ public class Singleton implements Serializable {
 
 jdk中有一个类的实现是一个标准单例模式->**Runtime类**，该类封装了运行时的环境。每个 Java 应用程序都有一个 Runtime 类实例，使应用程序能够与其运行的环境相连接。 一般不能实例化一个Runtime对象，应用程序也不能创建自己的 Runtime 类实例，但可以通过 getRuntime 方法获取当前Runtime运行时对象的引用。
 
-```
+```java
 public class Runtime {
 
     // 典型的饿汉式
@@ -486,7 +486,7 @@ public class Runtime {
 
 Mybaits中的org.apache.ibatis.io.VFS使用到了单例模式。VFS就是Virtual File System的意思，mybatis通过VFS来查找指定路径下的资源。查看VFS以及它的实现类，不难发现，VFS的角色就是对更“底层”的查找指定资源的方法的封装，将复杂的“底层”操作封装到易于使用的高层模块中，方便使用者使用
 
-```
+```java
 public class public abstract class VFS {
     // 使用了内部类
     private static class VFSHolder {
@@ -541,7 +541,7 @@ OOP 的三大特性是**封装、继承、多态**。单例将**构造私有化*
 上面说的单例类对象是进程唯一的，一个进程只能有一个单例对象。那如何实现一个线程唯一的单例呢？  
 如果在不允许使用**ThreadLocal**的时候我们可能想到如下的解决方案，定义一个全局的线程安全的**ConcurrentHashMap**，以线程id为key，以实例为value，每个线程的存取都从共享的map中进行操作，代码如下：
 
-```
+```java
 public class Connection {
     private static final ConcurrentHashMap<Long, Connection> instances
             = new ConcurrentHashMap<>();
@@ -558,7 +558,7 @@ public class Connection {
 
 - 在spring使用ThreadLocal对当前线程和一个连接资源进行绑定，实现事务管理：
 
-```
+```java
 public abstract class TransactionSynchronizationManager {
     // 本地线程中保存了当前的连接资源，key(datasource)--> value(connection)
 	private static final ThreadLocal<Map<Object, Object>> resources =
@@ -582,7 +582,7 @@ public abstract class TransactionSynchronizationManager {
 
 - 在spring中使用RequestContextHolder，可以再一个线程中轻松的获取request、response和session。如果将来我们在静态方法，切面中想获取一个request对象就可以使用这个类。
 
-```
+```java
 public abstract class RequestContextHolder {
 
     private static final ThreadLocal<RequestAttributes> requestAttributesHolder = new NamedThreadLocal("Request attributes");
@@ -603,7 +603,7 @@ public abstract class RequestContextHolder {
 
 - 在pageHelper使用ThreadLocal保存分页对象：
 
-```
+```java
 public abstract class PageMethod {
     protected static final ThreadLocal<Page> LOCAL_PAGE = new ThreadLocal<Page>();
     protected static boolean DEFAULT_COUNT = true;
@@ -639,7 +639,7 @@ public abstract class PageMethod {
 
 首先，我们定义一个**策略接口**`Operation`：
 
-```
+```java
 public interface Operation {
     double execute(double num1, double num2);
 }
@@ -647,7 +647,7 @@ public interface Operation {
 
 接下来创建**具体策略类**实现加法、减法和乘法运算：
 
-```
+```java
 public class Addition implements Operation {
     @Override
     public double execute(double num1, double num2) {
@@ -672,7 +672,7 @@ public class Multiplication implements Operation {
 
 然后创建一个**上下文类**`Calculator`，让客户端可以使用这个类来执行不同的运算：
 
-```
+```java
 public class Calculator {
     private Operation operation;
 
@@ -688,7 +688,7 @@ public class Calculator {
 
 然后执行不同的运算
 
-```
+```java
 public class Client {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
@@ -715,7 +715,7 @@ public class Client {
 
 策略类的定义比较简单，包含一个策略接口和一组实现这个接口的策略类。因为所有的策略类都实现相同的接口，所以，客户端代码基于接口而非实现编程，可以灵活地替换不同的策略。示例代码如下所示：
 
-```
+```java
 public interface Strategy {
     void algorithmInterface();
 }
@@ -738,7 +738,7 @@ public class ConcreteStrategyB implements Strategy {
 因为策略模式会**包含一组策略**，在使用它们的时候，一般会**通过类型（type）来判断创建哪个策略来使用**。为了封装创建逻辑，我们需要对客户端代码屏蔽创建细节。  
 事实上我们可以做一定的优化，可以把根据 type 创建策略的逻辑抽离出来，放到工厂类中。示例代码如下所示：
 
-```
+```java
 public class StrategyFactory {
     private static final Map<String, Strategy> strategies = new HashMap<>();
     static {
@@ -757,7 +757,7 @@ public class StrategyFactory {
 一般来讲，如果**策略类是无状态的，不包含成员变量，只是纯粹的算法实现**，这样的策略对象是可以被共享使用的，不需要在每次调用 getStrategy() 的时候，都创建一个新的策略对象。针对这种情况，我们可以使用上面**这种工厂类的实现方式**，事先创建好每个策略对象，缓存到工厂类中，用的时候直接返回。  
 相反，如果策略类是有状态的，根据业务场景的需要，我们希望每次从工厂方法中，获得的都是新创建的策略对象，而不是缓存好可共享的策略对象，那我们就需要按照如下方式来实现策略工厂类。
 
-```
+```java
 public class StrategyFactory {
     public static Strategy getStrategy(String type) {
         if (type == null || type.isEmpty()) {
@@ -781,7 +781,7 @@ public class StrategyFactory {
 我们知道，策略模式包含一组可选策略，客户端代码一般如何确定使用哪个策略呢？最常见的是运行时动态确定使用哪种策略，这也是策略模式最典型的应用场景。  
 这里的“运行时动态”指的是，我们事先并不知道会使用哪个策略，而是在程序运行期间，根据配置、用户输入、计算结果等这些不确定因素，动态决定使用哪种策略。接下来，我们通过一个例子来解释一下。
 
-```
+```java
 // 策略接口：EvictionStrategy
 // 策略类：LruEvictionStrategy、FifoEvictionStrategy、LfuEvictionStrategy...
 // 策略工厂：EvictionStrategyFactory
@@ -826,7 +826,7 @@ public class Application {
 
 假设我们现在有这么一个大量if分支的报文解析系统代码
 
-```
+```java
 public class MessageParser {
     public void parseMessage(Message message) {
         String messageType = message.getType();
@@ -851,7 +851,7 @@ public class MessageParser {
 
 先定义一个策略接口`MessageParserStrategy`：
 
-```
+```java
 public interface MessageParserStrategy {
     // 解析报文内容的方法，输入一个 Message 对象，无返回值
     void parse(Message message);
@@ -860,7 +860,7 @@ public interface MessageParserStrategy {
 
 然后，实现具体实现类
 
-```
+```java
 // XML 报文解析策略
 public class XmlMessageParserStrategy implements MessageParserStrategy {
     @Override
@@ -888,7 +888,7 @@ public class CsvMessageParserStrategy implements MessageParserStrategy {
 
 接下来创建一个上下文类`MessageParserContext`
 
-```
+```java
 public class MessageParserContext {
     private MessageParserStrategy strategy;
 
@@ -906,7 +906,7 @@ public class MessageParserContext {
 
 最近使用策略模式进行报文解析
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         MessageParserContext parserContext = new MessageParserContext();
@@ -931,7 +931,7 @@ public class Main {
 我们可以将策略模式与工厂模式结合，以便根据不同的消息类型自动匹配不同的解析策略。下面是如何实现这个优化的：  
 首先，我们创建一个`MessageParserStrategyFactory`类，用于根据报文类型创建相应的解析策略：
 
-```
+```java
 public class MessageParserStrategyFactory {
     private static final Map<String, MessageParserStrategy> strategies = new HashMap<>();
 
@@ -953,7 +953,7 @@ public class MessageParserStrategyFactory {
 
 接下来修改`MessageParserContext`类，使其根据报文类型自动选择解析策略：
 
-```
+```java
 public class MessageParserContext {
     public void parseMessage(Message message) {
         MessageParserStrategy strategy = MessageParserStrategyFactory.getStrategy(message.getType());
@@ -964,7 +964,7 @@ public class MessageParserContext {
 
 现在，我们的代码可以根据不同的消息类型自动匹配不同的解析策略，而无需手动设置策略。以下是使用此优化的示例：
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         MessageParserContext parserContext = new MessageParserContext();
@@ -1001,7 +1001,7 @@ public class Main {
 
 首先，`Executor`接口是策略接口，定义了执行SQL语句的公共方法。以下是简化后的`Executor`接口：
 
-```
+```java
 public interface Executor {
 
   <E> List<E> query(MappedStatement ms, Object parameter) throws SQLException;
@@ -1016,7 +1016,7 @@ public interface Executor {
 
 （1）`SimpleExecutor`：简单执行器，每次执行SQL都会创建一个新的预处理语句（`PreparedStatement`）。
 
-```
+```java
 public class SimpleExecutor extends BaseExecutor {
 
   @Override
@@ -1035,7 +1035,7 @@ public class SimpleExecutor extends BaseExecutor {
 
 （2）`ReuseExecutor`：重用执行器，会尽量重用预处理语句（`PreparedStatement`），以减少创建和销毁预处理语句的开销。
 
-```
+```java
 public class ReuseExecutor extends BaseExecutor {
 
     @Override
@@ -1054,7 +1054,7 @@ public class ReuseExecutor extends BaseExecutor {
 
 （3）`BatchExecutor`：批处理执行器，可以将多个SQL语句一起发送到数据库服务器，减少网络开销。
 
-```
+```java
 public class BatchExecutor extends BaseExecutor {
 
     @Override
@@ -1073,7 +1073,7 @@ public class BatchExecutor extends BaseExecutor {
 
 客户端可以通过配置选择使用哪种执行策略。在MyBatis配置文件（`mybatis-config.xml`）中，我们可以设置`<setting>`标签的`defaultExecutorType`属性来指定执行器类型：
 
-```
+```xml
 <settings>
   <setting name="defaultExecutorType" value="SIMPLE" />
   <!-- 可选值：SIMPLE, REUSE, BATCH -->
@@ -1090,7 +1090,7 @@ public class BatchExecutor extends BaseExecutor {
 
 首先，定义`Student`类：
 
-```
+```java
 public class Student {
     private String name;
     private int age;
@@ -1102,7 +1102,7 @@ public class Student {
 
 然后，实现`Comparator`接口，定义不同的比较策略：
 
-```
+```java
 public class NameComparator implements Comparator<Student> {
     @Override
     public int compare(Student s1, Student s2) {
@@ -1129,7 +1129,7 @@ public class ScoreComparator implements Comparator<Student> {
 
 最后，在客户端代码中，根据需要选择和使用不同的比较策略：
 
-```
+```java
 public class Client {
     public static void main(String[] args) {
         // 创建一个Student对象的列表

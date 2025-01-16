@@ -48,7 +48,7 @@ tags:
 - **避免使用select**，尽量明确指定需要查询的字段，减少数据库返回的数据量，提升查询性能
 - **减少子查询和连接操作**，过的子查询和连接操作会增加查询的复杂度和执行时间，可以使用JOIN替代子查询或者优化连接条件。例如：
 
-```
+```sql
 -- 子查询示例
 SELECT column1 FROM your_table WHERE id IN (SELECT id FROM another_table WHERE some_condition);
 -- 优化为JOIN
@@ -93,7 +93,7 @@ explain主要用来SQL分析，主要的属性详解如下
 
 为了更好的测试不同的数据信息，建了一个表
 
-```
+```sql
 -- 创建一个名为example1的表
 CREATE TABLE example1 (
                          id INT NOT NULL,
@@ -131,7 +131,7 @@ CREATE TABLE example2(
 
 并制造了500条测试数据
 
-```
+```java
 package com.muzi.easychat;
 
 import java.sql.Connection;
@@ -340,7 +340,7 @@ MySQL是使用了`嵌套循环`（`Nested-Loop Join`）的方式来实现关联�
 
 - 调整存储引擎使用的I/O线程数量（通常这两个参数设置为CPU核心数的一半）
 
-```
+```sql
 SET GLOBAL innodb_read_io_threads=4;
 SET GLOBAL innodb_write_io_threads=4;
 ```

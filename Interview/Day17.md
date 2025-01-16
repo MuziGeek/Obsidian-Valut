@@ -61,7 +61,7 @@ tags:
 
 这里我们使用比较经典的双检锁进行实例的实现。
 
-```
+```java
 public class DclSingleton {  
     // volatile如果不加可能会出现半初始化的对象
     // 现在用的高版本的 Java 已经在 JDK 内部实现中解决了这个问题（解决的方法很简单，只要把对象 new 操作和初始化操作设计为原子操作，就自然能禁止重排序）,为了兼容性我们加上
@@ -106,7 +106,7 @@ public class DclSingleton {
 
 以工厂方法为例，通过配置加载工厂对象
 
-```
+```java
 http=com.muzi.factoryMethod.resourceFactory.impl.HttpResourceLoader
 file=com.muzi.factoryMethod.resourceFactory.impl.FileResourceLoader
 classpath=com.muzi.factoryMethod.resourceFactory.impl.ClassPathResourceLoader
@@ -115,7 +115,7 @@ default=com.muzi.factoryMethod.resourceFactory.impl.DefaultResourceLoader
 
 加载配置类，初始化工厂对象
 
-```
+```java
 static {
     InputStream inputStream = Thread.currentThread().getContextClassLoader()
         .getResourceAsStream("resourceLoader.properties");
@@ -137,7 +137,7 @@ static {
 
 构造抽象产品类
 
-```
+```java
 public abstract class AbstractResource {
 
     private String url;
@@ -162,7 +162,7 @@ public abstract class AbstractResource {
 
 通过继承抽象产品类进行具体的实现
 
-```
+```java
 public class ClasspathResource extends AbstractResource {
 
     public ClasspathResource() {
@@ -181,7 +181,7 @@ public class ClasspathResource extends AbstractResource {
 
 同时，加入生成不同类型的产品也需要继承抽象产品类，工厂类也需要面向产品的抽象进行编程
 
-```
+```java
 public class ClassPathResourceLoader implements IResourceLoader {
     @Override
     public AbstractResource load(String url) {
@@ -193,7 +193,7 @@ public class ClassPathResourceLoader implements IResourceLoader {
 
 编写测试用例
 
-```
+```java
 @Test
 public void testFactoryMethod(){
     String url = "file://D://a.txt";
@@ -231,7 +231,7 @@ public void testFactoryMethod(){
 
 ##### 示例
 
-```
+```java
 public class HtmlDocument {
     private String header = "";
     private String body = "";
@@ -285,7 +285,7 @@ public class HtmlDocument {
 
 构造HTML文档对象
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         HtmlDocument.ArticleBuilder builder = new HtmlDocument.ArticleBuilder();
@@ -331,7 +331,7 @@ public class Main {
 
 类适配器**使用继承来实现适配器功能。适配器类继承了原有的类（Adaptee）并实现了目标接口（Target）**。
 
-```
+```java
 // 目标接口
 interface Target {
     void request();
@@ -362,7 +362,7 @@ public class ClassAdapterExample {
 
 对象适配器**使用组合来实现适配器功能**。适配器类包含一个**原有类的实例（Adaptee）并实现了目标接口（Target）**。
 
-```
+```java
 // 目标接口
 interface Target {
     void request();
@@ -427,7 +427,7 @@ public class ObjectAdapterExample {
 
 首先，我们定义一个数据查询接口：
 
-```
+```java
 public interface DataQuery {
     String query(String queryKey);
 }
@@ -435,7 +435,7 @@ public interface DataQuery {
 
 然后，实现一个真实的数据查询类，它从数据库中检索数据：
 
-```
+```java
 public class DatabaseDataQuery implements DataQuery {
     @Override
     public String query(String queryKey) {
@@ -447,7 +447,7 @@ public class DatabaseDataQuery implements DataQuery {
 
 接下来，我们创建一个缓存代理类，它实现了 DataQuery 接口，并在内部使用 HashMap 作为缓存：
 
-```
+```java
 public class CachingDataQueryProxy implements DataQuery {
     private final DataQuery realDataQuery;
     private final Map<String, String> cache;
@@ -474,7 +474,7 @@ public class CachingDataQueryProxy implements DataQuery {
 
 最后，我们可以在客户端代码中使用缓存代理：
 
-```
+```java
 public class Client {
     public static void main(String[] args) {
         DataQuery realDataQuery = new DatabaseDataQuery();
@@ -518,7 +518,7 @@ public class Client {
 
 1、定义一个接口或抽象类，作为被装饰对象的基类。
 
-```
+```java
 public interface Component {
     void operation();
 }
@@ -528,7 +528,7 @@ public interface Component {
 
 2、定义一个具体的被装饰对象，实现基类中的方法。
 
-```
+```java
 public class ConcreteComponent implements Component {
     @Override
     public void operation() {
@@ -541,7 +541,7 @@ public class ConcreteComponent implements Component {
 
 3、定义一个抽象装饰器类，继承基类，并将被装饰对象作为属性。
 
-```
+```java
 public abstract class Decorator implements Component {
 
     protected Component component;
@@ -561,7 +561,7 @@ public abstract class Decorator implements Component {
 
 4、定义具体的装饰器类，继承抽象装饰器类，并实现增强逻辑。
 
-```
+```java
 public class ConcreteDecoratorA extends Decorator {
 
     public ConcreteDecoratorA(Component component) {
@@ -580,7 +580,7 @@ public class ConcreteDecoratorA extends Decorator {
 
 5、使用装饰器增强被装饰对象。
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         Component component = new ConcreteComponent();
@@ -594,14 +594,13 @@ public class Main {
 
 ##### 应用场景
 
-|   |   |   |
-|---|---|---|
-|增强现有对象功能|为文件输入输出操作添加功能|在不修改原始文件操作类的基础上，添加缓冲、加密等功能|
-|增强现有对象功能|为图形界面组件添加特效|为 GUI 组件添加阴影、发光等特效，丰富界面效果|
-|动态添加或移除功能|游戏角色能力增强|动态为游戏角色添加或移除加速、隐身等特殊能力|
-|动态添加或移除功能|电商系统中订单处理功能扩展|根据业务需求，动态为订单处理添加或移除折扣计算等功能|
-|遵循开闭原则，减少子类数量|日志记录功能扩展|通过装饰器为多个业务逻辑方法添加日志记录功能，减少子类数量|
-|遵循开闭原则，减少子类数量|权限验证功能复用|创建权限验证装饰器，复用权限验证功能，减少代码冗余|
+| 增强现有对象功能      | 为文件输入输出操作添加功能 | 在不修改原始文件操作类的基础上，添加缓冲、加密等功能    |
+| ------------- | ------------- | ----------------------------- |
+| 增强现有对象功能      | 为图形界面组件添加特效   | 为 GUI 组件添加阴影、发光等特效，丰富界面效果     |
+| 动态添加或移除功能     | 游戏角色能力增强      | 动态为游戏角色添加或移除加速、隐身等特殊能力        |
+| 动态添加或移除功能     | 电商系统中订单处理功能扩展 | 根据业务需求，动态为订单处理添加或移除折扣计算等功能    |
+| 遵循开闭原则，减少子类数量 | 日志记录功能扩展      | 通过装饰器为多个业务逻辑方法添加日志记录功能，减少子类数量 |
+| 遵循开闭原则，减少子类数量 | 权限验证功能复用      | 创建权限验证装饰器，复用权限验证功能，减少代码冗余     |
 
 #### 责任链模式
 
@@ -614,7 +613,7 @@ public class Main {
 
 ##### 示例
 
-```
+```java
 public abstract class Handler {
     protected Handler successor = null;
     public void setSuccessor(Handler successor) {
@@ -702,7 +701,7 @@ public class Application {
 
 首先，我们需要创建一个Subject接口，**表示主题**：
 
-```
+```java
 public interface Subject {
     void registerObserver(Observer o);
     void removeObserver(Observer o);
@@ -712,7 +711,7 @@ public interface Subject {
 
 接下来，我们创建一个Observer接口，**表示观察者**：
 
-```
+```java
 public interface Observer {
     void update(float temperature, float humidity, float pressure);
 }
@@ -720,7 +719,7 @@ public interface Observer {
 
 现在，我们创建一个**具体的主题**，如WeatherStation，实现Subject接口：
 
-```
+```java
 public class WeatherStation implements Subject {
     private ArrayList<Observer> observers;
     // 温度
@@ -776,7 +775,7 @@ public class WeatherStation implements Subject {
 
 最后，我们创建一个具体的观察者，如PhoneApp，实现Observer接口：
 
-```
+```java
 public class PhoneApp implements Observer {
     private float temperature;
     private float humidity;
@@ -804,7 +803,7 @@ public class PhoneApp implements Observer {
 
 现在我们可以创建一个WeatherStation实例并向其注册PhoneApp观察者。当WeatherStation的数据发生变化时，PhoneApp会收到通知并更新自己的显示。
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         WeatherStation weatherStation = new WeatherStation();
@@ -860,7 +859,7 @@ public class Main {
 
 首先，我们定义一个策略接口`Operation`：
 
-```
+```java
 public interface Operation {
     double execute(double num1, double num2);
 }
@@ -868,7 +867,7 @@ public interface Operation {
 
 接下来，我们创建具体策略类来实现加法、减法和乘法运算：
 
-```
+```java
 public class Addition implements Operation {
     @Override
     public double execute(double num1, double num2) {
@@ -893,7 +892,7 @@ public class Multiplication implements Operation {
 
 然后，我们创建一个上下文类`Calculator`，让客户端可以使用这个类来执行不同的运算：
 
-```
+```java
 public class Calculator {
     private Operation operation;
 
@@ -909,7 +908,7 @@ public class Calculator {
 
 现在，客户端可以使用`Calculator`类来执行不同的运算，例如：
 
-```
+```java
 public class Client {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
@@ -928,14 +927,13 @@ public class Client {
 
 ##### 应用场景
 
-|   |   |   |
-|---|---|---|
-|算法多样化且需要动态切换|游戏中的角色行为|不同角色的攻击、移动等行为可通过切换策略改变|
-|算法多样化且需要动态切换|电商系统中的促销活动|不同促销活动采用不同策略计算商品价格|
-|代码复用与维护|数据排序算法|不同排序算法封装成策略类，提高复用性和可维护性|
-|代码复用与维护|文件格式转换|不同文件格式转换逻辑封装成策略类，方便扩展|
-|条件判断逻辑复杂|用户权限控制|不同角色的权限控制逻辑封装成策略类，简化判断|
-|条件判断逻辑复杂|订单处理流程|不同订单类型和条件下的处理逻辑封装成策略类，优化代码|
+| 算法多样化且需要动态切换 | 游戏中的角色行为   | 不同角色的攻击、移动等行为可通过切换策略改变     |
+| ------------ | ---------- | -------------------------- |
+| 算法多样化且需要动态切换 | 电商系统中的促销活动 | 不同促销活动采用不同策略计算商品价格         |
+| 代码复用与维护      | 数据排序算法     | 不同排序算法封装成策略类，提高复用性和可维护性    |
+| 代码复用与维护      | 文件格式转换     | 不同文件格式转换逻辑封装成策略类，方便扩展      |
+| 条件判断逻辑复杂     | 用户权限控制     | 不同角色的权限控制逻辑封装成策略类，简化判断     |
+| 条件判断逻辑复杂     | 订单处理流程     | 不同订单类型和条件下的处理逻辑封装成策略类，优化代码 |
 
 #### 模板方法模式
 
@@ -949,7 +947,7 @@ public class Client {
 
 1、首先，创建一个抽象类，定义算法的骨架：
 
-```
+```java
 public abstract class AbstractTemplate {
     // 模板方法，定义算法的骨架
     public final void templateMethod() {
@@ -975,7 +973,7 @@ public abstract class AbstractTemplate {
 
 2、然后，创建具体的子类，实现抽象类中定义的抽象方法：
 
-```
+```java
 public class ConcreteTemplateA extends AbstractTemplate {
     @Override
     protected void step2() {
@@ -993,7 +991,7 @@ public class ConcreteTemplateB extends AbstractTemplate {
 
 3、最后，在客户端代码中使用模板方法：
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         AbstractTemplate templateA = new ConcreteTemplateA();
@@ -1010,7 +1008,7 @@ public class Main {
 
 运行上面的程序，输出如下：
 
-```
+```java
 Using Template A:
 Step 1: Prepare the ingredients.
 Step 2 (A): Cook the dish using method A.
@@ -1082,7 +1080,7 @@ Step 3: Serve the dish.
 
 1. **定义汽车接口**
 
-```
+```java
 // 汽车接口
 interface Car {
     void drive();
@@ -1091,7 +1089,7 @@ interface Car {
 
 1. **实现具体的汽车类**
 
-```
+```java
 // 具体的汽车类：宝马
 class BMW implements Car {
     @Override
@@ -1111,7 +1109,7 @@ class Mercedes implements Car {
 
 1. **创建汽车工厂类**
 
-```
+```java
 // 汽车工厂类
 class CarFactory {
     public Car createCar(String carType) {
@@ -1127,7 +1125,7 @@ class CarFactory {
 
 1. **使用汽车工厂创建汽车**
 
-```
+```java
 // 测试代码
 public class FactoryPatternCarExample {
     public static void main(String[] args) {
@@ -1149,7 +1147,7 @@ public class FactoryPatternCarExample {
 
 1. **定义汽车接口和不同类型的汽车接口**
 
-```
+```java
 // 汽车接口
 interface Car {
     void drive();
@@ -1166,7 +1164,7 @@ interface SedanCar extends Car {
 
 1. **实现具体的汽车类**
 
-```
+```java
 // 具体的 SUV 汽车类：宝马 X5
 class BMWX5 implements SUVCar {
     @Override
@@ -1202,7 +1200,7 @@ class MercedesEClass implements SedanCar {
 
 1. **定义抽象汽车工厂接口**
 
-```
+```java
 // 抽象汽车工厂接口
 interface CarAbstractFactory {
     SUVCar createSUVCar();
@@ -1212,7 +1210,7 @@ interface CarAbstractFactory {
 
 1. **实现具体的汽车工厂类**
 
-```
+```java
 // 宝马汽车工厂
 class BMWCarFactory implements CarAbstractFactory {
     @Override
@@ -1242,7 +1240,7 @@ class MercedesCarFactory implements CarAbstractFactory {
 
 1. **使用抽象汽车工厂创建汽车**
 
-```
+```java
 // 测试代码
 public class AbstractFactoryPatternCarExample {
     public static void main(String[] args) {
