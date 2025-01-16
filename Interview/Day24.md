@@ -1,32 +1,35 @@
 ---
 title: Day24
 date: 2025-01-16 21:43:49
-categories: 
-- [学习成长, 编程, 面试训练营]
+categories:
+  - - 学习成长
+    - 编程
+    - 面试训练营
 tags:
+  - 操作系统
 ---
 ## I/O模型有哪些?
 
 ### 总结分析
 
-|   |   |
-|---|---|
-|**I/O 模型**|**特点**|
-|阻塞 I/O|调用 I/O 操作时进程阻塞，直到数据准备好或操作完成才继续执行|
-|非阻塞 I/O|I/O 操作不阻塞进程，数据未准备好立即返回错误或状态，进程可继续执行其他操作|
-|I/O 多路复用|使用 select、poll、epoll 等系统调用，可同时等待多个 I/O 操作，有就绪的就进行处理|
-|信号驱动 I/O|数据准备好时，内核发信号通知进程进行 I/O 操作，进程接收到信号后再读写数据|
-|异步 I/O|发起 I/O 请求后立即返回，内核后台完成 I/O 操作，完成时通知进程，进程无需等待 I/O 完成可执行其他任务|
+| **I/O 模型** | **特点**                                                    |
+| ---------- | --------------------------------------------------------- |
+| 阻塞 I/O     | 调用 I/O 操作时进程阻塞，直到数据准备好或操作完成才继续执行                          |
+| 非阻塞 I/O    | I/O 操作不阻塞进程，数据未准备好立即返回错误或状态，进程可继续执行其他操作                   |
+| I/O 多路复用   | 使用 select、poll、epoll 等系统调用，可同时等待多个 I/O 操作，有就绪的就进行处理       |
+| 信号驱动 I/O   | 数据准备好时，内核发信号通知进程进行 I/O 操作，进程接收到信号后再读写数据                   |
+| 异步 I/O     | 发起 I/O 请求后立即返回，内核后台完成 I/O 操作，完成时通知进程，进程无需等待 I/O 完成可执行其他任务 |
 
 ### 深入研究五种I/O模型（看完包会）
 
 想要深入的理解各种IO模型，我们首先必须了解产生各种IO的原因，其中的本质问题就是一个消息是如何传递的。（之前题解，用户从输入网址到网站显示期间发生了什么？也有提到过，通过一张图片回顾下）
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1736857046327-53d2e99a-9fcb-4d93-8ab8-fab7c270f5f9.png?x-oss-process=image%2Fformat%2Cwebp%2Fresize%2Cw_750%2Climit_0)
+![image.png](https://cdn.easymuzi.cn/img/20250117003756789.png)
 
 以两个应用程序通讯为例，假设应用程序A向应用程序B发送一条消息，简单来说会经过如下流程（简化）：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737029838742-6b68a9cb-8240-4028-8bb0-9d35a0fa4398.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003803125.png)
+
 
 通过上图我们可以了解到基本的消息发送流程，那么我们就继续深入挖掘IO不同的模型是如何实现的
 
@@ -36,7 +39,8 @@ tags:
 
 **阻塞IO流程**
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737030237139-14a65867-e645-45ce-9f08-f78e89cd16c7.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003809227.png)
+
 
 1. 应用程序（application）发起`recvfrom`系统调用（system call），请求接收数据报（datagram）。
 2. 此时内核（Kernel）中没有准备好的数据报（no datagram ready），所以应用程序的进程会被阻塞（process blocks in call to recvfrom），等待数据。
@@ -45,13 +49,12 @@ tags:
 
 **阻塞IO模型的特点**
 
-|   |   |
-|---|---|
-|**特点**|**说明**|
-|实现和使用|简单，易于实现和使用|
-|数据情况|数据未准备好或无法立即发送时，用户进程阻塞|
-|性能影响|数据传输时用户进程占用 CPU 时间片，限制应用程序性能和可伸缩性|
-|适用场景|适用于单线程、同步、串行的应用程序，如文件传输、打印机等|
+| **特点** | **说明**                            |
+| ------ | --------------------------------- |
+| 实现和使用  | 简单，易于实现和使用                        |
+| 数据情况   | 数据未准备好或无法立即发送时，用户进程阻塞             |
+| 性能影响   | 数据传输时用户进程占用 CPU 时间片，限制应用程序性能和可伸缩性 |
+| 适用场景   | 适用于单线程、同步、串行的应用程序，如文件传输、打印机等      |
 
 ### 非阻塞IO模型
 
@@ -64,7 +67,7 @@ tags:
 
 **非阻塞IO流程**
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737030904059-c37ccee9-f497-4bd3-840a-7f90f4d7834c.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003822427.png)
 
 **应用程序（application）端：**
 
@@ -84,7 +87,7 @@ tags:
 - 非阻塞 I/O 下不阻塞，无新连接请求时立即返回 -1，设置 `errno` 为 `EAGAIN` 或 `EWOULDBLOCK`。
 - 常与 `select`、`poll`、`epoll` 等 I/O 多路复用机制配合，处理新连接时可将客户端套接字设为非阻塞模式，需谨慎处理返回值和错误码，避免死循环或错误逻辑，可使用状态机处理 I/O 事件。
 
-```
+```c
 #include <sys/socket.h>
 int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 ```
@@ -97,7 +100,7 @@ int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
 
 - 非阻塞 I/O 下立即返回，无数据时返回 -1，`errno` 设为 `EAGAIN` 或 `EWOULDBLOCK`。
 
-```
+```c
 #include <unistd.h>
 ssize_t read(int fd, void *buf, size_t count);
 ```
@@ -110,7 +113,8 @@ ssize_t read(int fd, void *buf, size_t count);
 
 了解前，首先思考一个问题，假设在并发的环境中，可能会有多个应用程序向应用B发送消息数据，那么这种情况应用B就必须创建多个线程去读取数据，此时的情况如下图：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737032074587-108ad56d-654b-4902-8d58-c7ea9038aa2a.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003839661.png)
+
 
 如上图，并发情况下服务器可能瞬间收到大量的请求，这种情况下应用B就需要创建大量的线程去读取数据，同时又因为应用线程不知道什么时候会有数据读取，为了保证消息数据能够即使读取到，那么这些线程就必须不断轮询向内核发送请求来读取数据。
 
@@ -118,13 +122,15 @@ ssize_t read(int fd, void *buf, size_t count);
 
 那如果可以由一个线程监控多个网络请求（在linux系统中把所有的网络请求以一个fd文件描述符来标识），这样的话只需要一个或者少量的线程就可以完成数据状态询问的操作，当数据准备就绪之后再分配对应的线程去读取数据，这样就可以节省出大量的线程资源出来。没错上面就是IO复用模型的思路。
 
-![](https://cdn.nlark.com/yuque/0/2025/jpeg/26566882/1737032751874-930099f0-6fa2-4cc8-b2e1-f0c43cd22c91.jpeg)
+![image.png](https://cdn.easymuzi.cn/img/20250117003845326.png)
+
 
 如上图所示，IO复用模型的思路就是系统提供了一种函数可以同时监控多个fd的操作，这个函数一般就是我们常说的`select`、`poll`、`epoll`函数（后面再仔细了解），应用线程通过调用select函数就可以同时监控多个fd，只要其中有任何一个数据状态准备就绪，selet函数就会返回可读状态，然后询问线程再去通知处理数据的线程，对应的线程再发起请求去读取数据。
 
 **多路复用IO流程如下**
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737032609588-1ea1cb84-c21c-4a7e-8c31-fa9abde63a84.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003850983.png)
+
 
 **应用程序（application）端**：
 
@@ -147,11 +153,13 @@ ssize_t read(int fd, void *buf, size_t count);
 
 信号驱动IO通过调用`sigaction`的时候建立一个`SIGIO`的信号联系，当内核数据准备就绪后再通过SIGIO通知线程数据准备好的可读状态，然后线程收到信号后再向内核发起读取数据的请求，因为这种情况下也不会发生阻塞，所以一个应用线程也可以同时监控多个fd
 
-![](https://cdn.nlark.com/yuque/0/2025/jpeg/26566882/1737033738027-b71629df-0a54-4b30-bb68-335f8f05d755.jpeg)
+![image.png](https://cdn.easymuzi.cn/img/20250117003858703.png)
+
 
 **信号驱动IO的流程**
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737033794172-5630b88e-350d-4501-980a-20a4e15b6767.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003908022.png)
+
 
 **应用程序（application）端**：
 
@@ -166,11 +174,10 @@ ssize_t read(int fd, void *buf, size_t count);
 2. 当数据报准备好后，内核向应用程序发送`sigio`信号，通知应用程序可以进行数据接收操作。
 3. 在`recvfrom`调用时，内核负责将数据报从内核空间复制到用户空间。
 
-|   |   |
-|---|---|
-|**类型**|**内容**|
-|优点|可避免处理多个描述符时阻塞进程，提高并发性能与响应能力；避免轮询机制开销，减少 CPU 占用|
-|缺点|信号处理耗时，不适合高速 I/O 操作；信号不可靠，可能丢失；多个描述符切换时可能出现竞争条件和死锁问题|
+| **类型** | **内容**                                               |
+| ------ | ---------------------------------------------------- |
+| 优点     | 可避免处理多个描述符时阻塞进程，提高并发性能与响应能力；避免轮询机制开销，减少 CPU 占用       |
+| 缺点     | 信号处理耗时，不适合高速 I/O 操作；信号不可靠，可能丢失；多个描述符切换时可能出现竞争条件和死锁问题 |
 
 ### 异步IO
 
@@ -180,11 +187,13 @@ ssize_t read(int fd, void *buf, size_t count);
 
 所以就有这种方案，应用只需要向内核发送一个read请求，告诉内核要读取数据然后即刻返回。内核收到请求后会建立一个信号联系，当数据准备就绪后，会主动把数据从内核复制到用户空间，等到所有操作完成后，内核会通知告诉应用。上面就是异步IO的思路。
 
-![](https://cdn.nlark.com/yuque/0/2025/jpeg/26566882/1737034380644-2ca2af5c-3ac1-41bc-b0b6-ea2c765f2e26.jpeg)
+![image.png](https://cdn.easymuzi.cn/img/20250117003918294.png)
+
 
 **异步IO的流程如下**
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737034454998-343e6986-54a1-4b6a-a2de-d7eca1905d10.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003922364.png)
+
 
 **应用程序（application）端：**
 
@@ -200,14 +209,13 @@ ssize_t read(int fd, void *buf, size_t count);
 
 ### 五种IO模型针对阻塞对比
 
-|   |   |   |
-|---|---|---|
-|**IO 模型**|**是否阻塞**|**说明**|
-|阻塞 I/O（Blocking I/O）|是|调用 I/O 操作（如`recvfrom`<br><br>）时，进程会一直阻塞，直到数据准备好并完成复制到用户空间才返回|
-|非阻塞 I/O（Non-blocking I/O）|否|调用 I/O 操作（如`recvfrom`<br><br>）时，如果数据未准备好，立即返回错误或状态，进程可继续执行其他操作，但通常需要轮询检查数据是否就绪|
-|I/O 多路复用（I/O Multiplexing）|调用多路复用函数（如`select`<br><br>、`poll`<br><br>、`epoll_wait`<br><br>）时阻塞|调用多路复用函数时，进程阻塞等待所监听的多个 I/O 事件中有一个或多个就绪，返回后再进行具体 I/O 操作（如`recvfrom`<br><br>）时可能阻塞|
-|信号驱动 I/O（Signal-driven I/O）|调用`recvfrom`<br><br>等接收数据函数时阻塞|设置信号处理程序（`sigaction`<br><br>）时不阻塞，内核数据准备好发送信号后，在信号处理程序中调用接收数据函数时可能阻塞|
-|异步 I/O（Asynchronous I/O）|否|发起 I/O 请求（如`aio_read`<br><br>）后立即返回，进程无需等待 I/O 完成即可继续执行其他任务，内核在后台完成 I/O 操作并在完成时通知进程|
+| **IO 模型**                   | **是否阻塞**                                                           | **说明**                                                                              |
+| --------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| 阻塞 I/O（Blocking I/O）        | 是                                                                  | 调用 I/O 操作（如`recvfrom`<br><br>）时，进程会一直阻塞，直到数据准备好并完成复制到用户空间才返回                        |
+| 非阻塞 I/O（Non-blocking I/O）   | 否                                                                  | 调用 I/O 操作（如`recvfrom`<br><br>）时，如果数据未准备好，立即返回错误或状态，进程可继续执行其他操作，但通常需要轮询检查数据是否就绪      |
+| I/O 多路复用（I/O Multiplexing）  | 调用多路复用函数（如`select`<br><br>、`poll`<br><br>、`epoll_wait`<br><br>）时阻塞 | 调用多路复用函数时，进程阻塞等待所监听的多个 I/O 事件中有一个或多个就绪，返回后再进行具体 I/O 操作（如`recvfrom`<br><br>）时可能阻塞    |
+| 信号驱动 I/O（Signal-driven I/O） | 调用`recvfrom`<br><br>等接收数据函数时阻塞                                     | 设置信号处理程序（`sigaction`<br><br>）时不阻塞，内核数据准备好发送信号后，在信号处理程序中调用接收数据函数时可能阻塞                |
+| 异步 I/O（Asynchronous I/O）    | 否                                                                  | 发起 I/O 请求（如`aio_read`<br><br>）后立即返回，进程无需等待 I/O 完成即可继续执行其他任务，内核在后台完成 I/O 操作并在完成时通知进程 |
 
 ## select、poll、epoll之间有什么区别？
 
@@ -240,7 +248,7 @@ ssize_t read(int fd, void *buf, size_t count);
 
 #### select函数分析
 
-```
+```c
 int select(int maxfdp1,fd_set *readset,fd_set *writeset,fd_set *exceptset,const struct timeval *timeout);
 ```
 
@@ -280,7 +288,7 @@ int select(int maxfdp1,fd_set *readset,fd_set *writeset,fd_set *exceptset,const 
 - 指向 `struct timeval` 类型的指针，用于设置 `select` 的超时时间。
 - `struct timeval` 结构体通常定义如下：
 
-```
+```c
 struct timeval {
     long tv_sec;  // 秒数
     long tv_usec; // 微秒数
@@ -305,7 +313,8 @@ struct timeval {
 
 #### 运行流程如下：
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737037021586-7407c4b2-e905-4c3d-8a3a-be36b8487652.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117003948882.png)
+
 
 #### 优缺点分析
 
@@ -318,7 +327,7 @@ struct timeval {
 
 #### poll函数分析
 
-```
+```c
 int poll(struct pollfd *fds, nfds_t nfds, int timeout);
 ```
 
@@ -353,7 +362,7 @@ int poll(struct pollfd *fds, nfds_t nfds, int timeout);
 
 #### pollfd结构体分析
 
-```
+```c
 typedef struct pollfd {
         int fd;                         // 需要被检测或选择的文件描述符
         short events;                   // 对文件描述符fd上感兴趣的事件
@@ -381,7 +390,7 @@ typedef struct pollfd {
 
 - 可以使用位或操作符 `|` 来组合多个事件。例如，如果想要监视一个文件描述符是否可读和可写，可以这样设置：
 
-```
+```c
 struct pollfd pfd;
 pfd.events = POLLIN | POLLOUT;
 ```
@@ -392,7 +401,7 @@ pfd.events = POLLIN | POLLOUT;
 - 当调用 `poll` 函数后，内核会根据实际发生的情况设置 `revents` 的值。
 - 程序可以通过检查 `revents` 的值，使用 `&` 操作符来判断发生了哪些事件。例如：
 
-```
+```c
 if (pfd.revents & POLLIN) {
     // 文件描述符可读，进行相应操作
 }
@@ -403,13 +412,14 @@ if (pfd.revents & POLLOUT) {
 
 #### 运行流程如下
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737038057596-2cfab426-adb3-4a1a-b178-31326c255ea9.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117004010748.png)
+
 
 ### Epoll
 
 #### **epoll_create 函数**
 
-```
+```c
 int epoll_create(int size);
 ```
 
@@ -420,7 +430,7 @@ int epoll_create(int size);
 
 #### epoll_ctl 函数
 
-```
+```c
 int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
 ```
 
@@ -442,7 +452,7 @@ int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
 
 #### **epoll_wait 函数**
 
-```
+```c
 int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
 ```
 
@@ -463,7 +473,7 @@ int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)
 
 #### epoll_event结构体定义
 
-```
+```c
 struct epoll_event {
      uint32_t events;  // 感兴趣的事件
     epoll_data_t data; // 用户数据
@@ -482,7 +492,8 @@ typedef union epoll_data {
 
 #### 运行流程如下
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737038671603-c1577193-57eb-4f79-b708-4c169ed4bda2.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117004028104.png)
+
 
 ## 为什么网络IO会被阻塞？
 
@@ -496,4 +507,4 @@ typedef union epoll_data {
 | 默认的阻塞行为     | 多数网络 API（如 recv、send、accept 等）默认设置为阻塞模式，调用时条件不满足，调用者会等待，直至 I/O 操作完成 |
 |             |                                                                     |
 
-![](https://cdn.nlark.com/yuque/0/2025/png/26566882/1737040318345-d98b16a9-5ff3-4cc3-8d7c-0363eab4b653.png)
+![image.png](https://cdn.easymuzi.cn/img/20250117004039061.png)

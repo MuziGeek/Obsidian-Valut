@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Interview/Day24.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -137,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Interview/Day24.md"
+                "file": "Config/FileTemp.md"
               },
               "icon": "lucide-list",
-              "title": "Day24 的大纲"
+              "title": "FileTemp 的大纲"
             }
           },
           {
@@ -176,32 +176,32 @@
   },
   "active": "3df22d4e4f026ae2",
   "lastOpenFiles": [
-    "Index/NoteList-Interview.md",
+    "Interview/Day23.md",
     "Interview/Day24.md",
+    "Config/FileTemp.md",
+    "Index/NoteList-Interview.md",
+    "Interview/Day4.md",
+    "Interview/Day6.md",
+    "Interview/Day11.md",
+    "Interview/Day15.md",
+    "Interview/Day19.md",
+    "Interview/Day21.md",
+    "Interview/Day22.md",
+    "Interview/Day1.md",
+    "Interview/Day3.md",
+    "Interview/Day10.md",
     "conflict-files-obsidian-git.md",
     "Excalidraw/Day23-2024-12-30-1405.excalidraw.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Interview/Day2.md",
-    "Interview/Day6.md",
     "Interview/Day9.md",
     "Interview/Day13.md",
     "Interview/Day17.md",
     "Interview/Day20.md",
-    "Interview/Day21.md",
-    "Interview/Day22.md",
-    "Interview/Day23.md",
     "Interview/Day5.md",
     "Interview/Day12.md",
     "Interview/Day16.md",
     "Interview/Day18.md",
-    "Interview/Day19.md",
-    "Interview/Day14.md",
-    "Interview/Day7.md",
-    "Interview/Day1.md",
-    "Interview/Day4.md",
-    "Interview/Day11.md",
-    "Interview/Day10.md",
-    "Interview/Day15.md",
     "Interview",
     "Index",
     "Excalidraw",
