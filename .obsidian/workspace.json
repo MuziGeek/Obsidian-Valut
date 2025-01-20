@@ -11,14 +11,14 @@
             "id": "2d144bd2eac54721",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Interview/Day24.md",
-                "mode": "source",
-                "source": false
+                "aFile": "Interview/Day24.md",
+                "bFile": "Interview/Day24.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Day24"
+              "icon": "diff",
+              "title": "Diff: Day24"
             }
           }
         ]
@@ -176,17 +176,18 @@
   },
   "active": "2d144bd2eac54721",
   "lastOpenFiles": [
-    "Interview/Day23.md",
     "Interview/Day24.md",
-    "Interview/Day22.md",
+    "Interview/Day1.md",
+    "Interview/Day14.md",
+    "Interview/Day16.md",
+    "Interview/Day18.md",
     "Interview/Day21.md",
+    "Interview/Day23.md",
+    "Interview/Day22.md",
     "Interview/Day20.md",
     "Interview/Day19.md",
-    "Interview/Day18.md",
     "Interview/Day17.md",
-    "Interview/Day16.md",
     "Interview/Day15.md",
-    "Interview/Day14.md",
     "Interview/Day13.md",
     "Interview/Day12.md",
     "Interview/Day11.md",
@@ -199,7 +200,6 @@
     "Interview/Day4.md",
     "Interview/Day3.md",
     "Interview/Day2.md",
-    "Interview/Day1.md",
     "Index/NoteList-Interview.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Excalidraw/无标题-2024-12-30-1405.excalidraw",
