@@ -139,5 +139,30 @@ private static final int TERMINATED =  3 << COUNT_BITS;
 ![image.png](https://cdn.easymuzi.cn/img/20250121171136920.png)
 
 ### 线程池的工作流程
+### 线程池源码分析
+关于ThreadPoolExecutor源码，我们从头来分析
+，首先就是一些常量定义
+```java
+private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));  
+private static final int COUNT_BITS = Integer.SIZE - 3;  
+private static final int CAPACITY   = (1 << COUNT_BITS) - 1;  
+  
+// runState is stored in the high-order bits  
+//.....线程状态省略
+  
+// Packing and unpacking ctl  
+private static int runStateOf(int c)     { return c & ~CAPACITY; }  
+private static int workerCountOf(int c)  { return c & CAPACITY; }  
+private static int ctlOf(int rs, int wc) { return rs | wc; }
+```
+线程池中有两个比较重要的参数会决定提交任务时任务的走向，分别是线程池的状态和线程数，但是在ThreadPoolExecutor中使用了一个AtomicInteger类型的整数ctl来表示这两个参数。估计很多人都会疑问，怎么使用一个整数表示两个参数呢，接下来我们就继续分析
+首先因为涉及多线程的操作，所以这里为了保证原子性ctl参数使用了AtomicInteger类型，并且使用ctlOf方法计算出了ctl的初始值。那么是怎么计算的呢？
+int类型在Java中占用4byte的内存，一个byte占用8bit，所以Java中的int类型占用32bit，对于这个32bit，可以进行高低位的拆分，ctl将32位的int拆分位了高3位和低29位，分别表示线程池的运行状态和线程池中的线程个数。
+接下来通过进行位运算来验证一下ctl的工作方式。
+```java
+// 将-1左移29位得到RUNNING状态的值
+private static final int RUNNING = -1 << COUNT_BITS;
+```
+首先看下RUNNING的值为-1左移29位，，在计算机中负数是以其绝对值的补码来表示的，补码是由反码加1得到的，
 
 
