@@ -398,7 +398,7 @@ hiTail = e;
 
 **先上源码**
 
-```
+```java
 final Node<K,V> getNode(Object key) {
     // 存储元素的数组，以及节点引用和相关参数
     Node<K,V>[] tab; Node<K,V> first, e; int n, hash; K k;
