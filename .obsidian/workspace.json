@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e2375178ab4463f5",
+        "id": "f4f34ebef4ee16d3",
         "type": "tabs",
         "children": [
           {
-            "id": "d551d45e3ef333b5",
+            "id": "aba04f515384419a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "38b0bc0f739c3295",
@@ -144,7 +145,7 @@
             }
           },
           {
-            "id": "6d2734b1c3468522",
+            "id": "5c722d3604cf5b87",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -158,7 +159,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 304.5
+    "width": 375.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,44 +175,42 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "d551d45e3ef333b5",
+  "active": "0bfbfa76e1547ead",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
-    "Interview/Day29.md",
-    "Excalidraw/Drawing 2025-01-14 17.14.04.excalidraw.md",
-    "Excalidraw/Day23-2024-12-30-1405.excalidraw.md",
-    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
-    "Interview/Day28.md",
-    "Index/NoteList-Interview.md",
     "Config/FileTemp.md",
-    "Interview/Day12.md",
-    "Interview/Day19.md",
-    "Interview/Day26.md",
+    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
+    "Interview/Day29.md",
+    "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
+    "Interview/Day28.md",
     "Interview/Day24.md",
-    "Interview/Day23.md",
-    "Interview/Day11.md",
+    "conflict-files-obsidian-git.md",
     "Interview/Day27.md",
-    "Interview/Day25.md",
-    "Interview/Day1.md",
-    "Interview/Day14.md",
-    "Interview/Day16.md",
+    "Interview/Day26.md",
     "Interview/Day18.md",
+    "Index/NoteList-Interview.md",
+    "Interview/Day25.md",
+    "Interview/Day11.md",
+    "Interview/Day8.md",
+    "Interview/Day4.md",
+    "Interview/ddd.md",
+    "Interview/未命名.md",
+    "Interview/Day23.md",
+    "Interview/Day6.md",
+    "Interview/Day15.md",
+    "Interview/Day19.md",
     "Interview/Day21.md",
     "Interview/Day22.md",
-    "Interview/Day20.md",
-    "Interview/Day17.md",
-    "Interview/Day15.md",
-    "Interview/Day13.md",
-    "Excalidraw/无标题-2024-12-30-1405.excalidraw",
-    "Excalidraw/Day23-2024-12-30-1405.excalidraw",
-    "未命名",
+    "Interview/Day1.md",
+    "Interview/Day3.md",
+    "Interview/Day10.md",
     "Interview",
-    "面试训练营",
-    "Excalidraw",
     "Index",
-    "Blog",
+    "Excalidraw",
     "Config",
+    "未命名",
+    "Blog",
+    "config",
     "未命名.canvas",
-    "Interview"
+    "面试训练营"
   ]
 }
