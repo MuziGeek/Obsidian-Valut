@@ -307,5 +307,14 @@
       ],
       "key": "6"
     }
+  ],
+  "editing-toolbar:header0-text": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "`"
+    }
   ]
 }
