@@ -5,8 +5,8 @@
   "quick-snippets-and-navigation",
   "quickadd",
   "obsidian-excalidraw-plugin",
-  "markdown-prettifier",
   "cmdr",
   "templater-obsidian",
-  "dataview"
+  "dataview",
+  "obsidian-linter"
 ]

@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "FileTemp"
             }
+          },
+          {
+            "id": "f568692ef38c5510",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "conflict-files-obsidian-git.md",
+                "bFile": "conflict-files-obsidian-git.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -174,16 +189,16 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "617bca86fde6a417",
+  "active": "f568692ef38c5510",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "Config/FileTemp.md",
     "Interview/Day30.md",
     "Interview/Day29.md",
-    "Config/FileTemp.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
     "Interview/Day28.md",
     "Interview/Day24.md",
-    "conflict-files-obsidian-git.md",
     "Interview/Day27.md",
     "Interview/Day26.md",
     "Interview/Day18.md",
