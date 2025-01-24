@@ -13,12 +13,12 @@
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": ".obsidian/hotkeys.json",
-                "bFile": ".obsidian/hotkeys.json",
+                "aFile": ".obsidian/plugins/obsidian-git/data.json",
+                "bFile": ".obsidian/plugins/obsidian-git/data.json",
                 "aRef": ""
               },
               "icon": "diff",
-              "title": "Diff: hotkeys.json"
+              "title": "Diff: data.json"
             }
           }
         ]
@@ -136,9 +136,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "Interview/Day29.md"
+              },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Day29 的大纲"
             }
           },
           {
@@ -174,6 +176,7 @@
   },
   "active": "75ffa512331581bf",
   "lastOpenFiles": [
+    "Interview/Day29.md",
     "Interview/Day3.md",
     "未命名.md",
     "未命名 3.md",
@@ -182,7 +185,6 @@
     "Untitled.md",
     "Config/FileTemp.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
-    "Interview/Day29.md",
     "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
     "Interview/Day28.md",
     "Interview/Day24.md",
