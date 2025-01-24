@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Interview/Day30.md",
+                "file": "Interview/Day9.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day30"
+              "title": "Day9"
             }
           }
         ],
@@ -191,9 +191,10 @@
   },
   "active": "f568692ef38c5510",
   "lastOpenFiles": [
+    "Interview/Day3.md",
+    "Interview/Day30.md",
     "conflict-files-obsidian-git.md",
     "Config/FileTemp.md",
-    "Interview/Day30.md",
     "Interview/Day29.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
@@ -216,7 +217,6 @@
     "Interview/Day21.md",
     "Interview/Day22.md",
     "Interview/Day1.md",
-    "Interview/Day3.md",
     "Interview",
     "Index",
     "Excalidraw",
