@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "LightDream-2"
             }
+          },
+          {
+            "id": "2cfe4e0520184a92",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "conflict-files-obsidian-git.md",
+                "bFile": "conflict-files-obsidian-git.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -174,10 +189,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "2e563a8a37b590a7",
+  "active": "2cfe4e0520184a92",
   "lastOpenFiles": [
-    "Note/Code/SpringBoot-1.md",
+    "conflict-files-obsidian-git.md",
     "Note/Life/Essays/LightDream-2.md",
+    "Note/Code/SpringBoot-1.md",
     "Index/NoteList-Interview.md",
     "Note/Code/Interview/Day1.md",
     "Note/Code/Interview/Day2.md",
@@ -204,7 +220,6 @@
     "Note/Code/Interview/Day15.md",
     "Note/Code/Interview/Day14.md",
     "Note/Code/Interview/Day13.md",
-    "Note/Code/Interview/Day12.md",
     "Soft/StudyTool",
     "Soft",
     "Study/Code",

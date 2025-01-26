@@ -8,5 +8,6 @@
   "cmdr",
   "templater-obsidian",
   "dataview",
-  "obsidian-linter"
+  "obsidian-linter",
+  "editing-toolbar"
 ]
