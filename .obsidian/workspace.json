@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "fbc02ae81381e0f2",
+        "id": "a7ae0eb0b5a2a83b",
         "type": "tabs",
         "children": [
           {
-            "id": "75ffa512331581bf",
+            "id": "2e563a8a37b590a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Interview/Day29.md",
+                "file": "Note/Life/Essays/LightDream-2.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Day29"
+              "title": "LightDream-2"
             }
           }
         ]
@@ -158,7 +158,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 375.5
+    "width": 376.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,42 +174,44 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c722d3604cf5b87",
+  "active": "2e563a8a37b590a7",
   "lastOpenFiles": [
-    "Interview/Day30.md",
-    "Interview/Day29.md",
-    "Interview/Day3.md",
-    "未命名.md",
-    "未命名 3.md",
-    "未命名 2.md",
-    "未命名 1.md",
-    "Untitled.md",
-    "Config/FileTemp.md",
-    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
-    "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
-    "Interview/Day28.md",
-    "Interview/Day24.md",
-    "conflict-files-obsidian-git.md",
-    "Interview/Day27.md",
-    "Interview/Day26.md",
-    "Interview/Day18.md",
+    "Note/Code/SpringBoot-1.md",
+    "Note/Life/Essays/LightDream-2.md",
     "Index/NoteList-Interview.md",
-    "Interview/Day25.md",
-    "Interview/Day11.md",
-    "Interview/Day8.md",
-    "Interview/Day4.md",
-    "Interview/ddd.md",
-    "Interview/未命名.md",
-    "Interview/Day23.md",
-    "Interview/Day6.md",
-    "Interview",
+    "Note/Code/Interview/Day1.md",
+    "Note/Code/Interview/Day2.md",
+    "Note/Life/Essays/LightDream-1.md",
+    "Soft/StudyTool/Obsidian-1.md",
+    "Note/Life/Essays",
+    "Note/Life",
+    "Note/Code/SpringBoot",
+    "Note/Code/Interview/Day30.md",
+    "Note/Code/Interview/Day28.md",
+    "Note/Code/Interview/Day24.md",
+    "Note/Code/Interview/Day29.md",
+    "Note/Code/Interview/Day27.md",
+    "Note/Code/Interview/Day26.md",
+    "Note/Code/Interview/Day25.md",
+    "Note/Code/Interview/Day23.md",
+    "Note/Code/Interview/Day22.md",
+    "Note/Code/Interview/Day21.md",
+    "Note/Code/Interview/Day20.md",
+    "Note/Code/Interview/Day19.md",
+    "Note/Code/Interview/Day18.md",
+    "Note/Code/Interview/Day17.md",
+    "Note/Code/Interview/Day16.md",
+    "Note/Code/Interview/Day15.md",
+    "Note/Code/Interview/Day14.md",
+    "Note/Code/Interview/Day13.md",
+    "Note/Code/Interview/Day12.md",
+    "Soft/StudyTool",
+    "Soft",
+    "Study/Code",
+    "Study",
+    "Soft/StudyTool/Obsidian",
+    "Study/Code/Interview",
     "Index",
-    "Excalidraw",
-    "Config",
-    "未命名",
-    "Blog",
-    "config",
-    "未命名.canvas",
-    "面试训练营"
+    "未命名.canvas"
   ]
 }
