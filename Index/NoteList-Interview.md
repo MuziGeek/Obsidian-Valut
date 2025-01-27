@@ -1,6 +1,6 @@
 ```dataviewjs
 // 指定文件夹路径，这里假设我们要获取 "exampleFolder" 文件夹下的文件 
-const folderPath = '"Interview"'; 
+const folderPath = '"Note/Code/Interview"'; 
 // 使用 dv.pages 获取指定文件夹下的所有文件 
 const pages = dv.pages(folderPath).sort(t=>t.date); 
 // 存储二级标题的数组 
@@ -18,7 +18,7 @@ let lastIndex = 0;
         const title = match[1];
         const startIndex = match.index;
         // 构建链接，格式为 [[文件名#标题]]
-        const link = `[[${file.basename}#${title.replace(/\s+/g, '-')}]]`;
+        const link = `[[${file.basename}#${title}]]`;
         secondLevelHeaders.push(link);
         lastIndex = startIndex + match[0].length;
 	}

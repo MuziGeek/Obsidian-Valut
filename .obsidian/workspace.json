@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "a7ae0eb0b5a2a83b",
+        "id": "f35b104d0a57c8dd",
         "type": "tabs",
         "children": [
           {
-            "id": "2e563a8a37b590a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Note/Life/Essays/LightDream-2.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "LightDream-2"
-            }
-          },
-          {
-            "id": "2cfe4e0520184a92",
+            "id": "04d6fbfd8b0e0f37",
             "type": "leaf",
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": "conflict-files-obsidian-git.md",
-                "bFile": "conflict-files-obsidian-git.md",
+                "aFile": "Index/NoteList-Interview.md",
+                "bFile": "Index/NoteList-Interview.md",
                 "aRef": ""
               },
               "icon": "diff",
-              "title": "Diff: conflict-files-obsidian-git"
+              "title": "Diff: NoteList-Interview"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -186,24 +171,27 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "obsidian42-text-transporter:Text Transporter": false
     }
   },
-  "active": "2cfe4e0520184a92",
+  "active": "04d6fbfd8b0e0f37",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
-    "Note/Life/Essays/LightDream-2.md",
-    "Note/Code/SpringBoot-1.md",
-    "Index/NoteList-Interview.md",
     "Note/Code/Interview/Day1.md",
+    "Index/NoteList-Interview.md",
     "Note/Code/Interview/Day2.md",
+    "Note/Code/Interview/Day3.md",
+    "Note/Code/Interview/Day4.md",
+    "Note/Life/Essays/LightDream-2.md",
+    "Note/Code/Interview/Day28.md",
+    "conflict-files-obsidian-git.md",
+    "Note/Code/SpringBoot-1.md",
     "Note/Life/Essays/LightDream-1.md",
     "Soft/StudyTool/Obsidian-1.md",
     "Note/Life/Essays",
     "Note/Life",
     "Note/Code/SpringBoot",
     "Note/Code/Interview/Day30.md",
-    "Note/Code/Interview/Day28.md",
     "Note/Code/Interview/Day24.md",
     "Note/Code/Interview/Day29.md",
     "Note/Code/Interview/Day27.md",
@@ -218,8 +206,6 @@
     "Note/Code/Interview/Day17.md",
     "Note/Code/Interview/Day16.md",
     "Note/Code/Interview/Day15.md",
-    "Note/Code/Interview/Day14.md",
-    "Note/Code/Interview/Day13.md",
     "Soft/StudyTool",
     "Soft",
     "Study/Code",
