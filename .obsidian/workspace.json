@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f35b104d0a57c8dd",
+        "id": "246811eae5e68a69",
         "type": "tabs",
         "children": [
           {
-            "id": "04d6fbfd8b0e0f37",
+            "id": "7160809904a9cd13",
             "type": "leaf",
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": "Index/NoteList-Interview.md",
-                "bFile": "Index/NoteList-Interview.md",
+                "aFile": "Config/FileTemp.md",
+                "bFile": "Config/FileTemp.md",
                 "aRef": ""
               },
               "icon": "diff",
-              "title": "Diff: NoteList-Interview"
+              "title": "Diff: FileTemp"
             }
           }
         ]
@@ -171,48 +171,47 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "templater-obsidian:Templater": false,
-      "obsidian42-text-transporter:Text Transporter": false
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "04d6fbfd8b0e0f37",
+  "active": "7160809904a9cd13",
   "lastOpenFiles": [
-    "Note/Code/Interview/Day1.md",
+    "Config/FileTemp.md",
+    "Soft/StudyTool/Obsidian-2.md",
+    "Soft/StudyTool/Obsidian-3.md",
+    "Soft/StudyTool/Obsidian-1.md",
+    "Config/select_existing_tags.js",
+    "Config/get_categories_from_path - 副本.js",
+    "Config/get_categories_from_path.js",
+    "Config/新建文本文档.txt",
+    "Config/未命名.md",
     "Index/NoteList-Interview.md",
-    "Note/Code/Interview/Day2.md",
     "Note/Code/Interview/Day3.md",
+    "Note/Code/Interview/Day1.md",
+    "Card/Config/CardTemp.md",
+    "Card/Code/Mysql.md",
+    "Card/Code/Redis.md",
+    "Card/Index/CardList-Code.md",
+    "Note/Code/Interview/Day7.md",
+    "Card/Index",
+    "Card/Config",
+    "Card/Code",
+    "Card",
+    "新建文件夹",
+    "Note/Code/Interview/Day2.md",
     "Note/Code/Interview/Day4.md",
     "Note/Life/Essays/LightDream-2.md",
     "Note/Code/Interview/Day28.md",
     "conflict-files-obsidian-git.md",
     "Note/Code/SpringBoot-1.md",
     "Note/Life/Essays/LightDream-1.md",
-    "Soft/StudyTool/Obsidian-1.md",
     "Note/Life/Essays",
-    "Note/Life",
-    "Note/Code/SpringBoot",
     "Note/Code/Interview/Day30.md",
     "Note/Code/Interview/Day24.md",
     "Note/Code/Interview/Day29.md",
     "Note/Code/Interview/Day27.md",
     "Note/Code/Interview/Day26.md",
     "Note/Code/Interview/Day25.md",
-    "Note/Code/Interview/Day23.md",
-    "Note/Code/Interview/Day22.md",
-    "Note/Code/Interview/Day21.md",
-    "Note/Code/Interview/Day20.md",
-    "Note/Code/Interview/Day19.md",
-    "Note/Code/Interview/Day18.md",
-    "Note/Code/Interview/Day17.md",
-    "Note/Code/Interview/Day16.md",
-    "Note/Code/Interview/Day15.md",
-    "Soft/StudyTool",
-    "Soft",
-    "Study/Code",
-    "Study",
-    "Soft/StudyTool/Obsidian",
-    "Study/Code/Interview",
-    "Index",
     "未命名.canvas"
   ]
 }
