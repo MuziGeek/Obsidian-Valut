@@ -1,8 +1,10 @@
 ---
 title: {{VALUE:title}}
 date: {{DATE:YYYY-MM-DD HH:mm:ss}}
-categories: 
-- [学习成长, 编程, 面试训练营]
-tags:
+<%* 
+const categories = await tp.user.get_categories_from_path(tp); 
+tR += categories; 
+%>
 ---
 **<% tp.date.now("YYYY-MM-DD") %>**🌱<% tp.user.tianqi("") %>
+  

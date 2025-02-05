@@ -4,21 +4,41 @@
     "type": "split",
     "children": [
       {
-        "id": "246811eae5e68a69",
+        "id": "9c12b854af615f4e",
         "type": "tabs",
         "children": [
           {
-            "id": "7160809904a9cd13",
+            "id": "a5087630b26f580e",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "Config/FileTemp.md",
-                "bFile": "Config/FileTemp.md",
-                "aRef": ""
+                "file": "Config/FileTemp.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: FileTemp"
+              "icon": "lucide-file",
+              "title": "FileTemp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e57de4ad8e0fece6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a44e158e21f3e4ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Config/FileTemp.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "FileTemp"
             }
           }
         ]
@@ -52,7 +72,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:SpringBoot",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -137,10 +157,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Interview/Day29.md"
+                "file": "Config/FileTemp.md"
               },
               "icon": "lucide-list",
-              "title": "Day29 的大纲"
+              "title": "FileTemp 的大纲"
             }
           },
           {
@@ -158,7 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 376.5
+    "width": 375.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,44 +194,44 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "7160809904a9cd13",
+  "active": "a44e158e21f3e4ed",
   "lastOpenFiles": [
-    "Config/FileTemp.md",
     "Soft/StudyTool/Obsidian-2.md",
+    "Config/FileTemp.md",
+    "Soft/StudyTool/Obsidian-5.md",
+    "Soft/StudyTool/Obsidian-4.md",
     "Soft/StudyTool/Obsidian-3.md",
-    "Soft/StudyTool/Obsidian-1.md",
-    "Config/select_existing_tags.js",
-    "Config/get_categories_from_path - 副本.js",
-    "Config/get_categories_from_path.js",
-    "Config/新建文本文档.txt",
-    "Config/未命名.md",
-    "Index/NoteList-Interview.md",
-    "Note/Code/Interview/Day3.md",
-    "Note/Code/Interview/Day1.md",
-    "Card/Config/CardTemp.md",
-    "Card/Code/Mysql.md",
-    "Card/Code/Redis.md",
-    "Card/Index/CardList-Code.md",
-    "Note/Code/Interview/Day7.md",
-    "Card/Index",
-    "Card/Config",
-    "Card/Code",
-    "Card",
-    "新建文件夹",
-    "Note/Code/Interview/Day2.md",
-    "Note/Code/Interview/Day4.md",
-    "Note/Life/Essays/LightDream-2.md",
-    "Note/Code/Interview/Day28.md",
-    "conflict-files-obsidian-git.md",
+    "Soft/StudyTool/Obsidian-7.md",
+    "Soft/StudyTool/Obsidan-6.md",
+    "Soft/StudyTool/Obsidian-6.md",
     "Note/Code/SpringBoot-1.md",
+    "Index/NoteList-Interview.md",
+    "Soft/StudyTool/Obsidian-1.md",
+    "Config/get_categories_from_path.js",
+    "Config/新建 文本文档.txt",
+    "Soft/StudyTool",
+    "Soft",
+    "Note/Life/Essays/LightDream-2.md",
     "Note/Life/Essays/LightDream-1.md",
     "Note/Life/Essays",
+    "Note/Life",
+    "Note/Code/Interview/Day9.md",
+    "Note/Code/Interview/Day8.md",
+    "Note/Code/Interview/Day7.md",
+    "Note/Code/Interview/Day6.md",
+    "Note/Code/Interview/Day5.md",
+    "Note/Code/Interview/Day4.md",
     "Note/Code/Interview/Day30.md",
-    "Note/Code/Interview/Day24.md",
+    "Note/Code/Interview/Day3.md",
     "Note/Code/Interview/Day29.md",
+    "Note/Code/Interview/Day28.md",
     "Note/Code/Interview/Day27.md",
     "Note/Code/Interview/Day26.md",
     "Note/Code/Interview/Day25.md",
+    "Note/Code/Interview",
+    "Note/Code",
+    "Note",
+    "Interview",
     "未命名.canvas"
   ]
 }
