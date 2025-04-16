@@ -4,41 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "9c12b854af615f4e",
+        "id": "246811eae5e68a69",
         "type": "tabs",
         "children": [
           {
-            "id": "a5087630b26f580e",
+            "id": "7160809904a9cd13",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Config/FileTemp.md",
-                "mode": "source",
-                "source": false
+                "file": "Excalidraw/Day22-2024-12-30-1405.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "FileTemp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "e57de4ad8e0fece6",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a44e158e21f3e4ed",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Config/FileTemp.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "FileTemp"
+              "icon": "excalidraw-icon",
+              "title": "Day22-2024-12-30-1405.excalidraw"
             }
           }
         ]
@@ -60,7 +38,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -72,7 +51,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:SpringBoot",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -157,10 +136,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Config/FileTemp.md"
+                "file": "Interview/Day29.md"
               },
               "icon": "lucide-list",
-              "title": "FileTemp 的大纲"
+              "title": "Day29 的大纲"
             }
           },
           {
@@ -178,7 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 375.5
+    "width": 376.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,44 +173,54 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "a44e158e21f3e4ed",
+  "active": "7160809904a9cd13",
   "lastOpenFiles": [
     "Soft/StudyTool/Obsidian-2.md",
-    "Config/FileTemp.md",
-    "Soft/StudyTool/Obsidian-5.md",
-    "Soft/StudyTool/Obsidian-4.md",
-    "Soft/StudyTool/Obsidian-3.md",
-    "Soft/StudyTool/Obsidian-7.md",
-    "Soft/StudyTool/Obsidan-6.md",
-    "Soft/StudyTool/Obsidian-6.md",
-    "Note/Code/SpringBoot-1.md",
-    "Index/NoteList-Interview.md",
     "Soft/StudyTool/Obsidian-1.md",
-    "Config/get_categories_from_path.js",
-    "Config/新建 文本文档.txt",
-    "Soft/StudyTool",
-    "Soft",
-    "Note/Life/Essays/LightDream-2.md",
-    "Note/Life/Essays/LightDream-1.md",
-    "Note/Life/Essays",
-    "Note/Life",
-    "Note/Code/Interview/Day9.md",
-    "Note/Code/Interview/Day8.md",
-    "Note/Code/Interview/Day7.md",
-    "Note/Code/Interview/Day6.md",
-    "Note/Code/Interview/Day5.md",
-    "Note/Code/Interview/Day4.md",
-    "Note/Code/Interview/Day30.md",
-    "Note/Code/Interview/Day3.md",
-    "Note/Code/Interview/Day29.md",
-    "Note/Code/Interview/Day28.md",
-    "Note/Code/Interview/Day27.md",
-    "Note/Code/Interview/Day26.md",
-    "Note/Code/Interview/Day25.md",
-    "Note/Code/Interview",
-    "Note/Code",
-    "Note",
-    "Interview",
+    "Muzi-Book/阿斌架构之路/分库分表，我只说一次.md",
+    "Muzi-Book/阿斌架构之路/IM系统设计.md",
+    "Muzi-Book/阿斌Java之路/并发包/ThreadLocal.md",
+    "Muzi-Book/阿斌Java之路/并发包/index.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程池.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发容器.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发工具.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程基础/index.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程基础/线程创建流程.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程基础/volatile原子性讨论.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发包八股文（查缺补漏）/index.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发包八股文（查缺补漏）/Synchronized原理.md",
+    "Config/FileTemp.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681307581780-d07787f9-2270-432b-80e7-1a34af221b90-501080.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306802125-db3dd448-f3ed-4277-ada8-b316a159165c-108261.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306443881-e081c0a7-c359-47dd-8373-dd332bb46b13-914146.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306572952-99c31b87-36a9-4056-ba63-2ac523aab414-712522.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306414293-0bce1b0d-cac4-43f2-ab9b-16f7c490c350-339265.jpeg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606257365-097b7a64-70c9-493a-bc25-b504645478ad-099109.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606316444-f63aee3d-c219-4699-bdc3-7909e3ddba29-264989.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606198031-003577a4-6f1b-44d9-989e-44991d710cd3-071077.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678519126666-350f8943-abab-4688-9834-f71ef81bad50-191860.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678518453058-fd93603c-9d72-4f97-83ff-fa8791b690f9-307573.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/x11Mzwn-I4NGcIWZ",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/nu20-B9-NtS-rPRc",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/pNH54XjQxDlAJ4Uf",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/ns47543g1ObzEHo3",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/lWrGaUYqb38qOuB8",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/EFtu8auGwU-gKOIg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/6lFKQCNeZRU4g7Wg",
+    "Muzi-Book/阿斌架构之路/attachments/ayTDmqvnTH-Ovxea/钛学术_期刊_12306互联网售票系统的架构优化及演进(1).pdf",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/请求折叠工具类.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/美团Leaf——分布式id生成器.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/四种常见限流算法.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/消息推送平台.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/仿牛客网项目.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/【更新中】携程Apollo——分布式配置中心.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/【更新中】XXL-JOB—分布式调度框架.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/【更新中】Caffeine高性能缓存框架.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/【更新中】Nacos—注册中心.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/index.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img",
+    "Muzi-Book/阿斌架构之路/电商系统.md",
     "未命名.canvas"
   ]
 }
