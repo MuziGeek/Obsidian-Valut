@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Soft/StudyTool/Obsidian-1.md",
-                "mode": "preview",
-                "source": true
+                "file": "Config/FileTemp.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "Obsidian-1"
+              "title": "FileTemp"
             }
           }
         ]
@@ -177,13 +177,14 @@
   },
   "active": "a5087630b26f580e",
   "lastOpenFiles": [
-    "Soft/StudyTool/Obsidian-2.md",
+    "未命名.md",
+    "Config/FileTemp.md",
+    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Soft/StudyTool/Obsidian-1.md",
+    "Soft/StudyTool/Obsidian-2.md",
     "Index/NoteList-Interview.md",
     "Note/Code/verify.md",
     "Note/Code/SpringBoot-1.md",
-    "未命名.md",
-    "Config/FileTemp.md",
     "Soft/StudyTool/Obsidian-5.md",
     "Soft/StudyTool/Obsidian-4.md",
     "Soft/StudyTool/Obsidian-3.md",
@@ -208,7 +209,6 @@
     "Note/Code/Interview/Day3.md",
     "Note/Code/Interview/Day29.md",
     "Note/Code/Interview/Day28.md",
-    "Note/Code/Interview/Day27.md",
     "Note/Code/Interview",
     "Note/Code",
     "Note",
