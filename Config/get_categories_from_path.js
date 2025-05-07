@@ -2,6 +2,9 @@
 const translationMap = {
     "Soft": "软件",
     "StudyTool": "学习工具",
+    "Note":"笔记",
+    "Code":"编程",
+    "100Test":"100test",
     // 可以在这里添加更多的映射关系
 };
 
