@@ -1,13 +1,15 @@
 ---
-title: 多种限流算法实现
+title: Part005 多种限流算法实现
 date: 2025-05-08 00:10:56
 categories:
- - [笔记, 编程, 100test]
+  - - 笔记
+    - 编程
+    - 100test
 tags:
   - Java
 ---
 **2025-05-08**🌱上海: ☀️   🌡️+19°C 🌬️↖19km/h
-# **Part005 技术实现文档**
+# **Part005 多种限流算法实现**
 
 1. **为什么（Why）**
     
@@ -34,7 +36,7 @@ tags:
 
 `part005`模块的项目结构如下：
 
-```Plain
+```plain
 part005/
 ├── src/
 │   ├── main/
@@ -73,7 +75,7 @@ part005/
 
 **技术实现**： 固定窗口计数器是最简单的限流算法，它将时间划分为固定大小的窗口，并在每个窗口内进行计数：
 
-```Java
+```java
 @Around("@annotation(com.muzi.part5.Counter.CounterRateLimit)")
 public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
     // 获取注解信息
@@ -144,7 +146,7 @@ public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
 
 **技术实现**： 滑动窗口算法通过记录请求的时间戳，动态计算时间窗口内的请求数量：
 
-```Java
+```java
 @Around("@annotation(com.muzi.part5.SlidingWindow.SlidingWindowRateLimit)")
 public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
     // 获取注解信息和参数
@@ -213,7 +215,7 @@ public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
 
 **技术实现**： 令牌桶算法基于Google Guava的RateLimiter实现，以固定速率生成令牌：
 
-```Java
+```java
 @Around("@annotation(com.muzi.part5.TokenBucket.TokenBucketRateLimit)")
 public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
     // 获取方法和注解信息
@@ -269,7 +271,7 @@ public Object rateLimit(ProceedingJoinPoint joinPoint) throws Throwable {
 
 **技术实现**： 漏桶算法将请求比作水滴，以固定速率流出：
 
-```Java
+```java
 public boolean tryAcquire() {
     long currentTime = System.currentTimeMillis();
     synchronized (this) {
@@ -325,7 +327,7 @@ public boolean tryAcquire() {
 
 **技术实现**： 基于Java并发包中的Semaphore实现并发控制：
 
-```Java
+```java
 @Around("@annotation(com.muzi.part5.SemphoreTokenBucket.FrequencyControl)")
 public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
     Method method = ((MethodSignature)joinPoint.getSignature()).getMethod();
@@ -470,7 +472,7 @@ public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
 ### **4.1 固定窗口计数限流**
 
-```Java
+```java
 @GetMapping("/counter")
 @CounterRateLimit(maxRequest = 50, timeWindow = 2)
 public String counter() {
@@ -487,7 +489,7 @@ public String counter() {
 
 ### **4.2 滑动窗口限流**
 
-```Java
+```java
 @GetMapping("/slidingWindow")
 @SlidingWindowRateLimit(maxRequest = 50, timeWindow = 2)
 public String slidingWindow() {
@@ -504,7 +506,7 @@ public String slidingWindow() {
 
 ### **4.3 令牌桶限流**
 
-```Java
+```java
 @GetMapping("/tokenBucket")
 @TokenBucketRateLimit(permitsPerSecond = 50)
 public String tokenBucket() {
@@ -519,7 +521,7 @@ public String tokenBucket() {
 
 ### **4.4 漏桶限流**
 
-```Java
+```java
 @GetMapping("/leakyBucket")
 @LeakyBucketRateLimit(capacity = 50, leakRate = 2)
 public String leakyBucket() {
@@ -536,7 +538,7 @@ public String leakyBucket() {
 
 ### **4.5 信号量限流**
 
-```Java
+```java
 @GetMapping("/placeOrder")
 @FrequencyControl(permits = 50, timeout = 1)
 public String placeOrder() throws InterruptedException {

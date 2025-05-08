@@ -1,20 +1,22 @@
 ---
-title: 动态线程池及线程池管理器
+title: Part009 动态线程池及线程池管理器
 date: 2025-05-08 00:17:39
 categories:
- - [笔记, 编程, 100test]
+  - - 笔记
+    - 编程
+    - 100test
 tags:
   - Java
 ---
 **2025-05-08**🌱上海: ☀️   🌡️+19°C 🌬️↖19km/h
 
-# **Part009 技术实现文档**
+# **Part009 动态线程池及线程池管理器
 
 ## **1. 为什么（Why）**
 
 ### **1.1 项目背景**
 
-`part009`模块实现了一个基于Java的动态线程池管理框架，解决了企业应用中线程池使用和管理的常见问题。在实际业务系统中，线程池是实现并发处理的核心组件，广泛应用于异步任务处理、并行计算、定时任务执行等场景。传统的线程池创建后参数固定，无法根据业务负载动态调整，导致系统资源利用率低，或在高峰期出现线程资源不足的问题。本模块设计了一套灵活、可动态调整的线程池管理框架，支持运行时调整线程池核心参数，实现资源的高效利用和系统的弹性扩缩容。
+`part009`模块实现了一个基于java的动态线程池管理框架，解决了企业应用中线程池使用和管理的常见问题。在实际业务系统中，线程池是实现并发处理的核心组件，广泛应用于异步任务处理、并行计算、定时任务执行等场景。传统的线程池创建后参数固定，无法根据业务负载动态调整，导致系统资源利用率低，或在高峰期出现线程资源不足的问题。本模块设计了一套灵活、可动态调整的线程池管理框架，支持运行时调整线程池核心参数，实现资源的高效利用和系统的弹性扩缩容。
 
 ### **1.2 解决的问题**
 
@@ -65,7 +67,7 @@ part009/
 
 **技术实现**： 本模块设计了一套动态可调整的线程池管理框架，核心是通过继承ThreadPoolTaskExecutor并重写关键方法实现运行时调整线程池参数：
 
-```Java
+```java
 // 线程池管理器
 public class ThreadPoolManager {
     private static Map<String, ThreadPoolTaskExecutor> threadPoolMap = new ConcurrentHashMap<String, ThreadPoolTaskExecutor>(16);
@@ -168,7 +170,7 @@ public class ThreadPoolManager {
 
 **技术实现**： 本模块通过继承LinkedBlockingQueue实现了一个可动态调整容量的阻塞队列：
 
-```Java
+```java
 public class ResizeLinkedBlockingQueue<E> extends LinkedBlockingQueue<E> {
     private static final long serialVersionUID = 1L;
 
@@ -202,7 +204,7 @@ public class ResizeLinkedBlockingQueue<E> extends LinkedBlockingQueue<E> {
 
 1. **反射机制应用**
     
-    1. 使用Java反射API获取LinkedBlockingQueue中的capacity私有字段
+    1. 使用java反射API获取LinkedBlockingQueue中的capacity私有字段
         
     2. 通过setAccessible(true)破除访问限制，允许修改私有字段
         
@@ -229,7 +231,7 @@ public class ResizeLinkedBlockingQueue<E> extends LinkedBlockingQueue<E> {
 
 **技术实现**： 本模块实现了线程池监控和动态调整功能：
 
-```Java
+```java
 // 线程池管理器中的监控和调整方法
 public class ThreadPoolManager {
     /**
@@ -281,7 +283,7 @@ public class ThreadPoolManager {
     
     1. 通过threadPoolInfoList方法获取所有线程池状态
         
-    2. 使用Java 8 Stream API将线程池映射为信息对象
+    2. 使用java 8 Stream API将线程池映射为信息对象
         
     3. 收集核心参数和运行状态，提供全面监控数据
         
@@ -308,7 +310,7 @@ public class ThreadPoolManager {
 
 **技术实现**： 本模块通过RESTful API提供线程池监控和调整接口：
 
-```Java
+```java
 @RestController
 @RequestMapping("/threadPoolManager")
 public class ThreadPoolManagerController {
@@ -492,7 +494,7 @@ public class ThreadPoolManagerController {
 
 ### **4.1 基本使用**
 
-```Java
+```java
 // 创建自定义线程池
 ThreadPoolTaskExecutor executor = ThreadPoolManager.newThreadPool(
     "userService", // 线程池名称
@@ -520,7 +522,7 @@ for (ThreadPoolInfo info : infoList) {
 
 ### **4.2 动态调整示例**
 
-```Java
+```java
 // 创建线程池变更请求
 ThreadPoolChange change = new ThreadPoolChange();
 change.setName("userService");    // 要调整的线程池名称
@@ -534,7 +536,7 @@ ThreadPoolManager.changeThreadPool(change);
 
 ### **4.3 API调用示例**
 
-```JavaScript
+```javascript
 // 前端获取线程池信息
 async function getThreadPoolInfo() {
   const response = await fetch('/threadPoolManager/threadPoolInfoList', {
@@ -570,7 +572,7 @@ async function changeThreadPool() {
 
 ### **4.4 集成Spring Boot配置示例**
 
-```Java
+```java
 @Configuration
 public class ThreadPoolConfig {
     @Bean(name = "taskExecutor")

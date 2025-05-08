@@ -1,14 +1,16 @@
 ---
-title: 通用Excel导出功能实战
+title: Part008 通用Excel导出功能实战
 date: 2025-05-08 00:15:45
 categories:
- - [笔记, 编程, 100test]
+  - - 笔记
+    - 编程
+    - 100test
 tags:
   - Java
 ---
 **2025-05-08**🌱上海: ☀️   🌡️+19°C 🌬️↖19km/h
 
-# **Part008 技术实现文档**
+# **Part008 通用Excel导出功能实战
 
 ## **1.  为什么（Why）**
     
@@ -37,7 +39,7 @@ tags:
 
 `part008`模块的项目结构如下：
 
-```Plain
+```plain
 part008/
 ├── src/
 │   ├── main/
@@ -75,8 +77,6 @@ part008/
 **技术实现**： 本模块设计了一套完整的Excel导出领域模型，通过面向对象的设计实现灵活的导出功能：
 
 1. **核心领域模型**
-    
-
 ```Java
 // Excel导出请求基类
 public class ExcelExportRequest {

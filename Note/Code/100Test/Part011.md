@@ -1,14 +1,16 @@
 ---
-title: 动态定时任务Job
+title: Part011 动态定时任务Job
 date: 2025-05-08 00:23:43
 categories:
- - [笔记, 编程, 100test]
+  - - 笔记
+    - 编程
+    - 100test
 tags:
   - Java
 ---
 **2025-05-08**🌱上海: ☀️   🌡️+19°C 🌬️↖19km/h
 
-# **Part011 技术实现文档**
+# **Part011 动态定时任务Job**
 
 ## **1. 为什么（Why）**
 
@@ -33,9 +35,7 @@ tags:
 
 ### **2.1 项目结构**
 
-`part011`模块的项目结构如下：
-
-```Plain
+```plain
 part011/
 ├── src/
 │   ├── main/
@@ -80,7 +80,7 @@ part011/
 
 **技术实现**： 本模块设计了一套动态定时任务管理系统，核心是`SpringJobRunManager`类，它实现了`CommandLineRunner`接口，在应用启动后自动初始化并监控定时任务的变化：
 
-```Java
+```java
 @Component
 public class SpringJobRunManager implements CommandLineRunner {
     private static Logger logger = LoggerFactory.getLogger(SpringJobRunManager.class);
@@ -167,7 +167,7 @@ public class SpringJobRunManager implements CommandLineRunner {
 
 **技术实现**： 本模块通过`SpringJobTask`类实现了任务的具体执行逻辑，核心是通过反射机制动态调用Spring Bean的方法：
 
-```Java
+```java
 public class SpringJobTask implements Runnable {
     private static Logger logger = LoggerFactory.getLogger(SpringJobTask.class);
 
@@ -237,7 +237,7 @@ public class SpringJobTask implements Runnable {
 
 **技术实现**： 本模块实现了任务变更的检测与同步机制，核心是通过对比内存中的任务和数据库中的任务来确定增加、删除和更新的任务：
 
-```Java
+```java
 private JobChange getJobChange() {
     // 新增的job
     List<Job> addJobList = new ArrayList<>();
@@ -314,7 +314,7 @@ private boolean jobIsChange(Job job1, Job job2) {
 
 **技术实现**： 本模块通过RESTful API提供任务管理接口：
 
-```Java
+```java
 @RestController
 public class JobController {
     private static Logger logger = LoggerFactory.getLogger(JobController.class);
@@ -510,7 +510,7 @@ public class JobController {
 
 ### **4.1 基本使用**
 
-```Java
+```java
 // 创建定时任务执行类
 @Component
 public class MyTask {
@@ -536,7 +536,7 @@ Job job = jobService.createJob(request);
 
 ### **4.2 任务管理示例**
 
-```Java
+```java
 // 更新任务
 JobUpdateRequest updateRequest = new JobUpdateRequest();
 updateRequest.setId("1001");
@@ -560,7 +560,7 @@ boolean result = jobService.deleteJob("1001");
 
 ### **4.3 API调用示例**
 
-```JavaScript
+```javascript
 // 前端创建任务
 async function createJob() {
   const response = await fetch('/jobCreate', {
@@ -583,7 +583,7 @@ async function createJob() {
 
 // 前端获取任务列表
 async function getJobList() {
-  const response = await fetch('', {
+  const response = await fetch('/job/list', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -607,7 +607,7 @@ async function startJob(id) {
 
 ### **4.4 自定义复杂任务示例**
 
-```Java
+```java
 @Component
 public class DataSyncTask {
     @Autowired
