@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "7f1b655c2306a053",
+        "id": "637395e977bf5020",
         "type": "tabs",
         "children": [
           {
-            "id": "3ae0c8f7076d4406",
+            "id": "d6038349050b17a9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Note/Code/100Test/Part010.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Part010"
             }
           }
         ]
@@ -49,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "100test",
+                "query": "tag:java",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -134,12 +139,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Note/Code/100Test/Part010.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "Part010 的大纲"
             }
           },
           {
@@ -173,8 +179,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "096e09a5f829ba9f",
+  "active": "5c722d3604cf5b87",
   "lastOpenFiles": [
+    "Note/Code/100Test/Part010.md",
+    "Note/Code/100Test/Part001.md",
     "Note/Code/100Test/Part011.md",
     "Note/Code/100Test/Part009.md",
     "Note/Code/100Test/Part008.md",
@@ -184,7 +192,6 @@
     "Note/Code/100Test/Part004.md",
     "Note/Code/100Test/Part003.md",
     "Note/Code/100Test/Part002.md",
-    "Note/Code/100Test/Part001.md",
     "Note/Code/100Test/Part011 1.md",
     "Note/Code/100Test/Part009 1.md",
     "Note/Code/100Test/Part008 1.md",
@@ -200,7 +207,6 @@
     "Note/Code/Interview/Day1.md",
     "Config/FileTemp.md",
     "Note/Code/Interview/Day8.md",
-    "Note/Code/Interview/Day7.md",
     "Note/Code/100Test",
     "Config/get_categories_from_path.js",
     "Config/新建 文本文档.txt",
