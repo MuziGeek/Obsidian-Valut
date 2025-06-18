@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "637395e977bf5020",
+        "id": "521888ae10282da8",
         "type": "tabs",
         "children": [
           {
-            "id": "d6038349050b17a9",
+            "id": "74b5006bf9a732d1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Note/Code/100Test/Part010.md",
-                "mode": "source",
-                "source": false
+                "aFile": "Note/Code/100Test/Part001.md",
+                "bFile": "Note/Code/100Test/Part001.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Part010"
+              "icon": "diff",
+              "title": "Diff: Part001"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:java",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -139,13 +138,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Note/Code/100Test/Part010.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "file": "Interview/Day29.md"
               },
               "icon": "lucide-list",
-              "title": "Part010 的大纲"
+              "title": "Day29 的大纲"
             }
           },
           {
@@ -163,7 +159,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 375.5
+    "width": 376.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,44 +175,54 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c722d3604cf5b87",
+  "active": "74b5006bf9a732d1",
   "lastOpenFiles": [
-    "Note/Code/100Test/Part010.md",
-    "Note/Code/100Test/Part001.md",
+    "Soft/StudyTool/Obsidian-1.md",
+    "Soft/StudyTool/Obsidian-2.md",
+    "Index/NoteList-Interview.md",
     "Note/Code/100Test/Part011.md",
+    "Note/Code/100Test/Part007.md",
+    "Note/Code/100Test/Part003.md",
+    "Note/Code/100Test/Part004.md",
+    "Note/Code/100Test/Part002.md",
+    "Note/Code/100Test/Part001.md",
+    "Note/Code/100Test/Part010.md",
+    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Note/Code/100Test/Part009.md",
     "Note/Code/100Test/Part008.md",
-    "Note/Code/100Test/Part007.md",
     "Note/Code/100Test/Part006.md",
     "Note/Code/100Test/Part005.md",
-    "Note/Code/100Test/Part004.md",
-    "Note/Code/100Test/Part003.md",
-    "Note/Code/100Test/Part002.md",
-    "Note/Code/100Test/Part011 1.md",
-    "Note/Code/100Test/Part009 1.md",
-    "Note/Code/100Test/Part008 1.md",
-    "Note/Code/100Test/Part007 1.md",
-    "Note/Code/100Test/Part006 1.md",
-    "Note/Code/100Test/Part005 1.md",
-    "Note/Code/100Test/Part004 1.md",
-    "Note/Code/100Test/Part003 1.md",
-    "Note/Code/100Test/Part002 1.md",
-    "Note/Code/100Test/Part001 1.md",
-    "Note/Code/Interview/Day5.md",
-    "Note/Code/Interview/Day3.md",
-    "Note/Code/Interview/Day1.md",
-    "Config/FileTemp.md",
-    "Note/Code/Interview/Day8.md",
-    "Note/Code/100Test",
-    "Config/get_categories_from_path.js",
-    "Config/新建 文本文档.txt",
-    "Soft/StudyTool",
-    "Soft",
-    "Note/Life/Essays",
-    "Note/Life",
-    "Note/Code/Interview",
-    "Note/Code",
-    "Note",
+    "conflict-files-obsidian-git.md",
+    "Note/Code/verify.md",
+    "Muzi-Book/阿斌架构之路/分库分表，我只说一次.md",
+    "Muzi-Book/阿斌架构之路/IM系统设计.md",
+    "Muzi-Book/阿斌Java之路/并发包/ThreadLocal.md",
+    "Muzi-Book/阿斌Java之路/并发包/index.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程池.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发容器.md",
+    "Muzi-Book/阿斌Java之路/并发包/并发工具.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程基础/index.md",
+    "Muzi-Book/阿斌Java之路/并发包/线程基础/线程创建流程.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681307581780-d07787f9-2270-432b-80e7-1a34af221b90-501080.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306802125-db3dd448-f3ed-4277-ada8-b316a159165c-108261.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306443881-e081c0a7-c359-47dd-8373-dd332bb46b13-914146.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306572952-99c31b87-36a9-4056-ba63-2ac523aab414-712522.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306414293-0bce1b0d-cac4-43f2-ab9b-16f7c490c350-339265.jpeg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606257365-097b7a64-70c9-493a-bc25-b504645478ad-099109.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606316444-f63aee3d-c219-4699-bdc3-7909e3ddba29-264989.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606198031-003577a4-6f1b-44d9-989e-44991d710cd3-071077.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678519126666-350f8943-abab-4688-9834-f71ef81bad50-191860.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678518453058-fd93603c-9d72-4f97-83ff-fa8791b690f9-307573.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/x11Mzwn-I4NGcIWZ",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/nu20-B9-NtS-rPRc",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/pNH54XjQxDlAJ4Uf",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/ns47543g1ObzEHo3",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/lWrGaUYqb38qOuB8",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/EFtu8auGwU-gKOIg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/6lFKQCNeZRU4g7Wg",
+    "Muzi-Book/阿斌架构之路/attachments/ayTDmqvnTH-Ovxea/钛学术_期刊_12306互联网售票系统的架构优化及演进(1).pdf",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img",
     "未命名.canvas"
   ]
 }
