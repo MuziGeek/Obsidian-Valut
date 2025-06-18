@@ -151,6 +151,16 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "6e3303ed2d940980",
+            "type": "leaf",
+            "state": {
+              "type": "mp-preview",
+              "state": {},
+              "icon": "eye",
+              "title": "公众号预览"
+            }
           }
         ],
         "currentTab": 4
@@ -173,7 +183,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "74b5006bf9a732d1",
+  "active": "5c722d3604cf5b87",
   "lastOpenFiles": [
     "Excalidraw/Drawing 2025-06-18 15.15.49.excalidraw.md",
     "未命名.md",
