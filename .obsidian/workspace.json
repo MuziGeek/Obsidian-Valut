@@ -74,8 +74,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -179,7 +178,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c722d3604cf5b87",
+  "active": "096e09a5f829ba9f",
   "lastOpenFiles": [
     "Note/Code/100Test/Part010.md",
     "Note/Code/100Test/Part001.md",
