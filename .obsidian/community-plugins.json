@@ -9,5 +9,6 @@
   "templater-obsidian",
   "dataview",
   "obsidian-linter",
-  "editing-toolbar"
+  "editing-toolbar",
+  "mp-preview"
 ]
