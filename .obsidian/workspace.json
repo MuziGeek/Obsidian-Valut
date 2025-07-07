@@ -125,13 +125,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "conflict-files-obsidian-git.md",
+                "file": "Soft/StudyTool/Obsidian-1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "conflict-files-obsidian-git 的大纲"
+              "title": "Obsidian-1 的大纲"
             }
           },
           {
@@ -140,6 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Soft/StudyTool/Obsidian-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +150,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "Obsidian-1 的反向链接列表"
             }
           },
           {
@@ -158,11 +159,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Soft/StudyTool/Obsidian-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "Obsidian-1 的出链列表"
             }
           }
         ]
@@ -201,10 +203,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5c722d3604cf5b87",
+  "active": "9b7bcc3a0d36ab57",
   "lastOpenFiles": [
-    "Soft/StudyTool/Obsidian-1.md",
     "conflict-files-obsidian-git.md",
+    "Soft/StudyTool/Obsidian-1.md",
     "Note/Code/SpringBoot-1.md",
     "Config/FileTemp.md",
     "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
