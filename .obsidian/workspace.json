@@ -125,13 +125,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Soft/StudyTool/Obsidian-1.md",
+                "file": "conflict-files-obsidian-git.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Obsidian-1 的大纲"
+              "title": "conflict-files-obsidian-git 的大纲"
             }
           },
           {
@@ -140,7 +140,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Soft/StudyTool/Obsidian-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +149,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Obsidian-1 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -159,12 +158,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Soft/StudyTool/Obsidian-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Obsidian-1 的出链列表"
+              "title": "出链"
             }
           }
         ]
@@ -203,14 +201,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9b7bcc3a0d36ab57",
+  "active": "5c722d3604cf5b87",
   "lastOpenFiles": [
+    "Soft/StudyTool/Obsidian-1.md",
+    "conflict-files-obsidian-git.md",
     "Note/Code/SpringBoot-1.md",
     "Config/FileTemp.md",
     "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
     "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
     "Excalidraw/Day23-2024-12-30-1405.excalidraw.md",
-    "Soft/StudyTool/Obsidian-1.md",
     "Note/Life/Essays/LightDream-2.md",
     "Note/Life/Essays/LightDream-1.md",
     "Index/NoteList-Interview.md",
@@ -230,7 +229,6 @@
     "Note/Code/100Test/Part008.md",
     "Note/Code/100Test/Part006.md",
     "Note/Code/100Test/Part005.md",
-    "conflict-files-obsidian-git.md",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681307581780-d07787f9-2270-432b-80e7-1a34af221b90-501080.png",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306802125-db3dd448-f3ed-4277-ada8-b316a159165c-108261.png",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306443881-e081c0a7-c359-47dd-8373-dd332bb46b13-914146.png",

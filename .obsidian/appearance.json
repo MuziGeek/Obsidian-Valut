@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "theme": "obsidian",
   "cssTheme": "Zen",
+=======
+  "theme": "system",
+  "cssTheme": "Blue Topaz",
+>>>>>>> origin/master
   "accentColor": "#ff0fa7",
   "enabledCssSnippets": []
 }
