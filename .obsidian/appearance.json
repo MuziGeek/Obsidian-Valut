@@ -1,5 +1,8 @@
 {
   "theme": "obsidian",
   "accentColor": "#f55c91",
-  "cssTheme": "Zen"
+  "cssTheme": "Zen",
+  "interfaceFontFamily": "LXGW WenKai Mono",
+  "textFontFamily": "LXGW WenKai Mono",
+  "monospaceFontFamily": "LXGW WenKai Mono"
 }

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "39c7c338b88718c3",
+        "id": "dce77f3cd1249f42",
         "type": "tabs",
         "children": [
           {
-            "id": "94d30590baaaa7f4",
+            "id": "174394f1c12db168",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -48,22 +48,12 @@
             }
           },
           {
-            "id": "c48d2fbbc47c93f6",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "书签"
-            }
-          },
-          {
             "id": "dd2147df6acb3aab",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:java",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,12 +63,22 @@
               "icon": "lucide-search",
               "title": "搜索"
             }
+          },
+          {
+            "id": "c48d2fbbc47c93f6",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 280.5
   },
   "right": {
     "id": "38b0bc0f739c3295",
@@ -95,7 +95,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true,
+                "useHierarchy": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -104,7 +104,7 @@
             }
           },
           {
-            "id": "6e3ce0f7ade9660c",
+            "id": "6e3303ed2d940980",
             "type": "leaf",
             "state": {
               "type": "mp-preview",
@@ -116,7 +116,7 @@
         ]
       },
       {
-        "id": "8957cea1e03113a0",
+        "id": "7dee1205f968d67e",
         "type": "tabs",
         "children": [
           {
@@ -140,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-软考/计算机组成.md",
+                "file": "Soft/StudyTool/Obsidian-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -150,7 +150,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "计算机组成 的反向链接列表"
+              "title": "Obsidian-1 的反向链接列表"
             }
           },
           {
@@ -159,18 +159,18 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1-软考/计算机组成.md",
+                "file": "Soft/StudyTool/Obsidian-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "计算机组成 的出链列表"
+              "title": "Obsidian-1 的出链列表"
             }
           }
         ]
       },
       {
-        "id": "61c25b74d40de86f",
+        "id": "d82c12e6b2e34c64",
         "type": "tabs",
         "children": [
           {
@@ -187,7 +187,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 375.5
+    "width": 273.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,44 +203,54 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "94d30590baaaa7f4",
+  "active": "174394f1c12db168",
   "lastOpenFiles": [
-    "Note/Code/100Test/Part002.md",
     "1-软考/计算机组成.md",
-    "Note/Code/100Test/Part001.md",
-    "1-软考/未命名.md",
-    "Index/NoteList-Interview.md",
+    "2025-07-07.md",
     "Config/FileTemp.md",
-    "Note/Code/100Test/Part010.md",
+    "Soft/StudyTool/Obsidian-1.md",
     "1-软考",
-    "CLAUDE.md",
-    "Note/Code/100Test/Part004.md",
-    "Note/Code/100Test/Part005.md",
-    "Note/Code/100Test/Part006.md",
     "conflict-files-obsidian-git.md",
+    "Note/Code/SpringBoot-1.md",
+    "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
+    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
+    "Excalidraw/Day23-2024-12-30-1405.excalidraw.md",
+    "Note/Life/Essays/LightDream-2.md",
+    "Note/Life/Essays/LightDream-1.md",
+    "Index/NoteList-Interview.md",
+    "Note/Code/Interview/Day30.md",
+    "Excalidraw/Drawing 2025-06-18 15.15.49.excalidraw.md",
+    "未命名.md",
+    "Soft/StudyTool/Obsidian-2.md",
     "Note/Code/100Test/Part011.md",
-    "Note/Code/100Test/Part009.md",
-    "Note/Code/100Test/Part008.md",
     "Note/Code/100Test/Part007.md",
     "Note/Code/100Test/Part003.md",
-    "Note/Code/100Test/Part011 1.md",
-    "Note/Code/100Test/Part009 1.md",
-    "Note/Code/100Test/Part008 1.md",
-    "Note/Code/100Test/Part007 1.md",
-    "Note/Code/100Test/Part006 1.md",
-    "Note/Code/100Test/Part005 1.md",
-    "Note/Code/100Test/Part004 1.md",
-    "Note/Code/100Test/Part003 1.md",
-    "Note/Code/100Test/Part002 1.md",
-    "Note/Code/100Test",
-    "Config/get_categories_from_path.js",
-    "Config/新建 文本文档.txt",
-    "Soft/StudyTool",
-    "Soft",
-    "Note/Life/Essays",
-    "Note/Life",
-    "Note/Code/Interview",
-    "Note/Code",
+    "Note/Code/100Test/Part004.md",
+    "Note/Code/100Test/Part002.md",
+    "Note/Code/100Test/Part001.md",
+    "Note/Code/100Test/Part010.md",
+    "Note/Code/100Test/Part009.md",
+    "Note/Code/100Test/Part008.md",
+    "Note/Code/100Test/Part006.md",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681307581780-d07787f9-2270-432b-80e7-1a34af221b90-501080.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306802125-db3dd448-f3ed-4277-ada8-b316a159165c-108261.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306443881-e081c0a7-c359-47dd-8373-dd332bb46b13-914146.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306572952-99c31b87-36a9-4056-ba63-2ac523aab414-712522.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306414293-0bce1b0d-cac4-43f2-ab9b-16f7c490c350-339265.jpeg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606257365-097b7a64-70c9-493a-bc25-b504645478ad-099109.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606316444-f63aee3d-c219-4699-bdc3-7909e3ddba29-264989.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678606198031-003577a4-6f1b-44d9-989e-44991d710cd3-071077.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678519126666-350f8943-abab-4688-9834-f71ef81bad50-191860.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1678518453058-fd93603c-9d72-4f97-83ff-fa8791b690f9-307573.png",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/x11Mzwn-I4NGcIWZ",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/nu20-B9-NtS-rPRc",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/pNH54XjQxDlAJ4Uf",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/ns47543g1ObzEHo3",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/lWrGaUYqb38qOuB8",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/EFtu8auGwU-gKOIg",
+    "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/6lFKQCNeZRU4g7Wg",
+    "Muzi-Book/阿斌架构之路/attachments/ayTDmqvnTH-Ovxea/钛学术_期刊_12306互联网售票系统的架构优化及演进(1).pdf",
     "未命名.canvas"
   ]
 }
