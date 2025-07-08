@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "283f069865415e1e",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "dce77f3cd1249f42",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "174394f1c12db168",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-软考/计算机组成.md",
-                "mode": "source",
-                "source": false
+                "file": "00.Index 索引/NoteList-Interview.md",
+                "mode": "preview",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "计算机组成"
+              "title": "NoteList-Interview"
             }
           }
         ]
@@ -75,10 +75,26 @@
             }
           }
         ]
+      },
+      {
+        "id": "e610ef4e7d75bcc7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "26d003ee430d5614",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 280.5
+    "width": 441.5
   },
   "right": {
     "id": "38b0bc0f739c3295",
@@ -95,7 +111,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false,
+                "useHierarchy": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -125,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-软考/计算机组成.md",
+                "file": "00.Index 索引/NoteList-Interview.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "计算机组成 的大纲"
+              "title": "NoteList-Interview 的大纲"
             }
           },
           {
@@ -200,38 +216,39 @@
       "command-palette:打开命令面板": false,
       "obsidian-git:Open Git source control": false,
       "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "homepage:Open homepage": false
     }
   },
-  "active": "174394f1c12db168",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "1-软考/计算机组成.md",
-    "2025-07-07.md",
-    "Config/FileTemp.md",
-    "Soft/StudyTool/Obsidian-1.md",
-    "1-软考",
-    "conflict-files-obsidian-git.md",
-    "Note/Code/SpringBoot-1.md",
-    "Excalidraw/Drawing 2025-01-21 17.27.11.excalidraw.md",
-    "Excalidraw/Day22-2024-12-30-1405.excalidraw.md",
-    "Excalidraw/Day23-2024-12-30-1405.excalidraw.md",
-    "Note/Life/Essays/LightDream-2.md",
-    "Note/Life/Essays/LightDream-1.md",
-    "Index/NoteList-Interview.md",
-    "Note/Code/Interview/Day30.md",
-    "Excalidraw/Drawing 2025-06-18 15.15.49.excalidraw.md",
+    "10.Config 配置/FileTemp.md",
+    "Home.md",
+    "01.Note 笔记/SoftTest/计算机组成.md",
+    "01.Note 笔记/Code/SpringBoot-1.md",
+    "01.Note 笔记/Code/verify.md",
+    "02.Soft 软件/StudyTool/Obsidian-1.md",
+    "00.Index 索引/NoteList-Interview.md",
+    "01.Note 笔记/Code/Interview/Day8.md",
+    "2025-07-08.md",
     "未命名.md",
+    "2025-07-07.md",
+    "01.Note 笔记/SoftTest",
+    "conflict-files-obsidian-git.md",
+    "03.Excalidraw 绘图/Drawing 2025-01-21 17.27.11.excalidraw.md",
+    "03.Excalidraw 绘图/Day22-2024-12-30-1405.excalidraw.md",
+    "03.Excalidraw 绘图/Day23-2024-12-30-1405.excalidraw.md",
+    "01.Note 笔记/Life/Essays/LightDream-2.md",
+    "01.Note 笔记/Life/Essays/LightDream-1.md",
+    "01.Note 笔记/Code/Interview/Day30.md",
+    "Excalidraw/Drawing 2025-06-18 15.15.49.excalidraw.md",
     "Soft/StudyTool/Obsidian-2.md",
-    "Note/Code/100Test/Part011.md",
-    "Note/Code/100Test/Part007.md",
-    "Note/Code/100Test/Part003.md",
-    "Note/Code/100Test/Part004.md",
-    "Note/Code/100Test/Part002.md",
-    "Note/Code/100Test/Part001.md",
-    "Note/Code/100Test/Part010.md",
-    "Note/Code/100Test/Part009.md",
-    "Note/Code/100Test/Part008.md",
-    "Note/Code/100Test/Part006.md",
+    "01.Note 笔记/Code/100Test/Part011.md",
+    "01.Note 笔记/Code/100Test/Part007.md",
+    "01.Note 笔记/Code/100Test/Part003.md",
+    "01.Note 笔记/Code/100Test/Part004.md",
+    "01.Note 笔记/Code/100Test/Part002.md",
+    "01.Note 笔记/Code/100Test/Part001.md",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681307581780-d07787f9-2270-432b-80e7-1a34af221b90-501080.png",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306802125-db3dd448-f3ed-4277-ada8-b316a159165c-108261.png",
     "Muzi-Book/阿斌架构之路/热门项目鉴赏/img/Y1zSbPlp4fiROb-h/1681306443881-e081c0a7-c359-47dd-8373-dd332bb46b13-914146.png",

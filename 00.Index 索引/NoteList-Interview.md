@@ -1,6 +1,6 @@
 ```dataviewjs
 // 指定文件夹路径，这里假设我们要获取 "exampleFolder" 文件夹下的文件 
-const folderPath = '"Note/Code/Interview"'; 
+const folderPath = '"01.Note 笔记/Code/Interview"'; 
 // 使用 dv.pages 获取指定文件夹下的所有文件 
 const pages = dv.pages(folderPath).sort(t=>t.date); 
 // 存储二级标题的数组 
