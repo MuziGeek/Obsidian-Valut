@@ -1,16 +1,10 @@
 {
   "items": [
     {
-      "type": "group",
-      "ctime": 1751958528415,
-      "items": [
-        {
-          "type": "file",
-          "ctime": 1751958538250,
-          "path": "Home.md"
-        }
-      ],
-      "title": "Home"
+      "type": "file",
+      "ctime": 1751967198179,
+      "path": "01.Note 笔记/SoftTest/计算机组成.md",
+      "subpath": "#指令流水线"
     }
   ]
 }

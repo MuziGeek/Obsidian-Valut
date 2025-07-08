@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
+                "file": "01.Note 笔记/SoftTest/计算机组成.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "计算机组成"
             }
           }
         ]
@@ -244,15 +244,15 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1afe4ea9eb1ef146",
+  "active": "096e09a5f829ba9f",
   "lastOpenFiles": [
-    "09.Daily 日常/每日待办.md",
     "Home.md",
+    "01.Note 笔记/SoftTest/计算机组成.md",
+    "09.Daily 日常/每日待办.md",
     "00.Index 索引/NoteList-Interview.md",
     "09.Daily 日常",
     "01.Note 笔记/Code/Interview/Day4.md",
     "10.Config 配置/FileTemp.md",
-    "01.Note 笔记/SoftTest/计算机组成.md",
     "01.Note 笔记/Code/SpringBoot-1.md",
     "01.Note 笔记/Code/verify.md",
     "02.Soft 软件/StudyTool/Obsidian-1.md",
