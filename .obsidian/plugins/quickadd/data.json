@@ -33,7 +33,7 @@
       "name": "BlogTemp",
       "type": "Template",
       "command": true,
-      "templatePath": "Config/FileTemp.md",
+      "templatePath": "10.Config 配置/FileTemp.md",
       "fileNameFormat": {
         "enabled": false,
         "format": ""

@@ -1,6 +1,6 @@
 {
   "command_timeout": 5,
-  "templates_folder": "Config",
+  "templates_folder": "10.Config 配置",
   "templates_pairs": [
     [
       "tianqi",
@@ -16,7 +16,7 @@
   "folder_templates": [
     {
       "folder": "/",
-      "template": "Config/FileTemp.md"
+      "template": "10.Config 配置/FileTemp.md"
     }
   ],
   "enable_file_templates": false,
