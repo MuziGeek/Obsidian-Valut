@@ -74,7 +74,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "c87b04aa2a4d6dce",
@@ -244,7 +245,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "096e09a5f829ba9f",
+  "active": "1afe4ea9eb1ef146",
   "lastOpenFiles": [
     "Home.md",
     "01.Note 笔记/SoftTest/计算机组成.md",
