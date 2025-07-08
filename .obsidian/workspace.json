@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "00f7049c0f12dca0",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "1afe4ea9eb1ef146",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Home.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Home"
             }
           }
         ]
@@ -156,17 +160,19 @@
             }
           },
           {
-            "id": "e7a7b303c61786dc",
+            "id": "8597cbef6bdc815b",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
+                "file": "09.Daily 日常/每日待办.md",
                 "mode": "source",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "每日待办"
             }
           },
           {
@@ -238,13 +244,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "1afe4ea9eb1ef146",
   "lastOpenFiles": [
     "09.Daily 日常/每日待办.md",
+    "Home.md",
     "00.Index 索引/NoteList-Interview.md",
     "09.Daily 日常",
     "01.Note 笔记/Code/Interview/Day4.md",
-    "Home.md",
     "10.Config 配置/FileTemp.md",
     "01.Note 笔记/SoftTest/计算机组成.md",
     "01.Note 笔记/Code/SpringBoot-1.md",
